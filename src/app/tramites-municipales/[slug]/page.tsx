@@ -65,7 +65,7 @@ export default async function MunicipalProcedurePage({ params }: PageProps) {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-14">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-6xl px-4">
             <Reveal variant="up">
               <Link
@@ -82,10 +82,10 @@ export default async function MunicipalProcedurePage({ params }: PageProps) {
                   </Badge>
                 ))}
               </div>
-              <h1 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl lg:text-5xl">
+              <h1 className="portal-page-title mt-4 max-w-4xl">
                 {procedure.title}
               </h1>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-molina-muted sm:text-lg">
+              <p className="portal-page-lead">
                 {procedure.summary}
               </p>
             </Reveal>
@@ -223,12 +223,12 @@ export default async function MunicipalProcedurePage({ params }: PageProps) {
                         Importes del cuadro informativo institucional.
                       </p>
                     </div>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-left text-sm">
+                    <div className="table-scroll">
+                      <table className="w-full min-w-[28rem] text-left text-sm sm:min-w-full">
                         <thead className="bg-emerald-50 text-molina-deep">
                           <tr>
-                            <th className="px-5 py-3 font-bold">Concepto</th>
-                            <th className="whitespace-nowrap px-5 py-3 text-right font-bold">
+                            <th className="px-3 py-3 font-bold sm:px-5">Concepto</th>
+                            <th className="whitespace-nowrap px-3 py-3 text-right font-bold sm:px-5">
                               Importe
                             </th>
                           </tr>
@@ -236,10 +236,10 @@ export default async function MunicipalProcedurePage({ params }: PageProps) {
                         <tbody className="divide-y divide-slate-100">
                           {procedure.fees.map((fee) => (
                             <tr key={`${fee.concept}-${fee.amount}`}>
-                              <td className="px-5 py-3 leading-6 text-molina-muted">
+                              <td className="px-3 py-3 leading-6 text-molina-muted sm:px-5">
                                 {fee.concept}
                               </td>
-                              <td className="whitespace-nowrap px-5 py-3 text-right font-bold text-molina-deep">
+                              <td className="whitespace-nowrap px-3 py-3 text-right font-bold text-molina-deep sm:px-5">
                                 {fee.amount}
                               </td>
                             </tr>

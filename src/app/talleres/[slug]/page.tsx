@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  getTallerCategory,
-  TALLERES_SLUGS,
-} from "@/data/talleres-data";
+import { TALLERES_SLUGS } from "@/data/talleres-data";
+import { getTalleresCmsContent } from "@/lib/cms/portal-content";
 import { TallerCategoryClient } from "../taller-category-client";
 
 type Props = {
@@ -16,7 +14,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const category = getTallerCategory(slug);
+  const category = getTalleresCmsContent().categories.find((c) => c.slug === slug);
   if (!category) return { title: "Talleres" };
   return {
     title: `${category.title} | Talleres | Municipalidad de La Molina`,
@@ -26,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TallerCategoryPage({ params }: Props) {
   const { slug } = await params;
-  const category = getTallerCategory(slug);
+  const category = getTalleresCmsContent().categories.find((c) => c.slug === slug);
   if (!category) notFound();
   return <TallerCategoryClient category={category} />;
 }

@@ -2,18 +2,15 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  EXTERNAL_LINKS,
-  GOBIERNO_DIGITAL_APLICACIONES,
-  GOBIERNO_DIGITAL_SERVICIOS,
-  type GobiernoDigitalLink,
-} from "@/data/portal-data";
+import { type GobiernoDigitalLink } from "@/data/portal-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
+import { isExternalHref } from "@/lib/utils";
 
 function LinkGrid({
   items,
@@ -29,29 +26,48 @@ function LinkGrid({
 
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map((item, index) => (
-        <Reveal key={item.id} variant="up" delayMs={60 + index * 60}>
-          <a
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-sm transition-all ${hover}`}
-          >
-            <span className="text-sm font-semibold leading-snug text-molina-deep group-hover:text-molina-teal">
+      {items.map((item, index) => {
+        const external = isExternalHref(item.href);
+        const className = `group flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3.5 shadow-sm transition-all sm:px-4 sm:py-4 ${hover}`;
+        const content = (
+          <>
+            <span className="min-w-0 text-sm font-semibold leading-snug text-molina-deep group-hover:text-molina-teal">
               {item.label}
             </span>
             <ArrowUpRight
               className="mt-0.5 h-4 w-4 shrink-0 text-molina-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-molina-teal"
               aria-hidden
             />
-          </a>
-        </Reveal>
-      ))}
+          </>
+        );
+
+        return (
+          <Reveal key={item.id} variant="up" delayMs={60 + index * 60}>
+            {external ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={className}
+              >
+                {content}
+              </a>
+            ) : (
+              <Link href={item.href} className={className}>
+                {content}
+              </Link>
+            )}
+          </Reveal>
+        );
+      })}
     </div>
   );
 }
 
 export function GobiernoDigitalPageClient() {
+  const { gobiernoDigital } = usePortalCms();
+  const { servicios, aplicaciones } = gobiernoDigital;
+
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     if (!hash) return;
@@ -66,7 +82,7 @@ export function GobiernoDigitalPageClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-14">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -79,24 +95,12 @@ export function GobiernoDigitalPageClient() {
               <Badge variant="mint" className="mt-4">
                 Gobierno Digital
               </Badge>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl">
-                Gobierno Digital
-              </h1>
-              <p className="mt-2 max-w-3xl text-molina-muted">
+              <h1 className="portal-page-title mt-3">Gobierno Digital</h1>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-molina-muted sm:text-base">
                 Proceso continuo, disruptivo, estratégico y de cambio cultural
                 que sustenta el uso intensivo de las tecnologías digitales para
-                generar valor para las personas. Enlaces oficiales del portal
-                municipal.
+                generar valor para las personas.
               </p>
-              <a
-                href={EXTERNAL_LINKS.gobiernoDigital}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                Ver en portal.munimolina.gob.pe
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
             </Reveal>
           </div>
         </section>
@@ -108,10 +112,7 @@ export function GobiernoDigitalPageClient() {
         >
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
-              <h2
-                id="servicios-heading"
-                className="text-2xl font-bold text-molina-deep"
-              >
+              <h2 id="servicios-heading" className="portal-section-title">
                 Servicios al ciudadano
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-molina-muted">
@@ -120,7 +121,7 @@ export function GobiernoDigitalPageClient() {
               </p>
             </Reveal>
             <div className="mt-8">
-              <LinkGrid items={GOBIERNO_DIGITAL_SERVICIOS} accent="servicios" />
+              <LinkGrid items={servicios} accent="servicios" />
             </div>
           </div>
         </section>
@@ -132,10 +133,7 @@ export function GobiernoDigitalPageClient() {
         >
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
-              <h2
-                id="aplicaciones-heading"
-                className="text-2xl font-bold text-molina-deep"
-              >
+              <h2 id="aplicaciones-heading" className="portal-section-title">
                 Aplicaciones
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-molina-muted">
@@ -144,10 +142,7 @@ export function GobiernoDigitalPageClient() {
               </p>
             </Reveal>
             <div className="mt-8">
-              <LinkGrid
-                items={GOBIERNO_DIGITAL_APLICACIONES}
-                accent="aplicaciones"
-              />
+              <LinkGrid items={aplicaciones} accent="aplicaciones" />
             </div>
           </div>
         </section>

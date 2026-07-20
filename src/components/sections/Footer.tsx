@@ -1,11 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
-import {
-  EXTERNAL_LINKS,
-  MUNICIPAL_CONTACT,
-  NAV_SECTIONS,
-  SOCIAL_LINKS,
-} from "@/data/portal-data";
+import { NAV_SECTIONS } from "@/data/portal-data";
 import { MunicipalityLogo } from "@/components/ui/MunicipalityLogo";
 import {
   SOCIAL_BRAND_ICONS,
@@ -13,19 +10,27 @@ import {
 } from "@/components/ui/social-icons";
 import { Reveal } from "@/components/ui/reveal";
 import { isExternalHref } from "@/lib/utils";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 export function Footer() {
+  const { nav, contacto } = usePortalCms();
+  const contact = contacto.contact;
+  const socialLinks = nav.socialLinks?.length
+    ? nav.socialLinks
+    : contacto.socialLinks;
+  const externalLinks = nav.externalLinks as Record<string, string>;
+
   return (
     <footer className="border-t border-white/10 bg-molina-deep text-emerald-100/80">
       <Reveal variant="up" durationMs={800} className="mx-auto max-w-7xl px-4 py-6 lg:py-7">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
           <div className="sm:col-span-2 lg:col-span-1">
-            <MunicipalityLogo variant="dark" height={32} />
+            <MunicipalityLogo variant="dark" height={32} className="max-w-[160px]" />
             <p className="mt-2 text-xs leading-relaxed text-emerald-100/70">
-              Municipalidad Distrital de La Molina. {MUNICIPAL_CONTACT.hours}
+              Municipalidad Distrital de La Molina. {contact.hours}
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {SOCIAL_LINKS.map((social) => {
+              {socialLinks.map((social) => {
                 const Icon =
                   SOCIAL_BRAND_ICONS[social.id as SocialBrandId];
                 if (!Icon) return null;
@@ -82,16 +87,16 @@ export function Footer() {
               <li className="flex gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-molina-mint-light" />
                 <Link href="/contacto" className="hover:text-molina-mint-light">
-                  {MUNICIPAL_CONTACT.address}
+                  {contact.address}
                 </Link>
               </li>
               <li className="flex gap-2">
                 <Phone className="mt-0.5 h-3.5 w-3.5 shrink-0 text-molina-mint-light" />
                 <a
-                  href={`tel:${MUNICIPAL_CONTACT.phone.replace(/\D/g, "")}`}
+                  href={`tel:${contact.phone.replace(/\D/g, "")}`}
                   className="hover:text-molina-mint-light"
                 >
-                  {MUNICIPAL_CONTACT.phone}
+                  {contact.phone}
                 </a>
               </li>
             </ul>
@@ -111,7 +116,7 @@ export function Footer() {
               Accesibilidad web
             </Link>
             <a
-              href={EXTERNAL_LINKS.transparencia}
+              href={externalLinks.transparencia}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"

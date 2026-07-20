@@ -2,12 +2,12 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { NEWS_ITEMS } from "@/data/portal-data";
 import type { NewsCategory } from "@/types/portal";
 import { Badge } from "@/components/ui/badge";
 import { NewsCard } from "@/components/sections/NewsCard";
 import { Reveal } from "@/components/ui/reveal";
 import { cn } from "@/lib/utils";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const CATEGORIES: (NewsCategory | "Todas")[] = [
   "Todas",
@@ -21,15 +21,17 @@ const CATEGORIES: (NewsCategory | "Todas")[] = [
 const HOME_LIMIT = 4;
 
 export function NewsGrid() {
+  const { noticias } = usePortalCms();
+  const newsItems = noticias.items;
   const [filter, setFilter] = useState<NewsCategory | "Todas">("Todas");
 
   const filtered = useMemo(() => {
     const list =
       filter === "Todas"
-        ? NEWS_ITEMS
-        : NEWS_ITEMS.filter((n) => n.category === filter);
+        ? newsItems
+        : newsItems.filter((n) => n.category === filter);
     return list.slice(0, HOME_LIMIT);
-  }, [filter]);
+  }, [filter, newsItems]);
 
   return (
     <section className="py-16 lg:py-24" aria-labelledby="news-heading">
@@ -42,11 +44,11 @@ export function NewsGrid() {
             <Badge variant="mint">Sala de Prensa</Badge>
             <h2
               id="news-heading"
-              className="mt-3 text-3xl font-bold text-molina-deep"
+              className="portal-section-title mt-3"
             >
               MoliNoticias
             </h2>
-            <p className="mt-2 text-molina-muted">
+            <p className="mt-2 text-sm text-molina-muted sm:text-base">
               Últimas noticias del distrito publicadas en el portal oficial.
             </p>
           </div>
@@ -58,14 +60,18 @@ export function NewsGrid() {
           </Link>
         </Reveal>
 
-        <Reveal variant="up" delayMs={100} className="mt-6 flex flex-wrap gap-2">
+        <Reveal
+          variant="up"
+          delayMs={100}
+          className="portal-h-scroll mt-6 pb-1"
+        >
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setFilter(cat)}
               className={cn(
-                "rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
+                "shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
                 filter === cat
                   ? "bg-molina-teal text-white"
                   : "bg-white text-molina-muted ring-1 ring-slate-200",
@@ -77,7 +83,7 @@ export function NewsGrid() {
           ))}
         </Reveal>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {filtered.map((item, index) => (
             <Reveal key={item.id} variant="up" delayMs={80 + index * 100}>
               <NewsCard item={item} />

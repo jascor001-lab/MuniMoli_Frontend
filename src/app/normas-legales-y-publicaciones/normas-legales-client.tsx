@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   ArrowLeft,
   CalendarDays,
-  ExternalLink,
   FileSearch,
   FileText,
   Landmark,
@@ -16,12 +15,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  LEGAL_NORM_CATEGORIES,
-  LEGAL_PUBLICATIONS_SOURCE_URL,
-  OTHER_PUBLICATIONS,
-} from "@/data/legal-publications-data";
-import { EXTERNAL_LINKS } from "@/data/portal-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 function normalize(value: string) {
   return value
@@ -31,6 +25,20 @@ function normalize(value: string) {
 }
 
 export function NormasLegalesClient() {
+  const { normas } = usePortalCms();
+  const LEGAL_NORM_CATEGORIES = normas.categories as {
+    id: string;
+    title: string;
+    description: string;
+    href: string;
+  }[];
+  const OTHER_PUBLICATIONS = normas.publications as {
+    id: string;
+    title: string;
+    description: string;
+    href: string;
+    date?: string;
+  }[];
   const [search, setSearch] = useState("");
   const query = normalize(search.trim());
 
@@ -57,7 +65,7 @@ export function NormasLegalesClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-16">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -70,33 +78,13 @@ export function NormasLegalesClient() {
               <Badge variant="mint" className="mt-5">
                 Institucional
               </Badge>
-              <h1 className="mt-3 max-w-4xl text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl lg:text-5xl">
+              <h1 className="portal-page-title mt-3 max-w-4xl">
                 Normas Legales y Publicaciones
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-7 text-molina-muted sm:text-lg">
                 Consulta normas emitidas, documentos de gestión y publicaciones
                 oficiales de la Municipalidad Distrital de La Molina.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={EXTERNAL_LINKS.transparencia}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-molina-deep px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-molina-teal"
-                >
-                  Portal de Transparencia
-                  <ExternalLink className="h-4 w-4" aria-hidden />
-                </a>
-                <a
-                  href={LEGAL_PUBLICATIONS_SOURCE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-molina-deep transition-colors hover:bg-slate-50"
-                >
-                  Fuente institucional
-                  <ExternalLink className="h-4 w-4" aria-hidden />
-                </a>
-              </div>
             </Reveal>
           </div>
         </section>
@@ -145,7 +133,7 @@ export function NormasLegalesClient() {
                   <Badge variant="mint">Repositorio normativo</Badge>
                   <h2
                     id="norms-heading"
-                    className="mt-1 text-3xl font-bold text-molina-deep"
+                    className="portal-section-title mt-1"
                   >
                     Normas emitidas
                   </h2>
@@ -165,10 +153,8 @@ export function NormasLegalesClient() {
                     variant="up"
                     delayMs={50 + (index % 6) * 60}
                   >
-                    <a
+                    <Link
                       href={category.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-molina-mint/40 hover:shadow-md"
                     >
                       <FileText
@@ -182,10 +168,9 @@ export function NormasLegalesClient() {
                         {category.description}
                       </p>
                       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal">
-                        Consultar documentos
-                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        Consultar documentos →
                       </span>
-                    </a>
+                    </Link>
                   </Reveal>
                 ))}
               </div>
@@ -211,7 +196,7 @@ export function NormasLegalesClient() {
                   <Badge variant="mint">Actualizado en 2026</Badge>
                   <h2
                     id="publications-heading"
-                    className="mt-1 text-3xl font-bold text-molina-deep"
+                    className="portal-section-title mt-1"
                   >
                     Otras publicaciones
                   </h2>
@@ -236,8 +221,7 @@ export function NormasLegalesClient() {
                         {publication.description}
                       </p>
                       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal">
-                        Ver publicación
-                        <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+                        Ver publicación →
                       </span>
                     </>
                   );

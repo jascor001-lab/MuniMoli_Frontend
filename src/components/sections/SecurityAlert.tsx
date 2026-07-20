@@ -38,7 +38,7 @@ export function SecurityAlert() {
               </div>
               <h2
                 id="security-heading"
-                className="mt-3 text-3xl font-bold text-white lg:text-4xl"
+                className="mt-3 text-2xl font-bold text-white sm:text-3xl lg:text-4xl"
               >
                 Alerta La Molina
               </h2>

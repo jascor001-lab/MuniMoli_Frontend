@@ -8,8 +8,10 @@ export interface NewsItem {
   publishedAt: string;
   imageUrl: string;
   slug: string;
-  /** Enlace a la nota en el portal oficial (si aplica) */
+  /** Enlace externo opcional (evitar; preferir detalle local) */
   href?: string;
+  /** Cuerpo completo de la nota (CMS) */
+  body?: string;
 }
 
 export type ProcedureCategory =

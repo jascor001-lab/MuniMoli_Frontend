@@ -6,26 +6,34 @@ import { Parallax } from "@/components/ui/parallax";
 import { Reveal } from "@/components/ui/reveal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { HERO_SLIDES } from "@/data/portal-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 export function Hero() {
+  const { home } = usePortalCms();
+  const slides = home.heroSlides;
   const [current, setCurrent] = useState(0);
 
-  const goTo = useCallback((index: number) => {
-    setCurrent((index + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
+  const goTo = useCallback(
+    (index: number) => {
+      const len = Math.max(slides.length, 1);
+      setCurrent((index + len) % len);
+    },
+    [slides.length],
+  );
 
   useEffect(() => {
+    if (slides.length <= 1) return;
     const timer = setInterval(() => goTo(current + 1), 7000);
     return () => clearInterval(timer);
-  }, [current, goTo]);
+  }, [current, goTo, slides.length]);
 
-  const slide = HERO_SLIDES[current];
+  const slide = slides[current] ?? slides[0];
+  if (!slide) return null;
 
   return (
     <section className="relative bg-molina-deep" aria-label="Presentación principal">
       <div className="relative h-[320px] overflow-hidden sm:h-[400px] lg:h-[480px]">
-        {HERO_SLIDES.map((s, i) => (
+        {slides.map((s, i) => (
           <div
             key={s.id}
             className={cn(
@@ -48,17 +56,17 @@ export function Hero() {
           </div>
         ))}
 
-        <div className="absolute inset-0 z-10 flex items-center justify-end px-6 lg:px-16">
+        <div className="absolute inset-0 z-10 flex items-end justify-start px-4 pb-16 sm:items-center sm:justify-end sm:px-6 sm:pb-0 lg:px-16">
           <Reveal
             key={slide.id}
             variant="left"
             delayMs={80}
-            className="max-w-md text-right"
+            className="max-w-md text-left sm:text-right"
           >
-            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
+            <h2 className="text-xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
               {slide.title}
             </h2>
-            <p className="mt-2 text-sm text-white/85 sm:text-base">
+            <p className="mt-2 text-sm leading-relaxed text-white/85 sm:text-base">
               {slide.subtitle}
             </p>
             {slide.ctaOpenInNewTab && (
@@ -84,7 +92,7 @@ export function Hero() {
             <ChevronLeft className="h-4 w-4" />
           </button>
           <div className="flex gap-1.5" role="tablist" aria-label="Carrusel principal">
-            {HERO_SLIDES.map((s, i) => (
+            {slides.map((s, i) => (
               <button
                 key={s.id}
                 type="button"

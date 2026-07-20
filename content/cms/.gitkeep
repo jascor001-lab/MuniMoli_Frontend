@@ -1,0 +1,2 @@
+# Contenido editable del CMS (generado en runtime)
+# users.json y sections/*.json se ignoran en git; se crean al usar el panel.

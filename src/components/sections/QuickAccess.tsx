@@ -1,14 +1,15 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { AUTHORITIES } from "@/data/portal-data";
 import { PLATAFORMA_DIGITAL_PATH } from "@/lib/routes";
 import { SafeImage } from "@/components/ui/safe-image";
 import { Reveal } from "@/components/ui/reveal";
 import { UtilityServices } from "@/components/sections/UtilityServices";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 export function QuickAccess() {
-  const mayor = AUTHORITIES[0];
+  const { home } = usePortalCms();
+  const mayor = home.authorities[0];
 
   return (
     <section
@@ -31,7 +32,7 @@ export function QuickAccess() {
             </p>
             <h2
               id="quick-access-heading"
-              className="mt-2 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl"
+              className="mt-2 text-2xl font-bold tracking-tight text-molina-deep sm:text-4xl"
             >
               Municipalidad Digital y Accesos del Portal
             </h2>

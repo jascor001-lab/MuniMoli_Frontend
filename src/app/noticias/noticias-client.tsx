@@ -9,9 +9,10 @@ import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { NewsCard } from "@/components/sections/NewsCard";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import { NEWS_ITEMS, OFFICIAL_PORTAL_URL } from "@/data/portal-data";
+import { OFFICIAL_PORTAL_URL } from "@/data/portal-data";
 import type { NewsCategory } from "@/types/portal";
 import { cn } from "@/lib/utils";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const CATEGORIES: (NewsCategory | "Todas")[] = [
   "Todas",
@@ -23,14 +24,16 @@ const CATEGORIES: (NewsCategory | "Todas")[] = [
 ];
 
 export function NoticiasPageClient() {
+  const { noticias } = usePortalCms();
+  const newsItems = noticias.items;
   const [filter, setFilter] = useState<NewsCategory | "Todas">("Todas");
 
   const filtered = useMemo(
     () =>
       filter === "Todas"
-        ? NEWS_ITEMS
-        : NEWS_ITEMS.filter((n) => n.category === filter),
-    [filter],
+        ? newsItems
+        : newsItems.filter((n) => n.category === filter),
+    [filter, newsItems],
   );
 
   const [featured, ...rest] = filtered;
@@ -40,7 +43,7 @@ export function NoticiasPageClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-14">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -53,20 +56,12 @@ export function NoticiasPageClient() {
               <Badge variant="mint" className="mt-4">
                 Sala de Prensa
               </Badge>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl">
+              <h1 className="portal-page-title mt-3">
                 Todas las noticias
               </h1>
               <p className="mt-2 max-w-2xl text-molina-muted">
                 Comunicados y notas de prensa de la Municipalidad Distrital de
-                La Molina. Fuente:{" "}
-                <a
-                  href={`${OFFICIAL_PORTAL_URL}/noticias/`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-molina-teal hover:underline"
-                >
-                  portal.munimolina.gob.pe/noticias
-                </a>
+                La Molina.
               </p>
               <p className="mt-3 text-sm text-molina-muted">
                 {filtered.length} noticia{filtered.length === 1 ? "" : "s"}
@@ -78,14 +73,18 @@ export function NoticiasPageClient() {
 
         <section className="py-10 lg:py-14" aria-label="Listado de noticias">
           <div className="mx-auto max-w-7xl px-4">
-            <Reveal variant="up" delayMs={80} className="flex flex-wrap gap-2">
+            <Reveal
+              variant="up"
+              delayMs={80}
+              className="portal-h-scroll pb-1"
+            >
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   type="button"
                   onClick={() => setFilter(cat)}
                   className={cn(
-                    "rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
+                    "shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
                     filter === cat
                       ? "bg-molina-teal text-white"
                       : "bg-white text-molina-muted ring-1 ring-slate-200",

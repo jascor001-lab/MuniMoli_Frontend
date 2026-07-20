@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { cn, isExternalHref } from "@/lib/utils";
-import { QUICK_ACCESS } from "@/data/portal-data";
 import type { QuickAccessItem } from "@/types/portal";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 type AccordionGroup = {
   id: string;
@@ -16,37 +16,42 @@ type AccordionGroup = {
   items: QuickAccessItem[];
 };
 
-const GROUPS: AccordionGroup[] = [
-  {
-    id: "tupa-digital",
-    title: "MoliTramites",
-    description: "Trámites, pagos y servicios en línea",
-    accent: "deep",
-    items: QUICK_ACCESS.filter((i) =>
-      ["tupa", "pagos", "mesa-partes", "molicard"].includes(i.id),
-    ),
-  },
-  {
-    id: "transparencia",
-    title: "Transparencia e integridad",
-    description: "Información pública, control y denuncias",
-    accent: "teal",
-    items: QUICK_ACCESS.filter((i) =>
-      ["transparencia", "control-interno", "acceso-info", "denuncias"].includes(
-        i.id,
+function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
+  return [
+    {
+      id: "tupa-digital",
+      title: "MoliTramites",
+      description: "Trámites, pagos y servicios en línea",
+      accent: "deep",
+      items: items.filter((i) =>
+        ["tupa", "pagos", "mesa-partes", "molicard"].includes(i.id),
       ),
-    ),
-  },
-  {
-    id: "ciudadano",
-    title: "Atención al ciudadano",
-    description: "Sugerencias, reclamos y portales externos",
-    accent: "deep",
-    items: QUICK_ACCESS.filter((i) =>
-      ["sugerencias", "reclamaciones", "gob-pe"].includes(i.id),
-    ),
-  },
-];
+    },
+    {
+      id: "transparencia",
+      title: "Transparencia e integridad",
+      description: "Información pública, control y denuncias",
+      accent: "teal",
+      items: items.filter((i) =>
+        [
+          "transparencia",
+          "control-interno",
+          "acceso-info",
+          "denuncias",
+        ].includes(i.id),
+      ),
+    },
+    {
+      id: "ciudadano",
+      title: "Atención al ciudadano",
+      description: "Sugerencias, reclamos y portales externos",
+      accent: "deep",
+      items: items.filter((i) =>
+        ["sugerencias", "reclamaciones", "gob-pe"].includes(i.id),
+      ),
+    },
+  ];
+}
 
 type CollageImage = { src: string; alt: string };
 
@@ -156,7 +161,7 @@ function DiagonalCollage({
   return (
     <div
       className={cn(
-        "relative h-16 w-[50%] min-w-[10rem] shrink-0 overflow-hidden rounded-xl shadow-md ring-1 ring-slate-200/80 sm:h-20 md:h-[90px]",
+        "relative h-14 w-full min-w-0 shrink-0 overflow-hidden rounded-xl shadow-md ring-1 ring-slate-200/80 sm:h-20 md:h-[90px]",
         className,
       )}
       aria-hidden
@@ -210,24 +215,42 @@ function ServiceRow({
   const openBlank = external || Boolean(item.openInNewTab);
 
   const className =
-    "group flex w-full items-center justify-between gap-3 border-b border-slate-100 px-4 py-3 text-left transition-colors last:border-b-0 hover:bg-emerald-50/80 sm:gap-4 sm:px-5";
+    "group flex w-full flex-col gap-3 border-b border-slate-100 px-3 py-3 text-left transition-colors last:border-b-0 hover:bg-emerald-50/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5";
 
   const textBlock = (
-    <span className="min-w-0 flex-[1_1_45%]">
-      <span className="block text-sm font-semibold text-molina-ink transition-colors group-hover:text-molina-teal">
-        {item.label}
+    <span className="flex min-w-0 flex-1 items-start justify-between gap-2 sm:block sm:flex-[1_1_45%]">
+      <span>
+        <span className="block text-sm font-semibold text-molina-ink transition-colors group-hover:text-molina-teal">
+          {item.label}
+        </span>
+        {item.shortLabel && item.shortLabel !== item.label && (
+          <span className="mt-0.5 block text-xs text-molina-muted">
+            {item.shortLabel}
+          </span>
+        )}
       </span>
-      {item.shortLabel && item.shortLabel !== item.label && (
-        <span className="mt-0.5 block text-xs text-molina-muted">
-          {item.shortLabel}
+      {external ? (
+        <ExternalLink
+          className="mt-0.5 h-4 w-4 shrink-0 text-molina-muted sm:hidden"
+          aria-hidden
+        />
+      ) : (
+        <span
+          className="mt-0.5 shrink-0 text-xs font-bold uppercase tracking-wider text-molina-mint sm:hidden"
+          aria-hidden
+        >
+          Ir →
         </span>
       )}
     </span>
   );
 
   const trailing = (
-    <div className="flex w-[50%] min-w-[10rem] shrink-0 items-center justify-end gap-2 sm:gap-3">
-      <DiagonalCollage className="w-full min-w-0 max-w-none" images={images} />
+    <div className="flex w-full min-w-0 items-center justify-end gap-2 sm:w-[50%] sm:max-w-xs sm:shrink-0 sm:gap-3 md:max-w-none">
+      <DiagonalCollage
+        className="h-14 w-full min-w-0 max-w-none sm:h-20 md:h-[90px]"
+        images={images}
+      />
       {external ? (
         <ExternalLink
           className="hidden h-4 w-4 shrink-0 text-molina-muted transition-colors group-hover:text-molina-teal lg:block"
@@ -337,11 +360,16 @@ function AccordionPanel({
 }
 
 export function UtilityServices({ className }: { className?: string }) {
+  const { home } = usePortalCms();
+  const groups = useMemo(
+    () => buildGroups(home.quickAccess),
+    [home.quickAccess],
+  );
   const [openId, setOpenId] = useState<string>("tupa-digital");
 
   return (
     <div className={cn("space-y-3", className)}>
-      {GROUPS.map((group) => (
+      {groups.map((group) => (
         <AccordionPanel
           key={group.id}
           group={group}

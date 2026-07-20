@@ -79,7 +79,7 @@ export function TupaPageClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-100 bg-gradient-to-br from-emerald-950 via-molina-deep to-molina-teal py-14 text-white lg:py-20">
+        <section className="border-b border-emerald-100 bg-gradient-to-br from-emerald-950 via-molina-deep to-molina-teal portal-page-hero-dark">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -89,7 +89,7 @@ export function TupaPageClient() {
                 <ArrowLeft className="h-4 w-4" aria-hidden />
                 Volver a Trámites Municipales
               </Link>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <Badge className="bg-white/15 text-white ring-1 ring-white/20">
                   Documento oficial
                 </Badge>
@@ -97,19 +97,19 @@ export function TupaPageClient() {
                   {TUPA_DOCUMENT_COUNT} registros
                 </Badge>
               </div>
-              <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 max-w-4xl text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
                 Texto Único de Procedimientos Administrativos
               </h1>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-emerald-50/90 sm:text-lg">
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-emerald-50/90 sm:text-base">
                 Consulta el TUPA vigente, sus normas de aprobación y todas las
                 actualizaciones históricas almacenadas dentro del portal de La
                 Molina.
               </p>
               <Link
                 href="/tramites-municipales"
-                className="mt-7 inline-flex h-11 items-center gap-2 rounded-xl bg-white px-5 text-sm font-bold text-molina-deep transition-colors hover:bg-emerald-50"
+                className="mt-4 inline-flex h-10 items-center gap-2 rounded-xl bg-white px-4 text-sm font-bold text-molina-deep transition-colors hover:bg-emerald-50"
               >
-                <FileSearch className="h-5 w-5" aria-hidden />
+                <FileSearch className="h-4 w-4" aria-hidden />
                 Buscar un trámite municipal
               </Link>
             </Reveal>
@@ -123,7 +123,7 @@ export function TupaPageClient() {
                 <FileText className="h-7 w-7 text-molina-teal" aria-hidden />
                 <div>
                   <Badge variant="mint">TUPA vigente</Badge>
-                  <h2 className="mt-2 text-3xl font-bold text-molina-deep">
+                  <h2 className="portal-section-title mt-2">
                     Ordenanza N.° 470/MDLM
                   </h2>
                 </div>
@@ -156,7 +156,7 @@ export function TupaPageClient() {
           <div className="mx-auto grid max-w-7xl gap-7 px-4 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal variant="right">
               <Badge variant="mint">Línea de tiempo</Badge>
-              <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+              <h2 className="portal-section-title mt-3">
                 Evolución del TUPA
               </h2>
               <p className="mt-3 text-sm leading-7 text-molina-muted">
@@ -191,7 +191,7 @@ export function TupaPageClient() {
                 <History className="h-7 w-7 text-molina-teal" aria-hidden />
                 <div>
                   <Badge variant="mint">Archivo institucional</Badge>
-                  <h2 className="mt-2 text-3xl font-bold text-molina-deep">
+                  <h2 className="portal-section-title mt-2">
                     TUPA histórico
                   </h2>
                 </div>
@@ -212,7 +212,7 @@ export function TupaPageClient() {
                   className="h-12 w-full rounded-xl border border-slate-300 pl-12 pr-4 text-sm outline-none focus:border-molina-mint focus:ring-2 focus:ring-molina-mint/20"
                 />
               </div>
-              <div className="flex gap-2 overflow-x-auto">
+              <div className="portal-h-scroll">
                 {["Todos", ...TUPA_HISTORICAL_PERIODS.map((p) => p.year)].map(
                   (period) => (
                     <button
@@ -243,8 +243,8 @@ export function TupaPageClient() {
                           Periodo {period.year}
                         </h3>
                       </div>
-                      <div className="overflow-x-auto">
-                        <table className="w-full min-w-[760px] text-left text-sm">
+                      <div className="table-scroll">
+                        <table className="w-full min-w-[36rem] sm:min-w-[760px] text-left text-sm">
                           <thead className="bg-emerald-50 text-molina-deep">
                             <tr>
                               <th className="w-16 px-4 py-3 text-center">N.°</th>

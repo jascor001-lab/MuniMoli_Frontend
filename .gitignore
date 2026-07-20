@@ -32,6 +32,13 @@ yarn-error.log*
 .env*
 !.env.example
 
+# CMS local overrides (users + edited sections)
+/content/cms/users.json
+/content/cms/sections/
+
+# CMS uploaded media
+/public/uploads/cms/
+
 # typescript
 *.tsbuildinfo
 

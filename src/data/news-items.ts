@@ -1,6 +1,6 @@
 import type { NewsItem } from "@/types/portal";
 
-/** Noticias tomadas de portal.munimolina.gob.pe/noticias/ */
+/** Noticias del portal (contenido local editable vía CMS) */
 export const NEWS_ITEMS: NewsItem[] = [
   {
     id: "n1",
@@ -8,9 +8,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 467 Con el objetivo de garantizar unas Fiestas Patrias seguras para todos los vecinos, la Municipalidad de La Molina puso en marcha el Plan de Operaciones…",
     category: "Seguridad",
     publishedAt: "2026-07-03",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/07/54212853498_1f94d5ace5_k.jpg",
+    imageUrl: "/images/news/mas-de-500-camaras-y-378-serenos-resguardaran-la-molina-durante-fiestas-patrias.jpg",
     slug: "mas-de-500-camaras-y-378-serenos-resguardaran-la-molina-durante-fiestas-patrias",
-    href: "https://portal.munimolina.gob.pe/mas-de-500-camaras-y-378-serenos-resguardaran-la-molina-durante-fiestas-patrias/",
   },
   {
     id: "n2",
@@ -18,9 +17,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 465 Con motivo de la celebración del 205.° Aniversario de la Proclamación de la Independencia del Perú, la Municipalidad de La Molina dispuso el…",
     category: "General",
     publishedAt: "2026-07-03",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/07/Captura-de-pantalla-2026-07-03-095940.png",
+    imageUrl: "/images/news/municipalidad-de-la-molina-dispone-el-embanderamiento-general-del-distrito-por-fiestas-patrias.png",
     slug: "municipalidad-de-la-molina-dispone-el-embanderamiento-general-del-distrito-por-fiestas-patrias",
-    href: "https://portal.munimolina.gob.pe/municipalidad-de-la-molina-dispone-el-embanderamiento-general-del-distrito-por-fiestas-patrias/",
   },
   {
     id: "n3",
@@ -28,9 +26,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 464 El alcalde de La Molina, Diego Uceda, dio inicio a las obras de remodelación integral de pistas y veredas en la urbanización Las Praderas, un proyecto de…",
     category: "Obras",
     publishedAt: "2026-07-02",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/07/55371055876_1d9f8e3775_k.jpg",
+    imageUrl: "/images/news/la-molina-renovara-medio-millon-de-metros-cuadrados-en-pistas-y-veredas-al-finalizar-2026.jpg",
     slug: "la-molina-renovara-medio-millon-de-metros-cuadrados-en-pistas-y-veredas-al-finalizar-2026",
-    href: "https://portal.munimolina.gob.pe/la-molina-renovara-medio-millon-de-metros-cuadrados-en-pistas-y-veredas-al-finalizar-2026/",
   },
   {
     id: "n4",
@@ -38,9 +35,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 466 En el marco de la celebración por el 57.º aniversario de la Cooperativa de Vivienda Musa III Etapa, autoridades, dirigentes y vecinos participaron de una…",
     category: "General",
     publishedAt: "2026-07-02",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/07/55370444126_ec3ed3d1dd_k.jpg",
+    imageUrl: "/images/news/musa-iii-etapa-celebra-57-anos-de-historia-y-progreso-vecinal.jpg",
     slug: "musa-iii-etapa-celebra-57-anos-de-historia-y-progreso-vecinal",
-    href: "https://portal.munimolina.gob.pe/musa-iii-etapa-celebra-57-anos-de-historia-y-progreso-vecinal/",
   },
   {
     id: "n5",
@@ -48,9 +44,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 463 En un firme testimonio de empatía, fraternidad y compromiso social, la Municipalidad de La Molina, liderada por el alcalde Diego Uceda, anuncia el…",
     category: "General",
     publishedAt: "2026-06-26",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/NP-Fuerza-Venezuela-26-06-26.png",
+    imageUrl: "/images/news/la-molina-extiende-su-mano-solidaria-con-la-campana-venezuela-nos-necesita.png",
     slug: "la-molina-extiende-su-mano-solidaria-con-la-campana-venezuela-nos-necesita",
-    href: "https://portal.munimolina.gob.pe/la-molina-extiende-su-mano-solidaria-con-la-campana-venezuela-nos-necesita/",
   },
   {
     id: "n6",
@@ -58,9 +53,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 462 La Municipalidad Distrital de la Molina inició su participación en el Programa de Incentivos 2026 del Ministerio de Economía y Finanzas (MEF), asumiendo el…",
     category: "General",
     publishedAt: "2026-06-26",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-26-at-8.36.32-PM.jpeg",
+    imageUrl: "/images/news/municipalidad-de-la-molina-impulsa-el-empadronamiento-de-hogares-para-que-mas-familias-accedan-al-apoyo-del-estado.jpeg",
     slug: "municipalidad-de-la-molina-impulsa-el-empadronamiento-de-hogares-para-que-mas-familias-accedan-al-apoyo-del-estado",
-    href: "https://portal.munimolina.gob.pe/municipalidad-de-la-molina-impulsa-el-empadronamiento-de-hogares-para-que-mas-familias-accedan-al-apoyo-del-estado/",
   },
   {
     id: "n7",
@@ -68,9 +62,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 462 Con gran asistencia de estudiantes de secundaria, universitarios y vecinos en general, esta tarde se inauguró la exposición «La Evolución de los…",
     category: "Cultura",
     publishedAt: "2026-06-25",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55357297481_9946289afe_k.jpg",
+    imageUrl: "/images/news/inauguran-espectacular-exposicion-la-evolucion-de-los-vertebrados.jpg",
     slug: "inauguran-espectacular-exposicion-la-evolucion-de-los-vertebrados",
-    href: "https://portal.munimolina.gob.pe/inauguran-espectacular-exposicion-la-evolucion-de-los-vertebrados/",
   },
   {
     id: "n8",
@@ -78,9 +71,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 461 En emotiva ceremonia que unió la gratitud vecinal y el reconocimiento institucional, La Molina oficializó desde este mediodía el nuevo nombre del Estadio…",
     category: "Deportes",
     publishedAt: "2026-06-24",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55355937395_77b5ca2221_k.jpg",
+    imageUrl: "/images/news/estadio-municipal-llevara-el-nombre-del-exalcalde-luis-dibos-vargas-prada.jpg",
     slug: "estadio-municipal-llevara-el-nombre-del-exalcalde-luis-dibos-vargas-prada",
-    href: "https://portal.munimolina.gob.pe/estadio-municipal-llevara-el-nombre-del-exalcalde-luis-dibos-vargas-prada/",
   },
   {
     id: "n9",
@@ -88,9 +80,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 460 En una provechosa jornada de diálogo directo que se extendió por más de hora y media, el alcalde de La Molina Diego Uceda anunció que ha previsto…",
     category: "General",
     publishedAt: "2026-06-23",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55353256104_4fb004019b_k.jpg",
+    imageUrl: "/images/news/apoyaran-a-adultos-mayores-con-omnibus-electricos-hacia-el-ciam.jpg",
     slug: "apoyaran-a-adultos-mayores-con-omnibus-electricos-hacia-el-ciam",
-    href: "https://portal.munimolina.gob.pe/apoyaran-a-adultos-mayores-con-omnibus-electricos-hacia-el-ciam/",
   },
   {
     id: "n10",
@@ -98,9 +89,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 459 Cientos de vecinos participaron en el Moli Mundial, una jornada deportiva y familiar organizada por la Municipalidad de La Molina por el Día del Padre. Con…",
     category: "Deportes",
     publishedAt: "2026-06-22",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55349247523_5a96bf9546_k.jpg",
+    imageUrl: "/images/news/moli-mundial-reunio-a-cientos-de-vecinos-en-una-gran-fiesta-del-futbol.jpg",
     slug: "moli-mundial-reunio-a-cientos-de-vecinos-en-una-gran-fiesta-del-futbol",
-    href: "https://portal.munimolina.gob.pe/moli-mundial-reunio-a-cientos-de-vecinos-en-una-gran-fiesta-del-futbol/",
   },
   {
     id: "n11",
@@ -108,9 +98,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 458 Acto cívico reunió a autoridades, estudiantes y vecinos molinenses en el frontis del Palacio Municipal, reafirmando el compromiso con los valores patrios y…",
     category: "General",
     publishedAt: "2026-06-22",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55350829730_4568341f79_k.jpg",
+    imageUrl: "/images/news/la-molina-inicia-la-semana-con-ceremonia-de-izamiento-del-pabellon-nacional.jpg",
     slug: "la-molina-inicia-la-semana-con-ceremonia-de-izamiento-del-pabellon-nacional",
-    href: "https://portal.munimolina.gob.pe/la-molina-inicia-la-semana-con-ceremonia-de-izamiento-del-pabellon-nacional/",
   },
   {
     id: "n12",
@@ -118,9 +107,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 457 En un ambiente lleno de alegría, energía y compañerismo, la Municipalidad de La Molina organizó un emotivo homenaje para celebrar el Día del Padre. La…",
     category: "General",
     publishedAt: "2026-06-22",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55345827063_150134e9cd_k.jpg",
+    imageUrl: "/images/news/mas-de-400-adultos-mayores-celebraron-el-dia-del-padre-en-el-ciam-de-la-molina.jpg",
     slug: "mas-de-400-adultos-mayores-celebraron-el-dia-del-padre-en-el-ciam-de-la-molina",
-    href: "https://portal.munimolina.gob.pe/mas-de-400-adultos-mayores-celebraron-el-dia-del-padre-en-el-ciam-de-la-molina/",
   },
   {
     id: "n13",
@@ -128,9 +116,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 456 En un ambiente de fiesta, música y profunda alegría, los jardines del Palacio Municipal de La Molina se vistieron de gala para albergar la ceremonia de…",
     category: "General",
     publishedAt: "2026-06-20",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55344768497_b1440f6307_k.jpg",
+    imageUrl: "/images/news/mas-de-500-asistentes-celebraron-dia-del-padreen-homenaje-organizado-por-la-municipalidad.jpg",
     slug: "mas-de-500-asistentes-celebraron-dia-del-padreen-homenaje-organizado-por-la-municipalidad",
-    href: "https://portal.munimolina.gob.pe/mas-de-500-asistentes-celebraron-dia-del-padreen-homenaje-organizado-por-la-municipalidad/",
   },
   {
     id: "n14",
@@ -138,9 +125,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 455 Ante cientos de personas que llegaron al Parque Hispanoamérica se presentó el espectáculo Sinfonía Andina: Ecos del Sol y la Cosecha, en homenaje al mes de…",
     category: "Cultura",
     publishedAt: "2026-06-19",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55345256741_adba7918ee_k.jpg",
+    imageUrl: "/images/news/molinenses-disfrutaron-del-espectaculo-sinfonia-andina-en-parque-hispanoamerica.jpg",
     slug: "molinenses-disfrutaron-del-espectaculo-sinfonia-andina-en-parque-hispanoamerica",
-    href: "https://portal.munimolina.gob.pe/molinenses-disfrutaron-del-espectaculo-sinfonia-andina-en-parque-hispanoamerica/",
   },
   {
     id: "n15",
@@ -148,9 +134,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 454 El alcalde de La Molina Diego Uceda informó que durante estos años de gestión municipal se logró incrementar la recaudación más del doble. “Mientras…",
     category: "General",
     publishedAt: "2026-06-16",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/55339374304_736a59687e_k.jpg",
+    imageUrl: "/images/news/municipalidad-de-la-molina-duplico-recaudacion-en-la-presente-gestion.jpg",
     slug: "municipalidad-de-la-molina-duplico-recaudacion-en-la-presente-gestion",
-    href: "https://portal.munimolina.gob.pe/municipalidad-de-la-molina-duplico-recaudacion-en-la-presente-gestion/",
   },
   {
     id: "n16",
@@ -158,8 +143,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     excerpt: "Nota de prensa – N° 453 Nueva losa deportiva en Musa, renovados espacios recreativos en Viña Alta y la modernización integral del Parque Valladolid mejoran la calidad de vida de…",
     category: "Obras",
     publishedAt: "2026-06-15",
-    imageUrl: "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/NP-15-06-26.png",
+    imageUrl: "/images/news/la-molina-entrega-tres-importantes-obras-y-sigue-transformando-los-espacios-publicos-para-miles-de-vecinos.png",
     slug: "la-molina-entrega-tres-importantes-obras-y-sigue-transformando-los-espacios-publicos-para-miles-de-vecinos",
-    href: "https://portal.munimolina.gob.pe/la-molina-entrega-tres-importantes-obras-y-sigue-transformando-los-espacios-publicos-para-miles-de-vecinos/",
   },
 ];

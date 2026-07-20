@@ -76,8 +76,8 @@ function ServiceTable({ table }: { table: MunicipalServiceTable }) {
   if (!headers.length && !bodyRows.length) return null;
 
   return (
-    <div className="mt-5 overflow-x-auto rounded-xl border border-slate-200">
-      <table className="min-w-full border-collapse text-left text-sm">
+    <div className="table-scroll mt-5 rounded-xl border border-slate-200 sm:overflow-hidden">
+      <table className="min-w-[36rem] w-full border-collapse text-left text-sm sm:min-w-full">
         {headers.length > 0 && (
           <thead className="bg-emerald-50/80">
             <tr>
@@ -85,7 +85,7 @@ function ServiceTable({ table }: { table: MunicipalServiceTable }) {
                 <th
                   key={`${header}-${index}`}
                   scope="col"
-                  className="border-b border-emerald-100 px-4 py-3 font-semibold text-molina-deep"
+                  className="whitespace-nowrap border-b border-emerald-100 px-3 py-2.5 font-semibold text-molina-deep sm:px-4 sm:py-3"
                 >
                   {header}
                 </th>
@@ -102,9 +102,9 @@ function ServiceTable({ table }: { table: MunicipalServiceTable }) {
               {row.map((cell, cellIndex) => (
                 <td
                   key={`cell-${rowIndex}-${cellIndex}`}
-                  className="border-b border-slate-100 px-4 py-3 align-top text-slate-700"
+                  className="border-b border-slate-100 px-3 py-2.5 align-top text-slate-700 sm:px-4 sm:py-3"
                 >
-                  {cell}
+                  <span className="break-words">{cell}</span>
                 </td>
               ))}
             </tr>
@@ -384,23 +384,25 @@ export function MuniserviciosCategoryClient({ category }: Props) {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-molina-deep/80 to-molina-teal/55" />
           </div>
-          <div className="relative mx-auto max-w-6xl px-4 py-14 lg:py-20">
+          <div className="relative mx-auto max-w-6xl px-4 portal-page-hero-dark">
             <Reveal variant="up">
-              <Link
-                href="/muniservicios"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-100 hover:text-white hover:underline"
-              >
-                <ArrowLeft className="h-4 w-4" aria-hidden />
-                Volver a Muniservicios
-              </Link>
-              <Badge className="ml-3 bg-white/15 text-white ring-1 ring-white/25">
-                {category.services.length}{" "}
-                {category.services.length === 1 ? "servicio" : "servicios"}
-              </Badge>
-              <h1 className="mt-5 max-w-4xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href="/muniservicios"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-100 hover:text-white hover:underline"
+                >
+                  <ArrowLeft className="h-4 w-4" aria-hidden />
+                  Volver a Muniservicios
+                </Link>
+                <Badge className="bg-white/15 text-white ring-1 ring-white/25">
+                  {category.services.length}{" "}
+                  {category.services.length === 1 ? "servicio" : "servicios"}
+                </Badge>
+              </div>
+              <h1 className="mt-3 max-w-4xl text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
                 {category.title}
               </h1>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-emerald-50/90 sm:text-lg">
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-emerald-50/90 sm:text-base">
                 {category.summary}
               </p>
             </Reveal>
@@ -442,7 +444,7 @@ export function MuniserviciosCategoryClient({ category }: Props) {
           <div className="mx-auto max-w-6xl px-4 py-4">
             <nav
               aria-label="Servicios de la categoría"
-              className="-mx-1 flex gap-2 overflow-x-auto pb-1"
+              className="-mx-1 flex gap-2 overflow-x-auto overscroll-x-contain pb-1 [-webkit-overflow-scrolling:touch]"
             >
               {category.services.map((service) => {
                 const active = service.slug === activeService?.slug;

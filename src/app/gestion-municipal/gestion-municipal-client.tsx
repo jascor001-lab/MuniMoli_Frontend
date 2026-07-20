@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   Building2,
-  ExternalLink,
   Award,
   Landmark,
   Network,
@@ -19,10 +18,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  GESTION_MUNICIPAL_DATA,
-  GESTION_MUNICIPAL_SOURCE_URL,
-} from "@/data/gestion-municipal-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const SECTION_ICONS: Record<string, typeof Building2> = {
   alcalde: UserRound,
@@ -35,9 +31,9 @@ const SECTION_ICONS: Record<string, typeof Building2> = {
 };
 
 export function GestionMunicipalClient() {
-  const hero = GESTION_MUNICIPAL_DATA.images[0];
-  const heroAlt = GESTION_MUNICIPAL_DATA.images[1];
-
+  const { gestionMunicipal } = usePortalCms();
+  const hero = gestionMunicipal.images[0];
+  const heroAlt = gestionMunicipal.images[1];
   return (
     <>
       <Navbar />
@@ -57,28 +53,19 @@ export function GestionMunicipalClient() {
             )}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/85 via-molina-deep/80 to-emerald-900/70" />
           </div>
-          <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
+          <div className="relative mx-auto max-w-7xl px-4 portal-page-hero-dark">
             <Reveal variant="up">
               <Badge className="bg-white/15 text-emerald-50 ring-1 ring-white/25">
                 Institucional
               </Badge>
-              <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                {GESTION_MUNICIPAL_DATA.title}
+              <h1 className="mt-3 max-w-3xl text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+                {gestionMunicipal.title}
               </h1>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-emerald-50/90 sm:text-lg">
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-emerald-50/90 sm:text-base">
                 Información oficial sobre el alcalde, el concejo municipal, la
                 estructura orgánica, comisiones, funcionarios y reconocimientos
                 de la Municipalidad Distrital de La Molina.
               </p>
-              <a
-                href={GESTION_MUNICIPAL_SOURCE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-100 hover:underline"
-              >
-                Ver en portal.munimolina.gob.pe
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
             </Reveal>
           </div>
         </section>
@@ -87,7 +74,7 @@ export function GestionMunicipalClient() {
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Badge variant="mint">Secciones</Badge>
-              <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+              <h2 className="mt-3 text-2xl font-bold text-molina-deep sm:text-3xl">
                 Conoce la gestión municipal
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-molina-muted">
@@ -97,7 +84,7 @@ export function GestionMunicipalClient() {
             </Reveal>
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {GESTION_MUNICIPAL_DATA.sections.map((section, index) => {
+              {gestionMunicipal.sections.map((section, index) => {
                 const Icon = SECTION_ICONS[section.slug] ?? Building2;
                 return (
                   <Reveal

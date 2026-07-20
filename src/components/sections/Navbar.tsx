@@ -16,11 +16,9 @@ import { Button } from "@/components/ui/button";
 import { MunicipalityLogo } from "@/components/ui/MunicipalityLogo";
 import {
   CREDIT_RATING,
-  EXTERNAL_LINKS,
-  MAIN_NAV_BAR,
-  QUICK_ACCESS,
 } from "@/data/portal-data";
 import type { MainNavItem, NavChild } from "@/types/portal";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 function ChildLink({ child }: { child: NavChild }) {
   const isExternal = child.href.startsWith("http");
@@ -165,6 +163,10 @@ function NavItem({ item }: { item: MainNavItem }) {
 }
 
 export function Navbar() {
+  const { nav, home } = usePortalCms();
+  const mainNav = nav.mainNav;
+  const quickAccess = home.quickAccess;
+  const externalLinks = nav.externalLinks as Record<string, string>;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
   const [largeText, setLargeText] = useState(false);
@@ -208,13 +210,13 @@ export function Navbar() {
       <div className="mx-auto flex max-w-[1600px] items-center gap-2 px-3 py-2 lg:gap-3 lg:px-4">
         <Link
           href="/"
-          className="flex shrink-0 items-center transition-transform duration-300 hover:scale-[1.02]"
+          className="flex min-w-0 shrink items-center transition-transform duration-300 hover:scale-[1.02]"
         >
           <MunicipalityLogo
             variant="dark"
             height={30}
             priority
-            className="max-w-[130px] sm:max-w-[160px] lg:max-w-[170px]"
+            className="max-w-[120px] sm:max-w-[160px] lg:max-w-[170px]"
           />
         </Link>
 
@@ -250,20 +252,12 @@ export function Navbar() {
           className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex xl:gap-1"
           aria-label="Secciones del portal"
         >
-          {MAIN_NAV_BAR.map((item) => (
+          {mainNav.map((item) => (
             <NavItem key={item.label} item={item} />
           ))}
         </nav>
 
         <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
-          <Link
-            href="/muniservicios"
-            className="hidden rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-molina-mint-light ring-1 ring-molina-mint-light/50 transition-all hover:bg-white/25 hover:text-white md:inline-flex"
-            title="Abrir Muniservicios"
-          >
-            Muniservicios
-          </Link>
-
           <span
             className="hidden items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[9px] font-semibold uppercase tracking-wide text-white/80 xl:inline-flex"
             title={CREDIT_RATING.label}
@@ -362,7 +356,7 @@ export function Navbar() {
           </form>
 
           <nav className="space-y-1 p-4" aria-label="Secciones principales">
-            {MAIN_NAV_BAR.map((item) => (
+            {mainNav.map((item) => (
               <div key={item.label}>
                 <Link
                   href={item.href}
@@ -418,7 +412,7 @@ export function Navbar() {
               Accesos directos
             </p>
             <div className="grid grid-cols-2 gap-2">
-              {QUICK_ACCESS.map((item) => {
+              {quickAccess.map((item) => {
                 const external =
                   isExternalHref(item.href) || Boolean(item.external);
                 const openBlank = external || Boolean(item.openInNewTab);
@@ -454,7 +448,7 @@ export function Navbar() {
 
           <div className="flex flex-col gap-2 border-t border-slate-100 p-4">
             <a
-              href={EXTERNAL_LINKS.transparencia}
+              href={externalLinks.transparencia}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
@@ -463,12 +457,6 @@ export function Navbar() {
                 Portal de Transparencia
               </Button>
             </a>
-            <Link
-              href="/muniservicios"
-              onClick={() => setMobileOpen(false)}
-            >
-              <Button className="w-full">Muniservicios</Button>
-            </Link>
           </div>
         </div>
       </div>

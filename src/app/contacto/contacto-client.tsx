@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   ArrowLeft,
   Clock,
-  ExternalLink,
   MapPin,
   Phone,
   UserRound,
@@ -16,12 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
 import { SOCIAL_BRAND_ICONS } from "@/components/ui/social-icons";
 import { MunicipalityMapLazy } from "@/components/sections/MunicipalityMapLazy";
-import {
-  ATTENTION_PHONES,
-  MUNICIPAL_CONTACT,
-  OFFICIAL_PORTAL_URL,
-  SOCIAL_LINKS,
-} from "@/data/portal-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 function telHref(number: string) {
   const digits = number.replace(/[^\d+]/g, "");
@@ -29,12 +23,17 @@ function telHref(number: string) {
 }
 
 export function ContactoPageClient() {
+  const { contacto } = usePortalCms();
+  const contact = contacto.contact;
+  const phones = contacto.phones;
+  const socialLinks = contacto.socialLinks;
+
   return (
     <>
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-14">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -47,22 +46,14 @@ export function ContactoPageClient() {
               <Badge variant="mint" className="mt-4">
                 Atención al vecino
               </Badge>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl">
+              <h1 className="portal-page-title mt-3">
                 Contáctanos
               </h1>
               <p className="mt-2 max-w-3xl text-molina-muted">
                 Información oficial de comunicación con la Municipalidad
                 Distrital de La Molina y canales del portal digital.
               </p>
-              <a
-                href={MUNICIPAL_CONTACT.sobreNosotrosUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                Ver en portal.munimolina.gob.pe
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
+
             </Reveal>
           </div>
         </section>
@@ -89,7 +80,7 @@ export function ContactoPageClient() {
                         Dirección
                       </p>
                       <p className="mt-0.5 font-medium text-molina-ink">
-                        {MUNICIPAL_CONTACT.address}
+                        {contact.address}
                       </p>
                     </div>
                   </li>
@@ -100,13 +91,13 @@ export function ContactoPageClient() {
                         Horario de atención
                       </p>
                       <p className="mt-0.5 font-medium text-molina-ink">
-                        {MUNICIPAL_CONTACT.hoursWeekdays}
+                        {contact.hoursWeekdays}
                       </p>
                       <p className="font-medium text-molina-ink">
-                        {MUNICIPAL_CONTACT.hoursSaturday}
+                        {contact.hoursSaturday}
                       </p>
                       <p className="mt-2 text-xs leading-relaxed text-molina-muted">
-                        {MUNICIPAL_CONTACT.hoursNote}
+                        {contact.hoursNote}
                       </p>
                     </div>
                   </li>
@@ -117,10 +108,10 @@ export function ContactoPageClient() {
                         Central telefónica
                       </p>
                       <a
-                        href={telHref(MUNICIPAL_CONTACT.phone)}
+                        href={telHref(contact.phone)}
                         className="mt-0.5 block text-2xl font-bold text-molina-deep hover:text-molina-teal"
                       >
-                        {MUNICIPAL_CONTACT.phone}
+                        {contact.phone}
                       </a>
                     </div>
                   </li>
@@ -144,24 +135,18 @@ export function ContactoPageClient() {
                   </p>
                 </div>
                 <div className="mt-6 space-y-2">
-                  <a
-                    href={MUNICIPAL_CONTACT.portalUsuarioUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/plataforma-digital"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-molina-deep transition-colors hover:bg-emerald-50"
                   >
-                    Ir al Portal del Usuario
-                    <ExternalLink className="h-4 w-4" aria-hidden />
-                  </a>
-                  <a
-                    href={OFFICIAL_PORTAL_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    Ir a la Plataforma Digital
+                  </Link>
+                  <Link
+                    href="/tramites-municipales"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/30 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
-                    Portal municipal
-                    <ExternalLink className="h-4 w-4" aria-hidden />
-                  </a>
+                    Ver trámites municipales
+                  </Link>
                 </div>
               </Reveal>
             </div>
@@ -193,7 +178,7 @@ export function ContactoPageClient() {
               </p>
             </Reveal>
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {ATTENTION_PHONES.map((item, index) => {
+              {phones.map((item, index) => {
                 const href = telHref(item.number);
                 return (
                   <Reveal
@@ -239,7 +224,7 @@ export function ContactoPageClient() {
               </p>
             </Reveal>
             <ul className="mt-6 flex flex-wrap gap-4">
-              {SOCIAL_LINKS.map((social, index) => {
+              {socialLinks.map((social, index) => {
                 const Icon =
                   SOCIAL_BRAND_ICONS[
                     social.id as keyof typeof SOCIAL_BRAND_ICONS

@@ -28,9 +28,9 @@ export function UtilityNumbers() {
             >
               <a
                 href={`tel:${line.number.replace(/[^\d+]/g, "")}`}
-                className="block rounded-sm bg-molina-deep px-5 py-4 font-medium text-white shadow-sm transition-colors hover:bg-molina-teal"
+                className="block rounded-sm bg-molina-deep px-4 py-3.5 font-medium text-white shadow-sm transition-colors hover:bg-molina-teal sm:px-5 sm:py-4"
               >
-                <p className="text-sm font-medium">
+                <p className="text-sm font-medium leading-snug break-words">
                   {line.label}:{" "}
                   <span className="font-bold">{line.number}</span>
                 </p>

@@ -9,10 +9,8 @@ import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  MUNICIPAL_SERVICE_CATEGORIES,
-  MUNICIPAL_SERVICE_COUNT,
-} from "@/data/municipal-services";
+import { MUNICIPAL_SERVICE_COUNT } from "@/data/municipal-services";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 function normalize(value: string) {
   return value
@@ -22,6 +20,8 @@ function normalize(value: string) {
 }
 
 export function MuniserviciosClient() {
+  const { muniservicios } = usePortalCms();
+  const MUNICIPAL_SERVICE_CATEGORIES = muniservicios.categories;
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -49,24 +49,24 @@ export function MuniserviciosClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-100 bg-gradient-to-br from-emerald-900 via-molina-deep to-molina-teal py-14 text-white lg:py-20">
+        <section className="border-b border-emerald-100 bg-gradient-to-br from-emerald-900 via-molina-deep to-molina-teal portal-page-hero-dark">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Badge className="bg-white/15 text-emerald-50 ring-1 ring-white/25">
                 Servicios para el vecino
               </Badge>
-              <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="mt-3 max-w-4xl text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
                 Muniservicios
               </h1>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-emerald-50/90 sm:text-lg">
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-emerald-50/90 sm:text-base">
                 Catálogo oficial de programas y servicios municipales para los
-                vecinos de La Molina, migrado desde el portal institucional.
+                vecinos de La Molina.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3 text-sm font-semibold">
-                <span className="rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/20">
+              <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold sm:text-sm">
+                <span className="rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/20">
                   {MUNICIPAL_SERVICE_CATEGORIES.length} áreas municipales
                 </span>
-                <span className="rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/20">
+                <span className="rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/20">
                   {MUNICIPAL_SERVICE_COUNT} servicios y programas
                 </span>
               </div>
@@ -102,7 +102,7 @@ export function MuniserviciosClient() {
               <>
                 <Reveal variant="up">
                   <Badge variant="mint">Resultados</Badge>
-                  <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+                  <h2 className="portal-section-title mt-3">
                     Servicios encontrados
                   </h2>
                   <p className="mt-2 text-sm text-molina-muted">
@@ -159,7 +159,7 @@ export function MuniserviciosClient() {
               <>
                 <Reveal variant="up">
                   <Badge variant="mint">Catálogo municipal</Badge>
-                  <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+                  <h2 className="portal-section-title mt-3">
                     Servicios para el vecino
                   </h2>
                   <p className="mt-2 max-w-3xl text-sm leading-6 text-molina-muted">
@@ -167,7 +167,7 @@ export function MuniserviciosClient() {
                     desde el portal de la Municipalidad de La Molina.
                   </p>
                 </Reveal>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {MUNICIPAL_SERVICE_CATEGORIES.map((category, index) => (
                     <Reveal
                       key={category.slug}

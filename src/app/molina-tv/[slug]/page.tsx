@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  getMolinaTvCategory,
-  MOLINA_TV_SLUGS,
-} from "@/data/molina-tv-data";
+import { MOLINA_TV_SLUGS } from "@/data/molina-tv-data";
+import { getMolinaTvCmsContent } from "@/lib/cms/portal-content";
 import { MolinaTvCategoryClient } from "../molina-tv-category-client";
 
 type Props = {
@@ -16,7 +14,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const category = getMolinaTvCategory(slug);
+  const category = getMolinaTvCmsContent().categories.find((c) => c.slug === slug);
   if (!category) return { title: "La Molina TV" };
   return {
     title: `${category.title} | La Molina TV | Municipalidad de La Molina`,
@@ -26,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function MolinaTvCategoryPage({ params }: Props) {
   const { slug } = await params;
-  const category = getMolinaTvCategory(slug);
+  const category = getMolinaTvCmsContent().categories.find((c) => c.slug === slug);
   if (!category) notFound();
   return <MolinaTvCategoryClient category={category} />;
 }

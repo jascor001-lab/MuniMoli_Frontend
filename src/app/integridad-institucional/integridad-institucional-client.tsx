@@ -16,13 +16,8 @@ import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  INTEGRITY_COMPONENTS,
-  INTEGRITY_DOCUMENTS,
-  INTEGRITY_SOURCE_URL,
-  INTEGRITY_TOPICS,
-  type IntegrityTopic,
-} from "@/data/integrity-data";
+import { type IntegrityTopic } from "@/data/integrity-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const CONTENT_LINKS = [
   { id: "conceptos", label: "Conceptos" },
@@ -47,14 +42,14 @@ function TopicSection({
     <Reveal
       variant="up"
       as="article"
-      className="grid items-center gap-8 border-b border-slate-100 py-10 last:border-b-0 lg:grid-cols-2 lg:py-14"
+      className="grid items-center gap-6 border-b border-slate-100 py-8 last:border-b-0 sm:gap-8 sm:py-10 lg:grid-cols-2 lg:py-14"
     >
       <div className={imageFirst ? "lg:order-2" : undefined}>
         <Badge variant="mint">Integridad pública</Badge>
-        <h2 className="mt-3 text-2xl font-bold tracking-tight text-molina-deep sm:text-3xl">
+        <h2 className="mt-3 text-xl font-bold tracking-tight text-molina-deep sm:text-3xl">
           {topic.title}
         </h2>
-        <p className="mt-4 text-base leading-7 text-molina-muted">
+        <p className="mt-4 text-sm leading-7 text-molina-muted sm:text-base">
           {topic.description}
         </p>
       </div>
@@ -79,6 +74,18 @@ function TopicSection({
 }
 
 export function IntegridadInstitucionalClient() {
+  const { integridad } = usePortalCms();
+  const INTEGRITY_TOPICS = integridad.topics as IntegrityTopic[];
+  const INTEGRITY_DOCUMENTS = integridad.documents as {
+    title: string;
+    href: string;
+    date?: string;
+    description?: string;
+  }[];
+  const INTEGRITY_COMPONENTS = integridad.components as {
+    title: string;
+    description: string;
+  }[];
   const conceptualTopics = INTEGRITY_TOPICS.slice(0, 6);
   const ethicsTopic = INTEGRITY_TOPICS[6];
 
@@ -87,7 +94,7 @@ export function IntegridadInstitucionalClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-16">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -100,7 +107,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint" className="mt-5">
                 Institucional
               </Badge>
-              <h1 className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl lg:text-5xl">
+              <h1 className="portal-page-title mt-3 max-w-3xl">
                 Integridad Institucional
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-7 text-molina-muted sm:text-lg">
@@ -108,15 +115,6 @@ export function IntegridadInstitucionalClient() {
                 conducta ética, la transparencia y la prevención de la
                 corrupción en la Municipalidad Distrital de La Molina.
               </p>
-              <a
-                href={INTEGRITY_SOURCE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                Consultar fuente institucional
-                <ExternalLink className="h-4 w-4" aria-hidden />
-              </a>
             </Reveal>
           </div>
         </section>
@@ -125,7 +123,7 @@ export function IntegridadInstitucionalClient() {
           aria-label="Contenido de Integridad Institucional"
           className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur"
         >
-          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3">
+          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto overscroll-x-contain px-4 py-3 [-webkit-overflow-scrolling:touch]">
             {CONTENT_LINKS.map((item) => (
               <a
                 key={item.id}
@@ -160,7 +158,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint">Modelo de Integridad</Badge>
               <h2
                 id="components-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 Los nueve componentes
               </h2>
@@ -218,7 +216,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint">Canal seguro</Badge>
               <h2
                 id="complaints-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 Denuncias por presuntos actos de corrupción
               </h2>
@@ -310,7 +308,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint">Gestión institucional</Badge>
               <h2
                 id="implementation-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 Implementación del Modelo de Integridad
               </h2>
@@ -359,7 +357,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint">Concientización</Badge>
               <h2
                 id="anti-corruption-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 9 de diciembre: Día Internacional contra la Corrupción
               </h2>
@@ -412,7 +410,7 @@ export function IntegridadInstitucionalClient() {
               <Badge variant="mint">Documentos oficiales</Badge>
               <h2
                 id="documents-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 Compromisos y Programa de Integridad 2026
               </h2>

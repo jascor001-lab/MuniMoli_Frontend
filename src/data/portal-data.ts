@@ -14,7 +14,7 @@ import { PLATAFORMA_DIGITAL_PATH } from "@/lib/routes";
 
 /** Enlaces oficiales externos del portal municipal */
 export const EXTERNAL_LINKS = {
-  tupa: "https://portal.munimolina.gob.pe/tupa/",
+  tupa: "/tramites-municipales/tupa",
   sugerencias: "https://facilita.gob.pe/t/52054",
   accesoInfo:
     "https://www.gob.pe/20399-solicitar-acceso-a-la-informacion-publica?child=112738",
@@ -32,16 +32,17 @@ export const EXTERNAL_LINKS = {
     "https://www.gob.pe/20416-acceder-a-mesa-de-partes?child=113028",
   consultaTramite:
     "https://gesvirtual.munimolina.gob.pe/presentacion/externo/consulta/consulta_tramite.php",
-  gobiernoDigital: "https://portal.munimolina.gob.pe/contenido-gobierno-digital/",
-  talleres: "https://portal.munimolina.gob.pe/talleres",
-  molinaTv: "https://portal.munimolina.gob.pe/molina-tv/",
-  gestionMunicipal: "https://portal.munimolina.gob.pe/gestion-municipal/",
+  gobiernoDigital: "/gobierno-digital",
+  talleres: "/talleres",
+  molinaTv: "/molina-tv",
+  gestionMunicipal: "/gestion-municipal",
 } as const;
 
 /** Portal oficial de la Municipalidad de La Molina */
-export const OFFICIAL_PORTAL_URL = "https://portal.munimolina.gob.pe";
+/** Base del portal actual (sin dependencia del WordPress anterior) */
+export const OFFICIAL_PORTAL_URL = "";
 
-/** Contacto institucional — fuente: portal.munimolina.gob.pe/sobre-nosotros */
+/** Contacto institucional */
 export const MUNICIPAL_CONTACT = {
   address: "Av. Ricardo Elías Aparicio 740, La Molina",
   phone: "(01) 754 4000",
@@ -51,12 +52,12 @@ export const MUNICIPAL_CONTACT = {
     "Lunes a viernes de 8:00 a.m. a 5:00 p.m. · Sábados de 8:30 a.m. a 1:00 p.m.",
   hoursNote:
     "Proyectos y anexos foliados de Obras Privadas, Obras Públicas, Inversiones, y Desarrollo Sostenible y Servicios a la Ciudad se reciben hasta las 5:00 p.m. Los sábados solo trámite de liquidación de pagos y caja.",
-  portalUsuarioUrl: "https://portal.munimolina.gob.pe/portal-del-usuario/",
-  sobreNosotrosUrl: "https://portal.munimolina.gob.pe/sobre-nosotros/",
-  /** Sede central — coordenadas aproximadas OSM / mapa oficial */
+  portalUsuarioUrl: "/plataforma-digital",
+  sobreNosotrosUrl: "/gestion-municipal",
+  /** Sede central — Municipalidad de La Molina (OSM townhall) */
   map: {
-    lat: -12.0785,
-    lng: -76.942,
+    lat: -12.078498,
+    lng: -76.917167,
     zoom: 17,
   },
 } as const;
@@ -220,13 +221,11 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     id: "tupa",
     label: "Plataforma TUPA Digital",
     shortLabel: "TUPA Digital",
-    href: EXTERNAL_LINKS.tupa,
+    href: "/tramites-municipales/tupa",
     icon: "FileText",
     color: "deep",
     category: "digital",
     featured: true,
-    openInNewTab: true,
-    external: true,
   },
   {
     id: "control-interno",
@@ -352,12 +351,12 @@ export const TICKER_ITEMS: TickerItem[] = [
   {
     id: "1",
     text: "Más de 500 cámaras y 378 serenos resguardarán La Molina en Fiestas Patrias",
-    href: "https://portal.munimolina.gob.pe/mas-de-500-camaras-y-378-serenos-resguardaran-la-molina-durante-fiestas-patrias/",
+    href: "/noticias/mas-de-500-camaras-y-378-serenos-resguardaran-la-molina-durante-fiestas-patrias",
   },
   {
     id: "2",
     text: "La Molina renovará medio millón de m² en pistas y veredas al finalizar 2026",
-    href: "https://portal.munimolina.gob.pe/la-molina-renovara-medio-millon-de-metros-cuadrados-en-pistas-y-veredas-al-finalizar-2026/",
+    href: "/noticias/la-molina-renovara-medio-millon-de-metros-cuadrados-en-pistas-y-veredas-al-finalizar-2026",
   },
   {
     id: "3",
@@ -575,8 +574,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Vecinos",
     icon: "Receipt",
     href: "/tramites-municipales/fiscalizacion-tributaria",
-    appUrl:
-      "https://portal.munimolina.gob.pe/tramites-de-sg-de-registro-y-fiscalizacion-tributaria/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 15,
@@ -590,8 +588,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Vecinos",
     icon: "FileText",
     href: "/tramites-municipales/solicitudes-simples",
-    appUrl:
-      "https://portal.munimolina.gob.pe/registro-de-solicitudes-simples/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 10,
@@ -605,8 +602,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Vecinos",
     icon: "FileSignature",
     href: "/tramites-municipales/declaracion-compra-venta",
-    appUrl:
-      "https://portal.munimolina.gob.pe/declaracion-jurada-de-compra-venta/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 45,
@@ -620,8 +616,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Vecinos",
     icon: "FileCheck",
     href: "/tramites-municipales/descargos-papeletas",
-    appUrl:
-      "https://portal.munimolina.gob.pe/descargos-de-papeletas-de-infraccion/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 20,
@@ -650,8 +645,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "Store",
     href: "/tramites-municipales/licencia-funcionamiento",
-    appUrl:
-      "https://portal.munimolina.gob.pe/licencias-de-funcionamiento-mas/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 25,
@@ -665,7 +659,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "ShieldAlert",
     href: "/tramites-municipales/certificado-defensa-civil",
-    appUrl: "https://portal.munimolina.gob.pe/certificado-de-defensa-civil/",
+    
     requiresAuth: false,
     isOnline: false,
     estimatedMinutes: 20,
@@ -679,8 +673,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "HardHat",
     href: "/tramites-municipales/redes-subterraneas",
-    appUrl:
-      "https://portal.munimolina.gob.pe/autorizacion-para-ampliacion-de-redes/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 15,
@@ -694,8 +687,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "FileUp",
     href: "/tramites-municipales/publicidad-exterior",
-    appUrl:
-      "https://portal.munimolina.gob.pe/autorizacion-para-la-instalacion-de-publicidad/",
+    
     requiresAuth: false,
     isOnline: false,
     estimatedMinutes: 15,
@@ -708,8 +700,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "Network",
     href: "/tramites-municipales/infraestructura-telecom",
-    appUrl:
-      "https://portal.munimolina.gob.pe/contenido-tramites-municipales/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 20,
@@ -723,8 +714,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Negocios",
     icon: "Users",
     href: "/tramites-municipales/cese-actividades",
-    appUrl:
-      "https://portal.munimolina.gob.pe/cese-de-actividades-economicas/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 10,
@@ -740,7 +730,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Registro Civil",
     icon: "Heart",
     href: "/tramites-municipales/matrimonio-civil",
-    appUrl: "https://portal.munimolina.gob.pe/matrimonio-civil/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 30,
@@ -754,7 +744,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Registro Civil",
     icon: "FileBadge",
     href: "/tramites-municipales/divorcios",
-    appUrl: "https://portal.munimolina.gob.pe/divorcios/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 30,
@@ -771,8 +761,7 @@ export const PROCEDURES: Procedure[] = [
     tabs: ["Vecinos"],
     icon: "Landmark",
     href: "/tramites-municipales/certificado-parametros",
-    appUrl:
-      "https://portal.munimolina.gob.pe/certificado-de-parametros-urbanisticos/",
+    
     requiresAuth: false,
     isOnline: false,
     estimatedMinutes: 15,
@@ -786,8 +775,7 @@ export const PROCEDURES: Procedure[] = [
     tabs: ["Vecinos"],
     icon: "HardHat",
     href: "/tramites-municipales/licencia-edificacion",
-    appUrl:
-      "https://portal.munimolina.gob.pe/contenido-licencias-de-edificacion/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 30,
@@ -801,8 +789,7 @@ export const PROCEDURES: Procedure[] = [
     category: "Licencias de Edificación",
     icon: "Landmark",
     href: "/tramites-municipales/habilitaciones-urbanas",
-    appUrl:
-      "https://portal.munimolina.gob.pe/licencias-de-habilitaciones-urbanas/",
+    
     requiresAuth: false,
     isOnline: true,
     estimatedMinutes: 25,
@@ -909,7 +896,7 @@ export const GOBIERNO_DIGITAL_SERVICIOS: GobiernoDigitalLink[] = [
   {
     id: "tupa-buscador",
     label: "Buscador de trámites TUPA",
-    href: "https://portal.munimolina.gob.pe/tupa-tramites",
+    href: "/tramites-municipales/tupa",
   },
   {
     id: "normas-legales",

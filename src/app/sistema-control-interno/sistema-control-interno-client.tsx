@@ -6,7 +6,6 @@ import {
   ArrowLeft,
   CalendarDays,
   Download,
-  ExternalLink,
   FileCheck2,
   FileText,
   ShieldCheck,
@@ -16,11 +15,8 @@ import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  INTERNAL_CONTROL_PERIODS,
-  INTERNAL_CONTROL_SOURCE_URL,
-} from "@/data/internal-control-data";
 import { cn } from "@/lib/utils";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const KIND_STYLES = {
   "Plan de acción": "bg-blue-50 text-blue-700",
@@ -29,8 +25,10 @@ const KIND_STYLES = {
 } as const;
 
 export function SistemaControlInternoClient() {
+  const { controlInterno } = usePortalCms();
+  const INTERNAL_CONTROL_PERIODS = controlInterno.periods;
   const [selectedYear, setSelectedYear] = useState(
-    INTERNAL_CONTROL_PERIODS[0].year,
+    INTERNAL_CONTROL_PERIODS[0]?.year,
   );
   const selectedPeriod =
     INTERNAL_CONTROL_PERIODS.find((period) => period.year === selectedYear) ??
@@ -41,7 +39,7 @@ export function SistemaControlInternoClient() {
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-16">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -54,7 +52,7 @@ export function SistemaControlInternoClient() {
               <Badge variant="mint" className="mt-5">
                 Transparencia e integridad
               </Badge>
-              <h1 className="mt-3 max-w-4xl text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl lg:text-5xl">
+              <h1 className="portal-page-title mt-3 max-w-4xl">
                 Sistema de Control Interno
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-7 text-molina-muted sm:text-lg">
@@ -62,15 +60,6 @@ export function SistemaControlInternoClient() {
                 reportes de seguimiento publicados por la Municipalidad
                 Distrital de La Molina.
               </p>
-              <a
-                href={INTERNAL_CONTROL_SOURCE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                Consultar fuente institucional
-                <ExternalLink className="h-4 w-4" aria-hidden />
-              </a>
             </Reveal>
           </div>
         </section>
@@ -125,7 +114,7 @@ export function SistemaControlInternoClient() {
               <Badge variant="mint">Reportes disponibles</Badge>
               <h2
                 id="reports-heading"
-                className="mt-3 text-3xl font-bold text-molina-deep"
+                className="portal-section-title mt-3"
               >
                 Plan de Acción y Evaluación Anual
               </h2>
@@ -138,7 +127,7 @@ export function SistemaControlInternoClient() {
             <Reveal
               variant="up"
               delayMs={80}
-              className="mt-7 flex flex-wrap gap-2"
+              className="portal-h-scroll mt-7 pb-1"
             >
               {INTERNAL_CONTROL_PERIODS.map((period) => (
                 <button
@@ -147,7 +136,7 @@ export function SistemaControlInternoClient() {
                   onClick={() => setSelectedYear(period.year)}
                   aria-pressed={selectedYear === period.year}
                   className={cn(
-                    "inline-flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-bold transition-colors",
+                    "inline-flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold transition-colors sm:px-5",
                     selectedYear === period.year
                       ? "border-molina-deep bg-molina-deep text-white"
                       : "border-slate-300 bg-white text-molina-deep hover:border-molina-mint",

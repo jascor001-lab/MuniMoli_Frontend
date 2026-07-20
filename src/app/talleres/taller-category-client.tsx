@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Footer } from "@/components/sections/Footer";
 import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
@@ -20,7 +20,7 @@ export function TallerCategoryClient({ category }: Props) {
       <Navbar />
       <SocialSidebar />
       <main className="bg-white">
-        <section className="border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-12">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Link
@@ -39,15 +39,6 @@ export function TallerCategoryClient({ category }: Props) {
               <h1 className="mt-3 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl">
                 {category.pageTitle || category.title}
               </h1>
-              <a
-                href={category.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                Ver en portal oficial
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
             </Reveal>
           </div>
         </section>

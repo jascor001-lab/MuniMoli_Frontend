@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import {
-  ExternalLink,
   Mic2,
   Newspaper,
   Radio,
@@ -12,10 +11,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Navbar } from "@/components/sections/Navbar";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Reveal } from "@/components/ui/reveal";
-import {
-  MOLINA_TV_DATA,
-  MOLINA_TV_SOURCE_URL,
-} from "@/data/molina-tv-data";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const CATEGORY_ICONS = {
   "en-vivo": Radio,
@@ -25,21 +21,23 @@ const CATEGORY_ICONS = {
 } as const;
 
 export function MolinaTvClient() {
+  const { molinaTv } = usePortalCms();
+
   return (
     <>
       <Navbar />
       <SocialSidebar />
       <main className="bg-white">
-        <section className="py-10 lg:py-14">
+        <section className="py-6 sm:py-8">
           <div className="mx-auto max-w-6xl px-4">
             <Reveal variant="up" className="flex justify-center">
-              <h1 className="rounded-2xl bg-[#00AC68] px-8 py-4 text-center text-2xl font-bold tracking-wide text-white shadow-md sm:px-12 sm:text-3xl">
-                {MOLINA_TV_DATA.title}
+              <h1 className="rounded-2xl bg-[#00AC68] px-5 py-3 text-center text-xl font-bold tracking-wide text-white shadow-md sm:px-12 sm:py-4 sm:text-3xl">
+                {molinaTv.title}
               </h1>
             </Reveal>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {MOLINA_TV_DATA.categories.map((category, index) => {
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-4">
+              {molinaTv.categories.map((category, index) => {
                 const Icon =
                   CATEGORY_ICONS[
                     category.slug as keyof typeof CATEGORY_ICONS
@@ -52,17 +50,17 @@ export function MolinaTvClient() {
                   >
                     <Link
                       href={`/molina-tv/${category.slug}`}
-                      className="group flex h-full min-h-[180px] flex-col items-center justify-center gap-4 rounded-2xl bg-[#F3F3F3] px-5 py-8 text-center transition-all hover:-translate-y-0.5 hover:bg-[#D1D1D1] hover:shadow-md"
+                      className="group flex h-full min-h-[140px] flex-col items-center justify-center gap-3 rounded-2xl bg-[#F3F3F3] px-4 py-6 text-center transition-all hover:-translate-y-0.5 hover:bg-[#D1D1D1] hover:shadow-md sm:min-h-[180px] sm:gap-4 sm:px-5 sm:py-8"
                     >
                       <Icon
-                        className="h-12 w-12 text-[#00AC68] transition-transform group-hover:scale-105"
+                        className="h-10 w-10 text-[#00AC68] transition-transform group-hover:scale-105 sm:h-12 sm:w-12"
                         strokeWidth={1.5}
                         aria-hidden
                       />
-                      <span className="text-sm font-bold uppercase leading-snug tracking-wide text-[#00AC68] sm:text-base">
+                      <span className="text-xs font-bold uppercase leading-snug tracking-wide text-[#00AC68] sm:text-base">
                         {category.title}
                       </span>
-                      <span className="text-xs font-medium text-molina-muted">
+                      <span className="text-[11px] font-medium text-molina-muted sm:text-xs">
                         {category.videos.length}{" "}
                         {category.videos.length === 1
                           ? "contenido"
@@ -73,18 +71,6 @@ export function MolinaTvClient() {
                 );
               })}
             </div>
-
-            <Reveal variant="up" className="mt-10 flex justify-center">
-              <a
-                href={MOLINA_TV_SOURCE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-molina-teal hover:underline"
-              >
-                Ver en portal.munimolina.gob.pe
-                <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
-            </Reveal>
           </div>
         </section>
       </main>

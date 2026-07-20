@@ -14,14 +14,86 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-molina-surface text-molina-ink antialiased;
+    @apply overflow-x-clip bg-molina-surface text-molina-ink antialiased;
+    min-width: 0;
+  }
+
+  main {
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  svg,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  /* Tablas anchas: el contenedor con .table-scroll evita descuadre */
+  table {
+    border-collapse: collapse;
   }
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-molina-mint;
+  }
+}
+
+@layer components {
+  /* Contenedor estándar de páginas del portal */
+  .portal-container {
+    @apply mx-auto w-full max-w-7xl px-4;
+  }
+
+  /* Títulos de página: compactos */
+  .portal-page-title {
+    @apply text-xl font-bold tracking-tight text-molina-deep sm:text-3xl lg:text-4xl;
+  }
+
+  .portal-page-lead {
+    @apply mt-2 max-w-3xl text-sm leading-6 text-molina-muted sm:text-base;
+  }
+
+  .portal-section-title {
+    @apply text-lg font-bold text-molina-deep sm:text-xl lg:text-2xl;
+  }
+
+  /* Cabeceras de página (claras) — menos altura */
+  .portal-page-hero {
+    @apply border-b border-emerald-900/10 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-6 sm:py-8;
+  }
+
+  /* Cabeceras verdes / con imagen — menos altura */
+  .portal-page-hero-dark {
+    @apply py-6 text-white sm:py-8;
+  }
+
+  /* Scroll horizontal seguro (categorías, tabs, tablas) */
+  .portal-h-scroll {
+    @apply flex gap-2 overflow-x-auto overscroll-x-contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .table-scroll {
+    @apply -mx-4 overflow-x-auto overscroll-x-contain px-4 sm:mx-0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-scroll > table {
+    @apply min-w-[36rem] w-full sm:min-w-full;
   }
 }
 
@@ -83,4 +155,11 @@ html.a11y-high-contrast {
 
 html.a11y-large-text {
   font-size: 112.5%;
+}
+
+/* En pantallas muy pequeñas, evita tipografía desbordada */
+@media (max-width: 379px) {
+  html.a11y-large-text {
+    font-size: 100%;
+  }
 }

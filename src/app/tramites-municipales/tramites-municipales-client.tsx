@@ -22,10 +22,10 @@ import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
 import {
   MUNICIPAL_PROCEDURE_CATEGORIES,
-  MUNICIPAL_PROCEDURES,
   type MunicipalProcedureCategory,
 } from "@/data/municipal-procedures";
 import { cn } from "@/lib/utils";
+import { usePortalCms } from "@/components/cms/portal-cms";
 
 const CATEGORY_ICONS = {
   Vecinos: Users,
@@ -43,6 +43,8 @@ function normalize(value: string) {
 }
 
 export function TramitesMunicipalesClient() {
+  const { tramites } = usePortalCms();
+  const MUNICIPAL_PROCEDURES = tramites.procedures;
   const [activeCategory, setActiveCategory] =
     useState<MunicipalProcedureCategory>("Vecinos");
   const [search, setSearch] = useState("");
@@ -62,30 +64,32 @@ export function TramitesMunicipalesClient() {
             `${procedure.title} ${procedure.summary} ${procedure.requirements.join(" ")}`,
           ).includes(query)),
     );
-  }, [activeCategory, search]);
+  }, [activeCategory, search, MUNICIPAL_PROCEDURES]);
 
   return (
     <>
       <Navbar />
       <SocialSidebar />
       <main>
-        <section className="border-b border-slate-200 bg-gradient-to-br from-emerald-50 via-white to-slate-50 py-10 lg:py-14">
+        <section className="portal-page-hero">
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
-              >
-                <ArrowLeft className="h-4 w-4" aria-hidden />
-                Volver al inicio
-              </Link>
-              <Badge variant="mint" className="ml-3">
-                Atención al ciudadano
-              </Badge>
-              <h1 className="mt-5 text-3xl font-bold tracking-tight text-molina-deep sm:text-4xl lg:text-5xl">
+              <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-molina-teal hover:underline"
+                >
+                  <ArrowLeft className="h-4 w-4" aria-hidden />
+                  Volver al inicio
+                </Link>
+                <Badge variant="mint">
+                  Atención al ciudadano
+                </Badge>
+              </div>
+              <h1 className="portal-page-title mt-5">
                 Trámites Municipales
               </h1>
-              <p className="mt-3 max-w-3xl text-base leading-7 text-molina-muted">
+              <p className="portal-page-lead">
                 Revisa requisitos, modalidades, plazos, costos y resultados
                 antes de presentar tu solicitud ante la Municipalidad de La
                 Molina.
@@ -98,7 +102,7 @@ export function TramitesMunicipalesClient() {
           aria-label="Categorías de trámites municipales"
           className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur"
         >
-          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-4">
+          <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto overscroll-x-contain px-4 py-4 [-webkit-overflow-scrolling:touch]">
             {MUNICIPAL_PROCEDURE_CATEGORIES.map((category) => {
               const Icon = CATEGORY_ICONS[category];
               const count = MUNICIPAL_PROCEDURES.filter((procedure) =>
@@ -140,7 +144,7 @@ export function TramitesMunicipalesClient() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <Reveal variant="right">
                 <Badge variant="mint">{activeCategory}</Badge>
-                <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+                <h2 className="portal-section-title mt-3">
                   Trámites de {activeCategory}
                 </h2>
                 <p className="mt-2 text-sm text-molina-muted">
@@ -221,7 +225,7 @@ export function TramitesMunicipalesClient() {
           <div className="mx-auto max-w-7xl px-4">
             <Reveal variant="up">
               <Badge variant="mint">Atención presencial</Badge>
-              <h2 className="mt-3 text-3xl font-bold text-molina-deep">
+              <h2 className="portal-section-title mt-3">
                 Sede y horario de atención
               </h2>
             </Reveal>

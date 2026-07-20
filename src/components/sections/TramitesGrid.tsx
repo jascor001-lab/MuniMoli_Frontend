@@ -327,7 +327,7 @@ export function TramitesGrid({ externalSearch = "" }: TramitesGridProps) {
         <Reveal
           variant="up"
           delayMs={80}
-          className="mt-7 flex gap-2 overflow-x-auto pb-2"
+          className="portal-h-scroll mt-7 pb-2"
         >
           {PROCEDURE_TABS.map((tab) => {
             const count = MUNICIPAL_PROCEDURES.filter((procedure) =>

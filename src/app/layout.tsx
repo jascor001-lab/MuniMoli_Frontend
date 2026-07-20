@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/Providers";
+import { getPortalCmsBundle } from "@/lib/cms/portal-content";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,10 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cms = getPortalCmsBundle();
+
   return (
     <html lang="es-PE">
-      <body className="min-h-screen font-sans">
-        <Providers>{children}</Providers>
+      <body className="min-h-screen min-w-0 overflow-x-clip font-sans">
+        <Providers cms={cms}>{children}</Providers>
       </body>
     </html>
   );
