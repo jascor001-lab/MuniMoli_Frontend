@@ -1,6 +1,0 @@
----
-description: No añadir atribución de Cursor en commits ni PRs
-alwaysApply: true
----
-
-Never add "Made-with: Cursor", "Co-authored-by: Cursor", "Co-authored-by: Cursor Agent", or any Cursor attribution/trailer to commits, pull requests, or code comments. Commits must use only the user's git identity (jascor001-lab).
