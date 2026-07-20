@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-molina-deep: #064e3b;
+  --color-molina-teal: #0f766e;
+  --color-molina-mint: #10b981;
+  --color-molina-mint-light: #34d399;
+  --color-molina-surface: #f8fafc;
+  --color-molina-ink: #0f172a;
+  --color-molina-muted: #64748b;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-molina-surface text-molina-ink antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-molina-mint;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* High contrast accessibility mode */
+html.a11y-high-contrast {
+  --color-molina-deep: #000000;
+  --color-molina-teal: #004d40;
+  --color-molina-mint: #00c853;
+  --color-molina-surface: #ffffff;
+  --color-molina-ink: #000000;
+}
+
+html.a11y-large-text {
+  font-size: 112.5%;
+}

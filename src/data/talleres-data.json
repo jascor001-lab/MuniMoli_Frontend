@@ -1,0 +1,362 @@
+{
+  "scrapedAt": "2026-07-17T22:20:29.088Z",
+  "sourceUrl": "https://portal.munimolina.gob.pe/talleres",
+  "title": "TALLERES",
+  "categories": [
+    {
+      "slug": "culturales",
+      "title": "Culturales",
+      "pageTitle": "Talleres Culturales",
+      "breadcrumb": "Talleres > 2025",
+      "sourceUrl": "https://portal.munimolina.gob.pe/talleres_culturales/",
+      "icon": {
+        "type": "svg",
+        "url": "/images/talleres/icons/culturales.svg"
+      },
+      "notice": null,
+      "headings": [
+        "Talleres Culturales",
+        "Talleres Culturales"
+      ],
+      "images": [
+        {
+          "url": "/images/talleres/culturales/culturales-01.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/05/501542945_1176296294536752_5370724641337550387_n.jpg",
+          "alt": "501542945 1176296294536752 5370724641337550387 n",
+          "title": "501542945 1176296294536752 5370724641337550387 n",
+          "bytes": 474889
+        },
+        {
+          "url": "/images/talleres/culturales/culturales-02.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/05/500669324_1176296374536744_5556603073493693410_n.jpg",
+          "alt": "500669324 1176296374536744 5556603073493693410 n",
+          "title": "500669324 1176296374536744 5556603073493693410 n",
+          "bytes": 131315
+        },
+        {
+          "url": "/images/talleres/culturales/culturales-03.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/05/501644356_1176296471203401_3134236930201371886_n.jpg",
+          "alt": "501644356 1176296471203401 3134236930201371886 n",
+          "title": "501644356 1176296471203401 3134236930201371886 n",
+          "bytes": 126823
+        },
+        {
+          "url": "/images/talleres/culturales/culturales-04.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/05/502524228_1176296547870060_3393767983461719618_n.jpg",
+          "alt": "502524228 1176296547870060 3393767983461719618 n",
+          "title": "502524228 1176296547870060 3393767983461719618 n",
+          "bytes": 105816
+        }
+      ]
+    },
+    {
+      "slug": "deportivos-moliactivate",
+      "title": "Deportivos y Moliactívate",
+      "pageTitle": "Deportivos 2025",
+      "breadcrumb": "Talleres > 2025",
+      "sourceUrl": "https://portal.munimolina.gob.pe/molimuevet-deportivo/",
+      "icon": {
+        "type": "svg",
+        "url": "/images/talleres/icons/deportivos.svg"
+      },
+      "notice": null,
+      "headings": [
+        "Talleres 2025",
+        "Deportivos 2025"
+      ],
+      "images": [
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-01.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/6.jpg",
+          "alt": "Taller deportivo 6",
+          "title": "Taller deportivo 6",
+          "bytes": 113588
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-02.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/5.jpg",
+          "alt": "Taller deportivo 5",
+          "title": "Taller deportivo 5",
+          "bytes": 118881
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-03.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/4.jpg",
+          "alt": "Taller deportivo 4",
+          "title": "Taller deportivo 4",
+          "bytes": 147533
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-04.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/3.jpg",
+          "alt": "Taller deportivo 3",
+          "title": "Taller deportivo 3",
+          "bytes": 152234
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-05.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/2.jpg",
+          "alt": "Taller deportivo 2",
+          "title": "Taller deportivo 2",
+          "bytes": 252887
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-06.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/1.jpg",
+          "alt": "Taller deportivo 1",
+          "title": "Taller deportivo 1",
+          "bytes": 217162
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-07.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/rubgy-tiro-al-arco.jpg",
+          "alt": "Rugby y tiro al arco",
+          "title": "Rugby y tiro al arco",
+          "bytes": 154223
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-08.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/tennis-campo.jpg",
+          "alt": "Tenis y fútbol de campo",
+          "title": "Tenis y fútbol de campo",
+          "bytes": 152342
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-09.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/patinaje-skateboard.jpg",
+          "alt": "Patinaje y skateboard",
+          "title": "Patinaje y skateboard",
+          "bytes": 122533
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-10.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/natacion.jpg",
+          "alt": "Natación",
+          "title": "Natación",
+          "bytes": 171990
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-11.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/kunfukids-esgrima.jpg",
+          "alt": "Kung Fu Kids y esgrima",
+          "title": "Kung Fu Kids y esgrima",
+          "bytes": 168068
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-12.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/judo-taekwondo.jpg",
+          "alt": "Judo y taekwondo",
+          "title": "Judo y taekwondo",
+          "bytes": 168167
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-13.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/karts-patinaje-sobre-hielo.jpg",
+          "alt": "Karts y patinaje sobre hielo",
+          "title": "Karts y patinaje sobre hielo",
+          "bytes": 168048
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-14.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/jiujitsu-karate.jpg",
+          "alt": "Jiu-jitsu y kárate",
+          "title": "Jiu-jitsu y kárate",
+          "bytes": 175254
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-15.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/futsal-basket.jpg",
+          "alt": "Futsal y básquet",
+          "title": "Futsal y básquet",
+          "bytes": 191011
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-16.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/fiutbol.jpg",
+          "alt": "Fútbol",
+          "title": "Fútbol",
+          "bytes": 172362
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-17.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/boxeo.jpg",
+          "alt": "Boxeo",
+          "title": "Boxeo",
+          "bytes": 140663
+        },
+        {
+          "url": "/images/talleres/deportivos-moliactivate/deportivos-moliactivate-18.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/12/voley-ajedrez.jpg",
+          "alt": "Vóley y ajedrez",
+          "title": "Vóley y ajedrez",
+          "bytes": 179182
+        }
+      ]
+    },
+    {
+      "slug": "productivos",
+      "title": "Productivos",
+      "pageTitle": "Productivos",
+      "breadcrumb": "Talleres > 2025",
+      "sourceUrl": "https://portal.munimolina.gob.pe/productivos/",
+      "icon": {
+        "type": "fa",
+        "name": "theater-masks"
+      },
+      "notice": null,
+      "headings": [
+        "Talleres",
+        "Productivos"
+      ],
+      "images": [
+        {
+          "url": "/images/talleres/productivos/productivos-01.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/POST-CURSOS-VIRTUALES-1-ABRIL.png",
+          "alt": "Cursos virtuales — Abril",
+          "title": "Cursos virtuales — Abril",
+          "bytes": 528069
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-02.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Confeccion-Textil_Mar-Jue_Manana.png",
+          "alt": "Curso: Confección Textil Mar-Jue Mañana",
+          "title": "Curso: Confección Textil Mar-Jue Mañana",
+          "bytes": 718442
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-03.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Confeccion-Textil_Mar-Jue_Tarde.png",
+          "alt": "Curso: Confección Textil Mar-Jue Tarde",
+          "title": "Curso: Confección Textil Mar-Jue Tarde",
+          "bytes": 766402
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-04.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Digitacion-y-Procesador-de-Textos.png",
+          "alt": "Curso: Digitación y Procesador de Textos",
+          "title": "Curso: Digitación y Procesador de Textos",
+          "bytes": 665343
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-05.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Diseno-Grafico-Digital.png",
+          "alt": "Curso: Diseño Gráfico Digital",
+          "title": "Curso: Diseño Gráfico Digital",
+          "bytes": 639801
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-06.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Estetica-Personal.png",
+          "alt": "Curso: Estética Personal",
+          "title": "Curso: Estética Personal",
+          "bytes": 733421
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-07.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Hoja-de-Calculo.png",
+          "alt": "Curso: Hoja de Cálculo",
+          "title": "Curso: Hoja de Cálculo",
+          "bytes": 657197
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-08.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Mantenimiento-de-Equipos-de-Computo-y-CCTV.png",
+          "alt": "Curso: Mantenimiento de Equipos de Cómputo y CCTV",
+          "title": "Curso: Mantenimiento de Equipos de Cómputo y CCTV",
+          "bytes": 748603
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-09.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/PROGRAMA-Costura-y-Acabados.png",
+          "alt": "Programa: Costura y Acabados",
+          "title": "Programa: Costura y Acabados",
+          "bytes": 693138
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-10.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/PROGRAMA-Peluqueria-y-Barberia.png",
+          "alt": "Programa: Peluquería y Barbería",
+          "title": "Programa: Peluquería y Barbería",
+          "bytes": 791632
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-11.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/PROGRAMA-Soporte-Tecnico-y-Operaciones-de-Centro-de-Computo.png",
+          "alt": "Programa: Soporte Técnico y Operaciones de Centro de Cómputo",
+          "title": "Programa: Soporte Técnico y Operaciones de Centro de Cómputo",
+          "bytes": 796491
+        },
+        {
+          "url": "/images/talleres/productivos/productivos-12.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/CURSO-Confeccion-Textil_Lun-Mie-Vie.png",
+          "alt": "Curso: Confección Textil Lun-Mié-Vie",
+          "title": "Curso: Confección Textil Lun-Mié-Vie",
+          "bytes": 733212
+        }
+      ]
+    },
+    {
+      "slug": "omaped-2024",
+      "title": "OMAPED 2024",
+      "pageTitle": "OMAPED 2024",
+      "breadcrumb": "Talleres > 2024",
+      "sourceUrl": "https://portal.munimolina.gob.pe/omaped-2/",
+      "icon": {
+        "type": "svg",
+        "url": "/images/talleres/icons/omaped.svg"
+      },
+      "notice": "Próximamente",
+      "headings": [
+        "Talleres",
+        "OMAPED 2024"
+      ],
+      "images": []
+    },
+    {
+      "slug": "adulto-mayor",
+      "title": "Adulto Mayor",
+      "pageTitle": "Adulto Mayor",
+      "breadcrumb": "Talleres > 2025",
+      "sourceUrl": "https://portal.munimolina.gob.pe/culturales/",
+      "icon": {
+        "type": "svg",
+        "url": "/images/talleres/icons/adulto-mayor.svg"
+      },
+      "notice": null,
+      "headings": [
+        "Talleres",
+        "Adulto Mayor"
+      ],
+      "images": [
+        {
+          "url": "/images/talleres/adulto-mayor/adulto-mayor-01.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/486467508_1126781999488182_1489101478566474999_n.jpg",
+          "alt": "486467508 1126781999488182 1489101478566474999 n",
+          "title": "486467508 1126781999488182 1489101478566474999 n",
+          "bytes": 298858
+        },
+        {
+          "url": "/images/talleres/adulto-mayor/adulto-mayor-02.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/487096499_1126781946154854_2330632412230640878_n.jpg",
+          "alt": "487096499 1126781946154854 2330632412230640878 n",
+          "title": "487096499 1126781946154854 2330632412230640878 n",
+          "bytes": 344026
+        },
+        {
+          "url": "/images/talleres/adulto-mayor/adulto-mayor-03.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/487504194_1126781929488189_4353103810446917022_n.jpg",
+          "alt": "487504194 1126781929488189 4353103810446917022 n",
+          "title": "487504194 1126781929488189 4353103810446917022 n",
+          "bytes": 307738
+        },
+        {
+          "url": "/images/talleres/adulto-mayor/adulto-mayor-04.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2025/04/485991596_1126781962821519_38372809383186312_n.jpg",
+          "alt": "485991596 1126781962821519 38372809383186312 n",
+          "title": "485991596 1126781962821519 38372809383186312 n",
+          "bytes": 302596
+        }
+      ]
+    }
+  ]
+}

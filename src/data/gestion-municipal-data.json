@@ -1,0 +1,885 @@
+{
+  "scrapedAt": "2026-07-17T22:44:02.083Z",
+  "title": "Gestión Municipal",
+  "sourceUrl": "https://portal.munimolina.gob.pe/gestion-municipal/",
+  "images": [
+    {
+      "url": "/images/gestion-municipal/hub/hub-01.png",
+      "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/fachada-qii77tagiyqfxvrstys62ma041kkdr7v21639c71qg.png",
+      "bytes": 1273303
+    },
+    {
+      "url": "/images/gestion-municipal/hub/hub-02.jpg",
+      "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/Nuevo-Palacio-Municipal-y-Parque-Principal-del-Distrito-scaled-pbioq1in2tzqys2f237sfe9xsk0zs6fw8opftjeijc.jpg",
+      "bytes": 219134
+    }
+  ],
+  "sections": [
+    {
+      "slug": "alcalde",
+      "title": "Alcalde",
+      "summary": "Al iniciar este periodo de gobierno municipal, junto con mi Concejo de Regidores, e inspirados por un fuerte sentimiento de amor por el Perú…",
+      "sourceUrl": "https://portal.munimolina.gob.pe/alcalde-nuevo/",
+      "headings": [
+        "ESTEBAN UCEDA GUERRA GARCÍA",
+        "uceda@munimolina.gob.pe"
+      ],
+      "paragraphs": [
+        "Damos inicio a una nueva etapa municipal Como alcalde de la Molina, me siento honrado de liderar un trabajo integral por nuestro distrito, en conjunto con un destacado equipo de profesionales altamente calificados y dedicados a trabajar por el bienestar de nuestros vecinos.",
+        "Sabemos que enfrentaremos desafíos y obstáculos a lo largo del camino, pero estoy seguro de que lograremos superarlos si trabajamos en conjunto con nuestra querida comunidad."
+      ],
+      "images": [
+        {
+          "url": "/images/gestion-municipal/alcalde/alcalde-01.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2022/12/foto-1-min.png",
+          "bytes": 840037
+        }
+      ],
+      "documents": [],
+      "tables": [],
+      "people": [],
+      "commissions": [],
+      "orgStructure": [],
+      "recognitionBlocks": [],
+      "profile": {
+        "name": "ESTEBAN UCEDA GUERRA GARCÍA",
+        "role": "Alcalde",
+        "email": "uceda@munimolina.gob.pe",
+        "photo": "/images/gestion-municipal/alcalde/alcalde-01.png"
+      }
+    },
+    {
+      "slug": "vision-y-objetivos",
+      "title": "Visión y Objetivos Estratégicos",
+      "summary": "La visión compartida del desarrollo distrital de La Molina para el largo plazo (2017 - 2030) es: \"El ciudadano de La Molina, al año 2030, vive en una ciudad…\"",
+      "sourceUrl": "https://portal.munimolina.gob.pe/vision-y-objetivos-estrategicos/",
+      "headings": [
+        "Visión Concertada",
+        "Misión Institucional",
+        "Objetivos Estratégicos"
+      ],
+      "paragraphs": [
+        "Al 2050, somos un país democrático, respetuoso del Estado de derecho y de la institucionalidad, integrado al mundo y proyectado hacia un futuro que garantiza la defensa de la persona humana y de su dignidad en todo el territorio nacional. Estamos orgullosos de nuestra identidad, propia de la diversidad étnica, cultural y lingüística del país. Respetamos nuestra historia y patrimonio milenario, y protegemos nuestra biodiversidad.",
+        "El Estado constitucional es unitario y descentralizado. Su accionar es ético, transparente, eficaz, eficiente, moderno y con enfoque intercultural.",
+        "Juntos, hemos logrado un desarrollo inclusivo, en igualdad de oportunidades, competitivo y sostenible en todo el territorio nacional, que ha permitido erradicar la pobreza extrema y asegurar el fortalecimiento de la familia.",
+        "«Brindar servicios públicos de calidad a la población de La Molina, promoviendo el desarrollo integral, tecnológico, moderno, sostenible y en armonía con el medio ambiente, a través de una gestión inclusiva y participativa»."
+      ],
+      "images": [
+        {
+          "url": "/images/gestion-municipal/vision-y-objetivos/vision-y-objetivos-01.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2020/09/visi.png",
+          "bytes": 2868487
+        }
+      ],
+      "documents": [],
+      "tables": [
+        {
+          "headers": [
+            "CÓDIGO",
+            "OBJETIVO ESTRATÉGICO INSTITUCIONAL"
+          ],
+          "rows": [
+            [
+              "OEI.01",
+              "Fortalecer la prevención y disuasión del delito y violencia en beneficio de la población local."
+            ],
+            [
+              "OEI.02",
+              "Fortalecer el acceso a la atención primaria de salud preventiva de la población local."
+            ],
+            [
+              "OEI.03",
+              "Mejorar el acceso a servicios de protección social y defensa de derechos de la población en situación de vulnerabilidad de la localidad."
+            ],
+            [
+              "OEI.04",
+              "Promover el ordenamiento territorial en beneficio de la población local."
+            ],
+            [
+              "OEI.05",
+              "Mejorar el servicio de transporte y transitabilidad en beneficio de la población local."
+            ],
+            [
+              "OEI.06",
+              "Impulsar el crecimiento de la actividad empresarial, de emprendimientos y MYPES en la localidad."
+            ],
+            [
+              "OEI.07",
+              "Promover condiciones ambientales saludables y sostenibles para la población local."
+            ],
+            [
+              "OEI.08",
+              "Reducir la exposición al riesgo de desastres de origen natural o antrópico de la población local."
+            ],
+            [
+              "OEI.09",
+              "Promover el acceso a servicios educativos, deportivos y recreacionales con enfoque intercultural e inclusivo para la población local."
+            ],
+            [
+              "OEI.10",
+              "Modernizar la Gestión Institucional."
+            ]
+          ]
+        }
+      ],
+      "people": [],
+      "commissions": [],
+      "orgStructure": [],
+      "recognitionBlocks": [],
+      "profile": null
+    },
+    {
+      "slug": "concejo-municipal",
+      "title": "Concejo Municipal",
+      "summary": "El Concejo Municipal está integrado por el Alcalde quien lo preside y por los Regidores.",
+      "sourceUrl": "https://portal.munimolina.gob.pe/concejo-municipal-nuevo/",
+      "headings": [
+        "Concejo Municipal",
+        "mquintana@munimolina.gob.pe",
+        "mferrari@munimolina.gob.pe",
+        "ppalomino@munimolina.gob.pe",
+        "ltaurer@munimolina.gob.pe",
+        "rsanchez@munimolina.gob.pe",
+        "fvasquez@munimolina.gob.pe",
+        "fsacha@munimolina.gob.pe",
+        "fnavarro@munimolina.gob.pe",
+        "apuga@munimolina.gob.pe",
+        "ctalavera@munimolina.gob.pe",
+        "mespinoza@munimolina.gob.pe"
+      ],
+      "paragraphs": [
+        "Maria Milagros Ferrari Valderrama",
+        "Percy Antonio Palomino Marín",
+        "Larissa Antonella Taurer Morays",
+        "Dolly Fabiola Vásquez Angulo",
+        "Francis Marcelo Sacha Rodríguez",
+        "Francisca Fausta Navarro Huamani",
+        "Álvaro Ricardo Puga Sánchez",
+        "Carlos Javier Talavera Álvarez",
+        "María Perla Espinoza Aquino"
+      ],
+      "images": [
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-01.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/11-min.png",
+          "bytes": 5328986
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-02.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2026/06/0806-FOTO-REGIDORA_Maria-Milagros-Ferrari-Valderrama.jpg",
+          "bytes": 6048454
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-03.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/01-min.png",
+          "bytes": 5721743
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-04.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/09/Larissa-Antonella-Taurer-Morays.jpg",
+          "bytes": 213750
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-05.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/02-min.png",
+          "bytes": 5200141
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-06.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/09-min.png",
+          "bytes": 5643964
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-07.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/03-min.png",
+          "bytes": 5381908
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-08.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/05-min.png",
+          "bytes": 5465674
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-09.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/07-min.png",
+          "bytes": 5504488
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-10.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/10-min.png",
+          "bytes": 5355414
+        },
+        {
+          "url": "/images/gestion-municipal/concejo-municipal/concejo-municipal-11.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2023/01/04-min.png",
+          "bytes": 5399054
+        }
+      ],
+      "documents": [],
+      "tables": [],
+      "people": [
+        {
+          "role": "Regidora",
+          "name": "Milagritos Esther Quintana Mogollon",
+          "email": "mquintana@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-01.png"
+        },
+        {
+          "role": "Regidora",
+          "name": "Maria Milagros Ferrari Valderrama",
+          "email": "mferrari@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-02.jpg"
+        },
+        {
+          "role": "Regidor",
+          "name": "Percy Antonio Palomino Marín",
+          "email": "ppalomino@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-03.png"
+        },
+        {
+          "role": "Regidora",
+          "name": "Larissa Antonella Taurer Morays",
+          "email": "ltaurer@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-04.jpg"
+        },
+        {
+          "role": "Regidor",
+          "name": "Ralph Sánchez Yaringaño",
+          "email": "rsanchez@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-05.png"
+        },
+        {
+          "role": "Regidora",
+          "name": "Dolly Fabiola Vásquez Angulo",
+          "email": "fvasquez@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-06.png"
+        },
+        {
+          "role": "Regidor",
+          "name": "Francis Marcelo Sacha Rodríguez",
+          "email": "fsacha@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-07.png"
+        },
+        {
+          "role": "Regidora",
+          "name": "Francisca Fausta Navarro Huamani",
+          "email": "fnavarro@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-08.png"
+        },
+        {
+          "role": "Regidor",
+          "name": "Álvaro Ricardo Puga Sánchez",
+          "email": "apuga@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-09.png"
+        },
+        {
+          "role": "Regidor",
+          "name": "Carlos Javier Talavera Álvarez",
+          "email": "ctalavera@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-10.png"
+        },
+        {
+          "role": "Regidora",
+          "name": "María Perla Espinoza Aquino",
+          "email": "mespinoza@munimolina.gob.pe",
+          "photo": "/images/gestion-municipal/concejo-municipal/concejo-municipal-11.png"
+        }
+      ],
+      "commissions": [],
+      "orgStructure": [],
+      "recognitionBlocks": [],
+      "profile": null
+    },
+    {
+      "slug": "estructura-organica",
+      "title": "Estructura Orgánica",
+      "summary": "La Estructura Orgánica de la Municipalidad Distrital de La Molina es la siguiente:",
+      "sourceUrl": "https://portal.munimolina.gob.pe/composicion/",
+      "headings": [
+        "Estructura Orgánica"
+      ],
+      "paragraphs": [
+        "▶ Concejo Municipal ▶ Alcaldía",
+        "▶ Consejo de Coordinación Local Distrital ▶ Juntas de Delegados Vecinales",
+        "▶ Órgano de Control Institucional",
+        "▶ Procuraduría Pública Municipal",
+        "▶ Oficina General de Asesoría Jurídica ▶ Oficina General de Planeamiento, Presupuesto y Desarrollo Institucional Oficina de Planeamiento, Inversiones y Modernización Institucional",
+        "Oficina de Tecnologías de la Información y Estadística",
+        "▶ Oficina General de Secretaría de Concejo Oficina de Gestión Documentaria y Atención al Ciudadano",
+        "Oficina de Gestión de Recursos Humanos",
+        "Oficina de Contabilidad y Costos",
+        "Oficina de Abastecimiento",
+        "Oficina de Servicios Generales y Patrimonio",
+        "▶ Gerencia de Administración Tributaria Subgerencia de Registro y Fiscalización Tributaria",
+        "Subgerencia de Recaudación y Ejecutoría Coactiva",
+        "▶ Gerencia de Desarrollo Urbano",
+        "Subgerencia de Obras Privadas",
+        "Subgerencia de Habilitaciones Urbanas, Planeamiento Urbano y Catastro",
+        "Subgerencia de Estudios y Proyectos",
+        "Subgerencia de Promoción Empresarial y Autorizaciones",
+        "Subgerencia de Ecología y Operaciones Ambientales",
+        "Subgerencia de Obras Públicas",
+        "Subgerencia de Gestión del Riesgo de Desastres",
+        "Subgerencia de Movilidad Sostenible y Transitabilidad",
+        "Subgerencia de Fiscalización Administrativa",
+        "Subgerencia de Programas Sociales"
+      ],
+      "images": [],
+      "documents": [],
+      "tables": [],
+      "people": [],
+      "commissions": [],
+      "orgStructure": [
+        {
+          "title": "Órgano de Alta Dirección",
+          "items": [
+            "Concejo Municipal",
+            "Alcaldía",
+            "Gerencia Municipal"
+          ]
+        },
+        {
+          "title": "Órganos Consultivos",
+          "items": [
+            "Consejo de Coordinación Local Distrital",
+            "Juntas de Delegados Vecinales"
+          ]
+        },
+        {
+          "title": "Órgano de Control Institucional",
+          "items": [
+            "Órgano de Control Institucional"
+          ]
+        },
+        {
+          "title": "Órgano de Defensa Jurídica",
+          "items": [
+            "Procuraduría Pública Municipal"
+          ]
+        },
+        {
+          "title": "Administración Interna: Órganos de Asesoramiento",
+          "items": [
+            "Oficina General de Asesoría Jurídica",
+            "Oficina General de Planeamiento, Presupuesto y Desarrollo Institucional",
+            "Oficina de Planeamiento, Inversiones y Modernización Institucional",
+            "Oficina de Tecnologías de la Información y Estadística"
+          ]
+        },
+        {
+          "title": "Administración Interna: Órganos de Apoyo",
+          "items": [
+            "Oficina General de Secretaría de Concejo",
+            "Oficina de Gestión Documentaria y Atención al Ciudadano",
+            "Oficina General de Integridad Institucional",
+            "Oficina General de Comunicaciones e Imagen Institucional",
+            "Oficina General de Administración y Finanzas",
+            "Oficina de Gestión de Recursos Humanos",
+            "Oficina de Tesorería",
+            "Oficina de Contabilidad y Costos",
+            "Oficina de Abastecimiento",
+            "Oficina de Servicios Generales y Patrimonio"
+          ]
+        },
+        {
+          "title": "Órganos de Línea",
+          "items": [
+            "Gerencia de Administración Tributaria",
+            "Subgerencia de Registro y Fiscalización Tributaria",
+            "Subgerencia de Recaudación y Ejecutoría Coactiva",
+            "Gerencia de Desarrollo Urbano",
+            "Subgerencia de Obras Privadas",
+            "Subgerencia de Habilitaciones Urbanas, Planeamiento Urbano y Catastro",
+            "Subgerencia de Estudios y Proyectos",
+            "Gerencia de Desarrollo Económico e Inversión Privada",
+            "Subgerencia de Promoción Empresarial y Autorizaciones",
+            "Gerencia de Desarrollo Sostenible y Servicios a la Ciudad",
+            "Subgerencia de Ecología y Operaciones Ambientales",
+            "Subgerencia de Obras Públicas",
+            "Gerencia de Seguridad Ciudadana y Vial",
+            "Subgerencia de Serenazgo",
+            "Subgerencia de Gestión del Riesgo de Desastres",
+            "Subgerencia de Movilidad Sostenible y Transitabilidad",
+            "Subgerencia de Fiscalización Administrativa",
+            "Gerencia de Desarrollo Social, Educación y Cultura",
+            "Subgerencia de Programas Sociales",
+            "Gerencia de Deporte, Recreación y Turismo",
+            "Gerencia de Participación Vecinal"
+          ]
+        }
+      ],
+      "recognitionBlocks": [],
+      "profile": null
+    },
+    {
+      "slug": "comisiones",
+      "title": "Comisiones",
+      "summary": "Órganos consultivos del Concejo Municipal que tienen como finalidad realizar estudios e investigaciones en relación a la conformación de sus competencias.",
+      "sourceUrl": "https://portal.munimolina.gob.pe/comisiones/",
+      "headings": [
+        "Comisiones"
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "url": "/images/gestion-municipal/comisiones/comisiones-01.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/Sin-título-1-scaled-pbioq91a5sow3crvube8hmrwa1ckjaupve02cgvfkk.jpg",
+          "bytes": 167915
+        }
+      ],
+      "documents": [],
+      "tables": [],
+      "people": [],
+      "commissions": [
+        {
+          "title": "Comisión de Asuntos Jurídicos",
+          "presidente": "Ralph Sánchez Yaringaño",
+          "vicepresidente": "Dolly Fabiola Vásquez Angulo",
+          "miembros": [
+            "Francis Marcelo Sacha Rodríguez"
+          ]
+        },
+        {
+          "title": "Comisión de Administración Financiera, Tributaria, Presupuesto, Cumplimiento y Tecnologías de la Información",
+          "presidente": "Francis Marcelo Sacha Rodríguez",
+          "vicepresidente": "Larissa Antonella Taurer Morays",
+          "miembros": [
+            "Dolly Fabiola Vásquez Angulo"
+          ]
+        },
+        {
+          "title": "Comisión de Desarrollo Urbano y Económico",
+          "presidente": "Dolly Fabiola Vásquez Angulo",
+          "vicepresidente": "Ralph Sánchez Yaringaño",
+          "miembros": [
+            "Larissa Antonella Taurer Morays"
+          ]
+        },
+        {
+          "title": "Comisión de Desarrollo Sostenible y Servicios a la Ciudad",
+          "presidente": "Larissa Antonella Taurer Morays",
+          "vicepresidente": "Álvaro Ricardo Puga Sánchez",
+          "miembros": [
+            "Francisca Fausta Navarro Huamaní"
+          ]
+        },
+        {
+          "title": "Comisión de Seguridad Ciudadana y Vial",
+          "presidente": "Álvaro Ricardo Puga Sánchez",
+          "vicepresidente": "Francis Marcelo Sacha Rodríguez",
+          "miembros": [
+            "Milagritos Esther Quintana Mogollón",
+            "María Perla Espinoza Aquino"
+          ]
+        },
+        {
+          "title": "Comisión de Participación Vecinal, Desarrollo Humano, Educación y Comunicaciones",
+          "presidente": "Ralph Sánchez Yaringaño",
+          "vicepresidente": "Percy Antonio Palomino Marín",
+          "miembros": [
+            "Álvaro Ricardo Puga Sánchez"
+          ]
+        }
+      ],
+      "orgStructure": [],
+      "recognitionBlocks": [],
+      "profile": null
+    },
+    {
+      "slug": "funcionarios",
+      "title": "Funcionarios",
+      "summary": "Listado de nuestros funcionarios.",
+      "sourceUrl": "https://portal.munimolina.gob.pe/funcionarios-actuales/",
+      "headings": [
+        "Funcionarios"
+      ],
+      "paragraphs": [
+        "Central Telefónica: (01) 754 4000"
+      ],
+      "images": [],
+      "documents": [],
+      "tables": [
+        {
+          "headers": [
+            "Área",
+            "Nombres y Apellidos",
+            "Cargo",
+            "Anexo",
+            "Correo"
+          ],
+          "rows": [
+            [
+              "Alcaldía",
+              "Esteban Uceda Guerra García",
+              "Alcalde",
+              "",
+              "uceda@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia Municipal",
+              "Liliana Antonieta Loayza Manrique de Romero",
+              "Gerente Municipal",
+              "260",
+              "lloayza@munimolina.gob.pe"
+            ],
+            [
+              "Órgano de Control Institucional",
+              "Nelly Catherine Bendezu Tudela",
+              "Gerente",
+              "281",
+              "nbendezu@munimolina.gob.pe"
+            ],
+            [
+              "Procuraduría Pública Municipal",
+              "Juan Miguel Castillo Panta",
+              "Procurador Público",
+              "258",
+              "jcastillo@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Asesoría Jurídica",
+              "Rober Chuquizuta Ángeles",
+              "Jefe de Oficina General",
+              "274",
+              "rchuquizuta@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Planeamiento, Presupuesto y Desarrollo Institucional",
+              "Tatiana Naldos Torres",
+              "Jefe de Oficina General",
+              "283",
+              "tnaldos@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Planeamiento, Inversiones y Modernización Institucional",
+              "Rosario Alicia Ramos Cazorla",
+              "Jefe de Oficina",
+              "228",
+              "rramosc@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Tecnologías de la Información y Estadística",
+              "Luis Alberto Velásquez Mendoza",
+              "Jefe de Oficina (dt)",
+              "444",
+              "lvelasquez@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Secretaría de Concejo",
+              "Andrés Martin Bermúdez",
+              "Jefe de Oficina General",
+              "255",
+              "abermudez@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Gestión Documentaria y Atención al Ciudadano",
+              "Carlos Daniel Mansilla De Vivero",
+              "Jefe de Oficina",
+              "357",
+              "cmansilla@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Integridad Institucional",
+              "Diana Patricia Reyes Campos",
+              "Jefe de Oficina General",
+              "457",
+              "dreyes@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Comunicaciones e Imagen Institucional",
+              "Gladys Cecilia Espinoza Ballón",
+              "Jefe de Oficina General",
+              "456 207",
+              "gespinoza@munimolina.gob.pe"
+            ],
+            [
+              "Oficina General de Administración y Finanzas",
+              "Luis Alberto Velásquez Mendoza",
+              "Jefe de Oficina General (dt)",
+              "253",
+              "lvelasquez@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Gestión de Recursos Humanos",
+              "José Romario Chacaltana Godoy",
+              "Jefe de Oficina",
+              "313 234",
+              "jchacaltana@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Tesorería",
+              "Richard Abraham Ponce Apaza",
+              "Jefe de Oficina",
+              "231",
+              "rponce@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Contabilidad y Costos",
+              "Lorenzo Walter Pedraza Lopez",
+              "Jefe de Oficina(dt)",
+              "275",
+              "lpedraza@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Abastecimiento",
+              "Thenar Gonzales Estrada",
+              "Jefe de Oficina",
+              "269",
+              "tgonzales@munimolina.gob.pe"
+            ],
+            [
+              "Oficina de Servicios Generales y Patrimonio",
+              "Tatiana Naldos Torres",
+              "Jefe de Oficina(dt)",
+              "",
+              "tnaldos@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Administración Tributaria",
+              "Julio Córdova Velásquez",
+              "Gerente",
+              "254",
+              "jcordova@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Registro y Fiscalización Tributaria",
+              "Nieves Mercedes Castañeda",
+              "Subgerente",
+              "242",
+              "nmercedes@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Recaudación y Ejecutoria Coactiva",
+              "Julio Córdova Velásquez",
+              "Subgerente",
+              "279",
+              "jcordova@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Desarrollo Urbano",
+              "Zoila Victoria Lizárraga Verástegui de Alegre",
+              "Gerente",
+              "238",
+              "zlizarraga@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Obras Privadas",
+              "Gabriella Rosa María Cuadros Díaz",
+              "Subgerente",
+              "256",
+              "gcuadros@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Habilitaciones Urbanas, Planeamiento Urbano y Catastro",
+              "Haydee Josefina Yong Lee",
+              "Subgerente",
+              "321",
+              "hyong@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Gestión de Inversiones",
+              "Rene Alvarado Ortiz",
+              "Subgerente",
+              "",
+              "ralvarado@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Desarrollo Económico e Inversión Privada",
+              "Doris Violeta Alzamora Chamorro",
+              "Gerente",
+              "216",
+              "dalzamora@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Promoción Empresarial y Autorizaciones",
+              "Nieves Mercedes Castañeda",
+              "Subgerente(dt)",
+              "352",
+              "nmercedes@munimolina.gob.pe",
+              ""
+            ],
+            [
+              "Gerencia de Desarrollo Sostenible y Servicios a la Ciudad",
+              "Angel Huaccho Flores",
+              "Gerente",
+              "227",
+              "ahuaccho@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Ecología y Operaciones Ambientales",
+              "Shirley Sugey Nizama Santisteban",
+              "Subgerente",
+              "310",
+              "snizama@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Obras Públicas",
+              "Benjamín Richard Córdova Hurtado",
+              "Subgerente",
+              "309",
+              "bcordova@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Seguridad Ciudadana y Vial",
+              "Javier Hugo Avalos Arenas Klokoch",
+              "Gerente",
+              "387",
+              "javalosa@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Serenazgo",
+              "Omar Francisco Monge García",
+              "Subgerente(dt)",
+              "210",
+              "omonge@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Gestión del Riesgo de Desastres",
+              "Sergio Miguel Najar Melendez",
+              "Subgerente",
+              "280",
+              "snajar@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Movilidad Sostenible y Transitabilidad",
+              "Jhorlan Renato Nestares Talla",
+              "Subgerente (dt)",
+              "410",
+              "jnestares@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Fiscalización Administrativa",
+              "Jhorlan Renato Nestares Talla",
+              "Subgerente",
+              "226",
+              "jnestares@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Desarrollo Social, Educación y Cultura",
+              "Karina Isabel Wong Huamani",
+              "Gerente",
+              "235",
+              "kwong@munimolina.gob.pe"
+            ],
+            [
+              "Subgerencia de Programas Sociales",
+              "Elizabeth Rivera Galdos",
+              "Subgerente",
+              "288",
+              "erivera@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Deporte, Recreación y Turismo",
+              "Alberto Alejandro Bobadilla Galindo",
+              "Gerente",
+              "318",
+              "abobadilla@munimolina.gob.pe"
+            ],
+            [
+              "Gerencia de Participación Vecinal",
+              "Monica Maribel Dioses Castro",
+              "Gerente",
+              "367",
+              "mdioses@munimolina.gob.pe"
+            ]
+          ]
+        }
+      ],
+      "people": [],
+      "commissions": [],
+      "orgStructure": [],
+      "recognitionBlocks": [],
+      "profile": null
+    },
+    {
+      "slug": "reconocimientos",
+      "title": "Reconocimientos",
+      "summary": "Reconocimientos nacionales e internacionales que evidencian un modelo de gestión municipal orientado a mejorar la calidad de los servicios, a través de buenas prácticas organizacionales.",
+      "sourceUrl": "https://portal.munimolina.gob.pe/reconocimientos/",
+      "headings": [
+        "Reconocimientos",
+        "Reconocimientos",
+        "Reconocimiento al Programa de Educación, Cultura y Ciudadanía Ambiental - Educca de La Molina",
+        "Reconocimiento Internacional al Desarrollo Sostenible",
+        "Reconocimiento al cuidado del medio ambiente",
+        "Reconocimiento Internacional en calidad de Atención"
+      ],
+      "paragraphs": [
+        "El Ministerio del Ambiente, a través de la Dirección de Educación y Ciudadanía Ambiental, realiza el seguimiento y monitoreo de los Programas de Educación, Cultura y Ciudadanía Ambiental – Educca a nivel nacional, en cumplimiento de ello La Molina ha reportado los resultados que se han obtenido a nivel local con la implementación del Programa Educca – La Molina durante el periodo 2023, resultados que han sido considerados exitosos por esta entidad por lo que nos han otorgado una constancia.",
+        "Este reconocimiento considera las 2 líneas de acción trabajadas por el municipio I) Educación Ambiental Escolar con la formación de 154 promotores ambientales escolares y II) Educación Ambiental Comunitaria con 54 campañas y eventos dirigidos a la ciudadanía desarrollados exitosamente; 167 material comunicacional gráfico generados, la formación de promotores ambientales juveniles y comunitarios y el diseño e implementación de espacios públicos como el Centro de Educación Ambiental, el primero del Perú, donde recibimos mensualmente la vista de 150 personas .",
+        "Asimismo, se trabajaron varios temas ambientales como la gestión de residuos sólidos; la gestión del agua; la calidad del aire y ruido, el cambio climático, biodiversidad, la ecoeficiencia, movilidad sostenible y la reducción del uso de plásticos de un solo uso, siendo 12 659 personas sensibilizadas y educadas ambientalmente en el año 2023.",
+        "La Municipalidad de La Molina cumplió con la primera etapa de implementación de la Norma Internacional de Gobierno Confiable ISO 18091:2019.",
+        "Gracias a esta implementación, la institución obtuvo el reconocimiento Internacional por su “Compromiso Integral con los 17 Objetivos de Desarrollo Sostenible de la Agenda 2030 de las Naciones Unidas” otorgado el 27 de marzo por el Concejo Mundial de la Calidad; siendo el primer gobierno local de Sudamérica en obtener dicho reconocimiento.",
+        "Huella de Carbono Perú – Nivel 1 (año 2020): que permite reconocer cómo las organizaciones públicas y privadas han logrado gestionar sus emisiones de Gases de Efecto Invernadero (GEI) en beneficio del ambiente. Para reconocer este esfuerzo, el Ministerio del Ambiente entregó a la Municipalidad de La Molina el diploma adjunto.",
+        "Certificación del sistema de Gestión de La Calidad de la Municipalidad de La Molina, respecto a la atención al ciudadano en plataforma, ha sido aprobada por NQA con el certificado de ISO 9001:2015, versión en inglés."
+      ],
+      "images": [
+        {
+          "url": "/images/gestion-municipal/reconocimientos/reconocimientos-01.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/2024/02/Screenshot-2024-02-12-at-16-54-01-Contancia-Reporte-2023-EDUCCA-288-R-.pdf-Constancia-por-EDUCCA-2023-MD-LA-MOLINA-1-.pdf.png",
+          "bytes": 227811
+        },
+        {
+          "url": "/images/gestion-municipal/reconocimientos/reconocimientos-02.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/Comprimido-scaled-pbiopq84pxpv2yie1juuy8w5cwazfrb456ynzfylao.jpg",
+          "bytes": 42698
+        },
+        {
+          "url": "/images/gestion-municipal/reconocimientos/reconocimientos-03.png",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/Screenshot_3-pbiops3suu19hw9rq08ddfteeyw8dz9o5sg64b3cr4.png",
+          "bytes": 104330
+        },
+        {
+          "url": "/images/gestion-municipal/reconocimientos/reconocimientos-04.jpg",
+          "sourceUrl": "https://portal.munimolina.gob.pe/wp-content/uploads/elementor/thumbs/comprimido-3-scaled-pbiopq84pxpv2yie1juuy8w5cwazfrb456ynzfylao.jpg",
+          "bytes": 24263
+        }
+      ],
+      "documents": [],
+      "tables": [],
+      "people": [],
+      "commissions": [],
+      "orgStructure": [],
+      "recognitionBlocks": [
+        {
+          "title": "Reconocimiento al Programa de Educación, Cultura y Ciudadanía Ambiental - Educca de La Molina",
+          "paragraphs": [
+            "El Ministerio del Ambiente, a través de la Dirección de Educación y Ciudadanía Ambiental, realiza el seguimiento y monitoreo de los Programas de Educación, Cultura y Ciudadanía Ambiental – Educca a nivel nacional, en cumplimiento de ello La Molina ha reportado los resultados que se han obtenido a nivel local con la implementación del Programa Educca – La Molina durante el periodo 2023, resultados que han sido considerados exitosos por esta entidad por lo que nos han otorgado una constancia.",
+            "Este reconocimiento considera las 2 líneas de acción trabajadas por el municipio I) Educación Ambiental Escolar con la formación de 154 promotores ambientales escolares y II) Educación Ambiental Comunitaria con 54 campañas y eventos dirigidos a la ciudadanía desarrollados exitosamente; 167 material comunicacional gráfico generados, la formación de promotores ambientales juveniles y comunitarios y el diseño e implementación de espacios públicos como el Centro de Educación Ambiental, el primero del Perú, donde recibimos mensualmente la vista de 150 personas .",
+            "Asimismo, se trabajaron varios temas ambientales como la gestión de residuos sólidos; la gestión del agua; la calidad del aire y ruido, el cambio climático, biodiversidad, la ecoeficiencia, movilidad sostenible y la reducción del uso de plásticos de un solo uso, siendo 12 659 personas sensibilizadas y educadas ambientalmente en el año 2023."
+          ],
+          "images": [
+            "/images/gestion-municipal/reconocimientos/reconocimientos-02.jpg"
+          ]
+        },
+        {
+          "title": "Reconocimiento Internacional al Desarrollo Sostenible",
+          "paragraphs": [
+            "La Municipalidad de La Molina cumplió con la primera etapa de implementación de la Norma Internacional de Gobierno Confiable ISO 18091:2019.",
+            "Gracias a esta implementación, la institución obtuvo el reconocimiento Internacional por su “Compromiso Integral con los 17 Objetivos de Desarrollo Sostenible de la Agenda 2030 de las Naciones Unidas” otorgado el 27 de marzo por el Concejo Mundial de la Calidad; siendo el primer gobierno local de Sudamérica en obtener dicho reconocimiento."
+          ],
+          "images": [
+            "/images/gestion-municipal/reconocimientos/reconocimientos-03.png"
+          ]
+        },
+        {
+          "title": "Reconocimiento al cuidado del medio ambiente",
+          "paragraphs": [
+            "Huella de Carbono Perú – Nivel 1 (año 2020): que permite reconocer cómo las organizaciones públicas y privadas han logrado gestionar sus emisiones de Gases de Efecto Invernadero (GEI) en beneficio del ambiente. Para reconocer este esfuerzo, el Ministerio del Ambiente entregó a la Municipalidad de La Molina el diploma adjunto."
+          ],
+          "images": [
+            "/images/gestion-municipal/reconocimientos/reconocimientos-04.jpg"
+          ]
+        },
+        {
+          "title": "Reconocimiento Internacional en calidad de Atención",
+          "paragraphs": [
+            "Certificación del sistema de Gestión de La Calidad de la Municipalidad de La Molina, respecto a la atención al ciudadano en plataforma, ha sido aprobada por NQA con el certificado de ISO 9001:2015, versión en inglés."
+          ],
+          "images": []
+        }
+      ],
+      "profile": null
+    }
+  ]
+}

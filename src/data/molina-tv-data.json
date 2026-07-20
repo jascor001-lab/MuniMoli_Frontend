@@ -1,0 +1,1012 @@
+{
+  "scrapedAt": "2026-07-17T22:20:31.597Z",
+  "sourceUrl": "https://portal.munimolina.gob.pe/molina-tv/",
+  "title": "LA MOLINA TV",
+  "categories": [
+    {
+      "slug": "en-vivo",
+      "title": "EN VIVO",
+      "breadcrumb": "TV > En vivo",
+      "sourceUrl": "https://portal.munimolina.gob.pe/molina-tv-en-vivo/",
+      "headings": [
+        "LA MOLINA TV",
+        "Molina Tv"
+      ],
+      "videos": [
+        {
+          "title": "Transmisión en vivo — La Molina TV",
+          "url": "https://iblups.com/embed/municipalidaddelamolina",
+          "provider": "live",
+          "embedUrl": "https://iblups.com/embed/municipalidaddelamolina"
+        }
+      ]
+    },
+    {
+      "slug": "sesiones-concejo",
+      "title": "SESIONES DE CONCEJO MUNICIPAL",
+      "breadcrumb": "TV > Sesiones de Concejo Municipal",
+      "sourceUrl": "https://portal.munimolina.gob.pe/sesiones-de-concejo-municipal/",
+      "headings": [
+        "LA MOLINA TV",
+        "Sesiones de Concejo Municipal",
+        "Sesión Oordinaria 28-05-26 (10 am)",
+        "Sesión Oordinaria 28-05-26 (9 am)",
+        "Sesión Extraordinaria 24-04-26 (7 pm)",
+        "Sesión Ordinaria 24-04-26 (6 pm)",
+        "Sesión Ordinaria 24-04-26 (5 pm)",
+        "Sesión Ordinaria 20-03-26 (2 pm)",
+        "Sesión Ordinaria 24-02-26 (8 am)",
+        "Sesión Ordinaria 10-02-26 (9 am)",
+        "Sesión Ordinaria 10-02-26 (8 am)",
+        "Sesión Ordinaria 27-01-26 (9 am)",
+        "Sesión Ordinaria 27-01-26 (8 am)",
+        "Sesión Extraordinaria 16-01-26",
+        "Sesión Ordinaria 19-12-25 (5 pm)",
+        "Sesión Extraordinaria 12-12-25 (4 pm)",
+        "Sesión Ordinaria 10-12-25 (5 pm)",
+        "Sesión Ordinaria 26-11-25 (8 am)",
+        "Sesión Extraordinaria 19-11-25 (5 pm)",
+        "Sesión Ordinaria 22-10-25 (6 pm)",
+        "Sesión Ordinaria 22-10-25 (5 pm)",
+        "Sesión Extraordinaria 22-10-25 (4 pm)",
+        "Sesión de Concejo Municipal 29-09-25 (6 pm)",
+        "Sesión de Concejo Municipal 29-09-25 (5 pm)",
+        "Sesión de Concejo Municipal 29-09-25 (4 pm) II",
+        "Sesión de Concejo Municipal 29-09-25 (4 pm) I",
+        "Sesión de Concejo Municipal 12-08-25 (10 am)",
+        "Sesión de Concejo Municipal 12-08-25 (8 am)",
+        "Sesión de Concejo Municipal 05-06-25 (5 pm)",
+        "Sesión de Concejo Municipal 05-06-25 (4 pm)",
+        "Sesión de Concejo Municipal 30-05-25 (5 pm)",
+        "Sesión de Concejo Municipal 30-05-25 (4 pm)",
+        "Sesión de Concejo Municipal 30-04-25 (11 am)",
+        "Sesión de Concejo Municipal 30-04-25 (10 am)",
+        "Sesión de Concejo Municipal 30-04-25 (9 am)",
+        "Sesión de Concejo Municipal 28-04-25",
+        "Sesión de Concejo Municipal 28-04-25 (9 am)",
+        "Sesión de Concejo Municipal 28-03-25 (11 am)",
+        "Sesión de Concejo Municipal 28-03-25 (10 am)",
+        "Sesión de Concejo Municipal 28-03-25 (9 am)",
+        "Sesión de Concejo Municipal 25-03-25 (5 pm)",
+        "Sesión de Concejo Municipal 28-02-25 (10 am)",
+        "Sesión de Concejo Municipal 28-02-25 (8 am)",
+        "Sesión de Concejo Municipal 06-02-25",
+        "Sesión de Concejo Municipal15-01-25 (5 pm)",
+        "Sesión de Concejo Municipal 19-12-24 (4 pm - 5 pm)",
+        "Sesión de Concejo Municipal 05-12-24 (5 pm)",
+        "Sesión de Concejo Municipal 19-11-24 (5 pm -II)",
+        "Sesión de Concejo Municipal 19-11-24 (5 pm -I)",
+        "Sesión de Concejo Municipal 29-10-24 (6 pm)",
+        "Sesión de Concejo Municipal 29-10-24 (5 pm)",
+        "Sesión de Concejo Municipal 26-09-24 (12 pm)",
+        "Sesión de Concejo Municipal 24-09-24 (1 pm)",
+        "Sesión de Concejo Municipal 10-09-24 (4 pm)",
+        "Sesión de Concejo Municipal 04-09-24 (12 pm)",
+        "Sesión de Concejo Municipal 15-08-24 (1 pm)",
+        "Sesión de Concejo Municipal 15-08-24 (12 pm)",
+        "Sesión de Concejo Municipal 04-07-24 (5 pm)",
+        "Sesión de Concejo Municipal 04-07-24 (4 pm)",
+        "Sesión de Concejo Municipal 04-07-24 (3 pm)",
+        "Sesión de Concejo Municipal 17-06-24",
+        "Sesión de Concejo Municipal 29-05-24 (II)",
+        "Sesión de Concejo Municipal 29-05-24 (I)",
+        "Sesión de Concejo Municipal 03-05-24",
+        "Sesión de Concejo Municipal 30-04-24 (III)",
+        "Sesión de Concejo Municipal 30-04-24 (II)",
+        "Sesión de Concejo Municipal 30-04-24 (I)",
+        "Sesión de Concejo Municipal 27-03-24 (III)",
+        "Sesión de Concejo Municipal 27-03-24 (II)",
+        "Sesión de Concejo Municipal 27-03-24 (I)",
+        "Sesión de Concejo Municipal 11-03-24",
+        "Sesión de Concejo Municipal 16-02-24 (II)",
+        "Sesión de Concejo Municipal 16-02-24 (I)",
+        "Sesión de Concejo Municipal 02-02-24",
+        "Sesión de Concejo Municipal 31-01-24",
+        "Sesión de Concejo Municipal 22-01-24",
+        "Sesión de Concejo Municipal 22-12-23 (II)",
+        "Sesión de Concejo Municipal 22-12-23 (I)",
+        "Sesión de Concejo Municipal 15-12-23",
+        "Sesión de Concejo Municipal 11-12-23",
+        "Sesión de Concejo Municipal 04-12-23",
+        "Sesión de Concejo Municipal 30-11-23",
+        "Sesión de Concejo Municipal 24-11-23",
+        "Sesión de Concejo Municipal 20-11-23",
+        "Sesión de Concejo Municipal 31-10-2023 (II)",
+        "Sesión del Concejo Municipal 23-10-23 (I)",
+        "Sesión del Concejo Municipal 23-10-23",
+        "Sesión de Concejo Municipal 28-09-2023",
+        "Sesión de Concejo Municipal 20-09-2023",
+        "Sesión de Concejo Municipal N° 023 28-08-2023",
+        "Sesión de Concejo Municipal N° 022 28-08-2023",
+        "Sesión Solemne Fiestas Patrias N° 021 21-07-2023",
+        "Sesión de Concejo Municipal N° 020 21-07-2023",
+        "Sesión de Concejo Municipal N° 019 21-07-2023",
+        "Sesión de Concejo Municipal N° 018 21-07-2023",
+        "Sesión de Concejo Municipal N° 017 07-07-2023",
+        "Sesión de Concejo Municipal N° 016 28-06-2023",
+        "Sesión de Concejo Municipal N° 015 - 28-06-2023",
+        "Sesión de Concejo Municipal N° 014 - 29-05-2023",
+        "Sesión de Concejo Municipal 29-05-2023",
+        "Sesión de Concejo Municipal 27-04-2023",
+        "Sesión de Concejo Municipal 27-04-2023",
+        "Sesión de Concejo Municipal 14-03-2023",
+        "Sesión de Concejo Municipal 10-01-2023"
+      ],
+      "videos": [
+        {
+          "title": "Sesión Oordinaria 28-05-26 (10 am)",
+          "url": "https://www.youtube.com/watch?v=3fIaZbiYBJU",
+          "youtubeId": "3fIaZbiYBJU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/3fIaZbiYBJU"
+        },
+        {
+          "title": "Sesión Oordinaria 28-05-26 (9 am)",
+          "url": "https://www.youtube.com/watch?v=c5Gj8XGlDLo&t=2965s",
+          "youtubeId": "c5Gj8XGlDLo",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/c5Gj8XGlDLo"
+        },
+        {
+          "title": "Sesión Extraordinaria 24-04-26 (7 pm)",
+          "url": "https://www.youtube.com/watch?v=LKQ3ukS6NP0",
+          "youtubeId": "LKQ3ukS6NP0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/LKQ3ukS6NP0"
+        },
+        {
+          "title": "Sesión Ordinaria 24-04-26 (6 pm)",
+          "url": "https://www.youtube.com/watch?v=mg5kH2LdtjU",
+          "youtubeId": "mg5kH2LdtjU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/mg5kH2LdtjU"
+        },
+        {
+          "title": "Sesión Ordinaria 24-04-26 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=TrhE_I9JGOk&t=7498s&pp=0gcJCdgKAYcqIYzv",
+          "youtubeId": "TrhE_I9JGOk",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/TrhE_I9JGOk"
+        },
+        {
+          "title": "Sesión Ordinaria 20-03-26 (2 pm)",
+          "url": "https://www.youtube.com/watch?v=dwRCZ82NsUk",
+          "youtubeId": "dwRCZ82NsUk",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/dwRCZ82NsUk"
+        },
+        {
+          "title": "Sesión Ordinaria 24-02-26 (8 am)",
+          "url": "https://www.youtube.com/watch?v=PuPK19ZlB6M",
+          "youtubeId": "PuPK19ZlB6M",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/PuPK19ZlB6M"
+        },
+        {
+          "title": "Sesión Ordinaria 10-02-26 (9 am)",
+          "url": "https://www.youtube.com/watch?v=XHOmBV4js_E",
+          "youtubeId": "XHOmBV4js_E",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/XHOmBV4js_E"
+        },
+        {
+          "title": "Sesión Ordinaria 10-02-26 (8 am)",
+          "url": "https://www.youtube.com/watch?v=OKCq58vz9uw",
+          "youtubeId": "OKCq58vz9uw",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/OKCq58vz9uw"
+        },
+        {
+          "title": "Sesión Ordinaria 27-01-26 (9 am)",
+          "url": "https://www.youtube.com/watch?v=IWedYrc3vOY",
+          "youtubeId": "IWedYrc3vOY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/IWedYrc3vOY"
+        },
+        {
+          "title": "Sesión Ordinaria 27-01-26 (8 am)",
+          "url": "https://www.youtube.com/watch?v=B7mhFqfWvMo",
+          "youtubeId": "B7mhFqfWvMo",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/B7mhFqfWvMo"
+        },
+        {
+          "title": "Sesión Extraordinaria 16-01-26",
+          "url": "https://www.youtube.com/watch?v=cbn5uwqvprQ",
+          "youtubeId": "cbn5uwqvprQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/cbn5uwqvprQ"
+        },
+        {
+          "title": "Sesión Ordinaria 19-12-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=ifZcoSgF790",
+          "youtubeId": "ifZcoSgF790",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/ifZcoSgF790"
+        },
+        {
+          "title": "Sesión Extraordinaria 12-12-25 (4 pm)",
+          "url": "https://www.youtube.com/watch?v=pc3oK22ydGY",
+          "youtubeId": "pc3oK22ydGY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/pc3oK22ydGY"
+        },
+        {
+          "title": "Sesión Ordinaria 10-12-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=eJ1amiR1ctw",
+          "youtubeId": "eJ1amiR1ctw",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/eJ1amiR1ctw"
+        },
+        {
+          "title": "Sesión Ordinaria 26-11-25 (8 am)",
+          "url": "https://www.youtube.com/watch?v=8sAZIA3Phmc&t=9880s",
+          "youtubeId": "8sAZIA3Phmc",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/8sAZIA3Phmc"
+        },
+        {
+          "title": "Sesión Extraordinaria 19-11-25 (5 pm)",
+          "url": "https://youtu.be/4CcJ1xUHM-4",
+          "youtubeId": "4CcJ1xUHM-4",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/4CcJ1xUHM-4"
+        },
+        {
+          "title": "Sesión Ordinaria 22-10-25 (6 pm)",
+          "url": "https://youtu.be/G2PX3vaDo9Q",
+          "youtubeId": "G2PX3vaDo9Q",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/G2PX3vaDo9Q"
+        },
+        {
+          "title": "Sesión Ordinaria 22-10-25 (5 pm)",
+          "url": "https://youtu.be/K60HHcpF-EI",
+          "youtubeId": "K60HHcpF-EI",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/K60HHcpF-EI"
+        },
+        {
+          "title": "Sesión Extraordinaria 22-10-25 (4 pm)",
+          "url": "https://youtu.be/jJmJ1Uez7oU",
+          "youtubeId": "jJmJ1Uez7oU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/jJmJ1Uez7oU"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-09-25 (6 pm)",
+          "url": "https://youtu.be/g0pVT3vHIyc",
+          "youtubeId": "g0pVT3vHIyc",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/g0pVT3vHIyc"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-09-25 (5 pm)",
+          "url": "https://youtu.be/C15JgbuR4II?si=exRQGg32nPfNeOOJ",
+          "youtubeId": "C15JgbuR4II",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/C15JgbuR4II"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-09-25 (4 pm) II",
+          "url": "https://youtu.be/chTAnSPf3UM?si=mjZ5PYmGxTZL6FCC",
+          "youtubeId": "chTAnSPf3UM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/chTAnSPf3UM"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-09-25 (4 pm) I",
+          "url": "https://www.youtube.com/watch?v=2P9erCL4W4I&t=1361s",
+          "youtubeId": "2P9erCL4W4I",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/2P9erCL4W4I"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 12-08-25 (10 am)",
+          "url": "https://www.youtube.com/watch?v=ARocuWDsizo&t=706s",
+          "youtubeId": "ARocuWDsizo",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/ARocuWDsizo"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 12-08-25 (8 am)",
+          "url": "https://www.youtube.com/watch?v=8teeNqo1qQE",
+          "youtubeId": "8teeNqo1qQE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/8teeNqo1qQE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 05-06-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=oW9IDE_9xBQ",
+          "youtubeId": "oW9IDE_9xBQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/oW9IDE_9xBQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 05-06-25 (4 pm)",
+          "url": "https://www.youtube.com/watch?v=Ifx9WjV4etc",
+          "youtubeId": "Ifx9WjV4etc",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/Ifx9WjV4etc"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-05-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=zzl6rr70czQ&t=4110s0",
+          "youtubeId": "zzl6rr70czQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/zzl6rr70czQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-05-25 (4 pm)",
+          "url": "https://www.youtube.com/watch?v=igQvnPscRnQ&t=1s",
+          "youtubeId": "igQvnPscRnQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/igQvnPscRnQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-25 (11 am)",
+          "url": "https://www.youtube.com/watch?v=dxvguivh3lg",
+          "youtubeId": "dxvguivh3lg",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/dxvguivh3lg"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-25 (10 am)",
+          "url": "https://www.youtube.com/watch?v=ShOWM2W0qY8",
+          "youtubeId": "ShOWM2W0qY8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/ShOWM2W0qY8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-25 (9 am)",
+          "url": "https://www.youtube.com/watch?v=bUru2wSmWZM",
+          "youtubeId": "bUru2wSmWZM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/bUru2wSmWZM"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-04-25",
+          "url": "https://www.youtube.com/watch?v=yL6LdP7ahCA",
+          "youtubeId": "yL6LdP7ahCA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/yL6LdP7ahCA"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-04-25 (9 am)",
+          "url": "https://www.youtube.com/watch?v=di2FQ5DmIK0",
+          "youtubeId": "di2FQ5DmIK0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/di2FQ5DmIK0"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-03-25 (11 am)",
+          "url": "https://www.youtube.com/watch?v=0RHGGtMD7dE&pp=0gcJCY0JAYcqIYzv",
+          "youtubeId": "0RHGGtMD7dE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/0RHGGtMD7dE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-03-25 (10 am)",
+          "url": "https://www.youtube.com/watch?v=fhB8GoSCCg0",
+          "youtubeId": "fhB8GoSCCg0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/fhB8GoSCCg0"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-03-25 (9 am)",
+          "url": "https://www.youtube.com/watch?v=7EsdqaZDMfk",
+          "youtubeId": "7EsdqaZDMfk",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/7EsdqaZDMfk"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 25-03-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=4J1WasBH5_s&t=4679s",
+          "youtubeId": "4J1WasBH5_s",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/4J1WasBH5_s"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-02-25 (10 am)",
+          "url": "https://www.youtube.com/watch?v=jFRGMIzhdJA",
+          "youtubeId": "jFRGMIzhdJA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/jFRGMIzhdJA"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-02-25 (8 am)",
+          "url": "https://www.youtube.com/watch?v=xEb-T0GmA88&t=22s",
+          "youtubeId": "xEb-T0GmA88",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/xEb-T0GmA88"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 06-02-25",
+          "url": "https://www.youtube.com/watch?v=u6ySkqUzDoE&pp=0gcJCY0JAYcqIYzv",
+          "youtubeId": "u6ySkqUzDoE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/u6ySkqUzDoE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal15-01-25 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=25jvftlAYtE",
+          "youtubeId": "25jvftlAYtE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/25jvftlAYtE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 19-12-24 (4 pm - 5 pm)",
+          "url": "https://www.youtube.com/watch?v=FpqErur68zs&t=4541s",
+          "youtubeId": "FpqErur68zs",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/FpqErur68zs"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 05-12-24 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=wDmkycCEYCs&t=536s",
+          "youtubeId": "wDmkycCEYCs",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/wDmkycCEYCs"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 19-11-24 (5 pm -II)",
+          "url": "https://www.youtube.com/watch?v=td5oBEKmp7Q&t=788s",
+          "youtubeId": "td5oBEKmp7Q",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/td5oBEKmp7Q"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 19-11-24 (5 pm -I)",
+          "url": "https://www.youtube.com/watch?v=NVyvhVjcQNY&t=5519s",
+          "youtubeId": "NVyvhVjcQNY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/NVyvhVjcQNY"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-10-24 (6 pm)",
+          "url": "https://www.youtube.com/watch?v=UnN4p5e0lxk",
+          "youtubeId": "UnN4p5e0lxk",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/UnN4p5e0lxk"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-10-24 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=dYFBaSnXl_8",
+          "youtubeId": "dYFBaSnXl_8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/dYFBaSnXl_8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 26-09-24 (12 pm)",
+          "url": "https://www.youtube.com/watch?v=utzJb5oTg1s",
+          "youtubeId": "utzJb5oTg1s",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/utzJb5oTg1s"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 24-09-24 (1 pm)",
+          "url": "https://www.youtube.com/watch?v=1fDf0_0m-5U",
+          "youtubeId": "1fDf0_0m-5U",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/1fDf0_0m-5U"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 10-09-24 (4 pm)",
+          "url": "https://www.youtube.com/watch?v=cUSAunW4DWQ",
+          "youtubeId": "cUSAunW4DWQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/cUSAunW4DWQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 04-09-24 (12 pm)",
+          "url": "https://www.youtube.com/watch?v=7_m4XBigyds",
+          "youtubeId": "7_m4XBigyds",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/7_m4XBigyds"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 15-08-24 (1 pm)",
+          "url": "https://www.youtube.com/watch?v=VDSktVWlR30&t=2683s",
+          "youtubeId": "VDSktVWlR30",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/VDSktVWlR30"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 15-08-24 (12 pm)",
+          "url": "https://www.youtube.com/watch?v=aB97pGDaczU&t=484s",
+          "youtubeId": "aB97pGDaczU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/aB97pGDaczU"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 04-07-24 (5 pm)",
+          "url": "https://www.youtube.com/watch?v=VosAJy3YTlk",
+          "youtubeId": "VosAJy3YTlk",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/VosAJy3YTlk"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 04-07-24 (4 pm)",
+          "url": "https://www.youtube.com/watch?v=wWdMGoAA98U",
+          "youtubeId": "wWdMGoAA98U",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/wWdMGoAA98U"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 04-07-24 (3 pm)",
+          "url": "https://www.youtube.com/watch?v=j_hb6uqHNj4",
+          "youtubeId": "j_hb6uqHNj4",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/j_hb6uqHNj4"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 17-06-24",
+          "url": "https://www.youtube.com/watch?v=jqdvQI8kBts",
+          "youtubeId": "jqdvQI8kBts",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/jqdvQI8kBts"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-05-24 (II)",
+          "url": "https://www.youtube.com/watch?v=fu72tILJLU0",
+          "youtubeId": "fu72tILJLU0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/fu72tILJLU0"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-05-24 (I)",
+          "url": "https://www.youtube.com/watch?v=o_qim-deFEA",
+          "youtubeId": "o_qim-deFEA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/o_qim-deFEA"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 03-05-24",
+          "url": "https://www.youtube.com/watch?v=d69OkkPa5to&t=1273s",
+          "youtubeId": "d69OkkPa5to",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/d69OkkPa5to"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-24 (III)",
+          "url": "https://www.youtube.com/watch?v=YkYTo921YCw",
+          "youtubeId": "YkYTo921YCw",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/YkYTo921YCw"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-24 (II)",
+          "url": "https://www.youtube.com/watch?v=MczGlk5VXqo",
+          "youtubeId": "MczGlk5VXqo",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/MczGlk5VXqo"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-04-24 (I)",
+          "url": "https://www.youtube.com/watch?v=xAc3stxuB4c",
+          "youtubeId": "xAc3stxuB4c",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/xAc3stxuB4c"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 27-03-24 (III)",
+          "url": "https://www.youtube.com/watch?v=aJRFvNwCZyQ&t=8s",
+          "youtubeId": "aJRFvNwCZyQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/aJRFvNwCZyQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 27-03-24 (II)",
+          "url": "https://www.youtube.com/watch?v=Di0xaH3mY9c",
+          "youtubeId": "Di0xaH3mY9c",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/Di0xaH3mY9c"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 27-03-24 (I)",
+          "url": "https://www.youtube.com/watch?v=cmJ4lR2koy4",
+          "youtubeId": "cmJ4lR2koy4",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/cmJ4lR2koy4"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 11-03-24",
+          "url": "https://www.youtube.com/watch?v=txhArUVVozU",
+          "youtubeId": "txhArUVVozU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/txhArUVVozU"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 16-02-24 (II)",
+          "url": "https://www.youtube.com/watch?v=Jy4Ba-SQFQE",
+          "youtubeId": "Jy4Ba-SQFQE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/Jy4Ba-SQFQE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 16-02-24 (I)",
+          "url": "https://www.youtube.com/watch?v=I7_5L4V_ECM",
+          "youtubeId": "I7_5L4V_ECM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/I7_5L4V_ECM"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 02-02-24",
+          "url": "https://www.youtube.com/watch?v=LVJw8bQSqUE",
+          "youtubeId": "LVJw8bQSqUE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/LVJw8bQSqUE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 31-01-24",
+          "url": "https://www.youtube.com/watch?v=AUGJLGWK_m8",
+          "youtubeId": "AUGJLGWK_m8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/AUGJLGWK_m8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 22-01-24",
+          "url": "https://www.youtube.com/watch?v=4s2oA2EPGbM",
+          "youtubeId": "4s2oA2EPGbM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/4s2oA2EPGbM"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 22-12-23 (II)",
+          "url": "https://www.youtube.com/watch?v=_Mk1VhHRIYY",
+          "youtubeId": "_Mk1VhHRIYY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/_Mk1VhHRIYY"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 22-12-23 (I)",
+          "url": "https://www.youtube.com/watch?v=edJ7XjXhk20",
+          "youtubeId": "edJ7XjXhk20",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/edJ7XjXhk20"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 15-12-23",
+          "url": "https://www.youtube.com/watch?v=HXVW_z-hosc",
+          "youtubeId": "HXVW_z-hosc",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/HXVW_z-hosc"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 11-12-23",
+          "url": "https://www.youtube.com/watch?v=B_ws4B8HqdU",
+          "youtubeId": "B_ws4B8HqdU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/B_ws4B8HqdU"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 04-12-23",
+          "url": "https://www.youtube.com/watch?v=lKaxBvHA7Qg&t=4s",
+          "youtubeId": "lKaxBvHA7Qg",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/lKaxBvHA7Qg"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 30-11-23",
+          "url": "https://www.youtube.com/watch?v=MUyZSQBg884&t=3s",
+          "youtubeId": "MUyZSQBg884",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/MUyZSQBg884"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 24-11-23",
+          "url": "https://www.youtube.com/watch?v=85cC4eBwaQ8&t=4s",
+          "youtubeId": "85cC4eBwaQ8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/85cC4eBwaQ8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 20-11-23",
+          "url": "https://www.youtube.com/watch?v=sKzj2GorKK0",
+          "youtubeId": "sKzj2GorKK0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/sKzj2GorKK0"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 31-10-2023 (II)",
+          "url": "https://www.youtube.com/watch?v=H2TmeHqgdnA",
+          "youtubeId": "H2TmeHqgdnA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/H2TmeHqgdnA"
+        },
+        {
+          "title": "Sesión del Concejo Municipal 23-10-23 (I)",
+          "url": "https://www.youtube.com/watch?v=tvllzct2KRY",
+          "youtubeId": "tvllzct2KRY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/tvllzct2KRY"
+        },
+        {
+          "title": "Sesión del Concejo Municipal 23-10-23",
+          "url": "https://www.youtube.com/watch?v=G-Zi_mZs20o&t=2367s",
+          "youtubeId": "G-Zi_mZs20o",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/G-Zi_mZs20o"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 28-09-2023",
+          "url": "https://www.youtube.com/watch?v=tuYZ03-l_jA&t=5s",
+          "youtubeId": "tuYZ03-l_jA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/tuYZ03-l_jA"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 20-09-2023",
+          "url": "https://www.youtube.com/watch?v=UpGep4PA9dQ",
+          "youtubeId": "UpGep4PA9dQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/UpGep4PA9dQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 023 28-08-2023",
+          "url": "https://www.youtube.com/watch?v=MHC34KBPV7E",
+          "youtubeId": "MHC34KBPV7E",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/MHC34KBPV7E"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 022 28-08-2023",
+          "url": "https://www.youtube.com/watch?v=xQJy7aeyz_Q",
+          "youtubeId": "xQJy7aeyz_Q",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/xQJy7aeyz_Q"
+        },
+        {
+          "title": "Sesión Solemne Fiestas Patrias N° 021 21-07-2023",
+          "url": "https://www.youtube.com/watch?v=pRLKEW7Ajl8",
+          "youtubeId": "pRLKEW7Ajl8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/pRLKEW7Ajl8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 020 21-07-2023",
+          "url": "https://www.youtube.com/watch?v=lJdRGLjNDw8",
+          "youtubeId": "lJdRGLjNDw8",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/lJdRGLjNDw8"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 019 21-07-2023",
+          "url": "https://www.youtube.com/watch?v=ymyroidCxmI",
+          "youtubeId": "ymyroidCxmI",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/ymyroidCxmI"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 018 21-07-2023",
+          "url": "https://www.youtube.com/watch?v=WDjAg81vrzw",
+          "youtubeId": "WDjAg81vrzw",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/WDjAg81vrzw"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 017 07-07-2023",
+          "url": "https://www.youtube.com/watch?v=fvlYLRF5RPE",
+          "youtubeId": "fvlYLRF5RPE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/fvlYLRF5RPE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 016 28-06-2023",
+          "url": "https://www.youtube.com/watch?v=-Qr_zH47QPM",
+          "youtubeId": "-Qr_zH47QPM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/-Qr_zH47QPM"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 015 - 28-06-2023",
+          "url": "https://www.youtube.com/watch?v=cZMmwwyr3eg",
+          "youtubeId": "cZMmwwyr3eg",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/cZMmwwyr3eg"
+        },
+        {
+          "title": "Sesión de Concejo Municipal N° 014 - 29-05-2023",
+          "url": "https://www.youtube.com/watch?v=wCj98vgI_YQ",
+          "youtubeId": "wCj98vgI_YQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/wCj98vgI_YQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 29-05-2023",
+          "url": "https://www.youtube.com/watch?v=INFKPdDa314",
+          "youtubeId": "INFKPdDa314",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/INFKPdDa314"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 27-04-2023",
+          "url": "https://www.youtube.com/watch?v=BESqqdybRxE",
+          "youtubeId": "BESqqdybRxE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/BESqqdybRxE"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 27-04-2023",
+          "url": "https://www.youtube.com/watch?v=svYSXiv5DeQ",
+          "youtubeId": "svYSXiv5DeQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/svYSXiv5DeQ"
+        },
+        {
+          "title": "Sesión de Concejo Municipal 14-03-2023",
+          "url": "https://www.youtube.com/watch?v=MXjFrNFyy2E&t=1s",
+          "youtubeId": "MXjFrNFyy2E",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/MXjFrNFyy2E"
+        }
+      ]
+    },
+    {
+      "slug": "molina-noticias",
+      "title": "LA MOLINA NOTICIAS",
+      "breadcrumb": "TV > Moli Noticias",
+      "sourceUrl": "https://portal.munimolina.gob.pe/molina-noticias/",
+      "headings": [
+        "LA MOLINA TV",
+        "Micronoticiero La Molina Tv",
+        "Micronoticiero: Programa 11-02-24",
+        "Micronoticiero: 28-01-24",
+        "Micronoticiero Edición 21 de enero 2024",
+        "Micronoticiero: Semana 30-12-23",
+        "Micronoticiero: Semana 16-12-23​",
+        "Micronoticiero - Octubre 2023",
+        "Micronoticiero 08",
+        "Micronoticiero 07",
+        "Micronoticiero 06",
+        "Micronoticiero 05",
+        "Micronoticiero 04",
+        "Micronoticiero 03 - 31-01-2023",
+        "Micronoticiero 02 - 24-01-2023",
+        "Micronoticiero 01 - 18-01-2023",
+        "Micronoticiero - 17-01-2023"
+      ],
+      "videos": [
+        {
+          "title": "Micronoticiero: Programa 11-02-24",
+          "url": "https://youtu.be/HlKmKQTlkg0",
+          "youtubeId": "HlKmKQTlkg0",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/HlKmKQTlkg0"
+        },
+        {
+          "title": "Micronoticiero: 28-01-24",
+          "url": "https://youtu.be/ieLB2fwci4o",
+          "youtubeId": "ieLB2fwci4o",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/ieLB2fwci4o"
+        },
+        {
+          "title": "Micronoticiero Edición 21 de enero 2024",
+          "url": "https://youtu.be/LRuXzHBY0EE",
+          "youtubeId": "LRuXzHBY0EE",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/LRuXzHBY0EE"
+        },
+        {
+          "title": "Micronoticiero: Semana 30-12-23",
+          "url": "https://youtu.be/RjrbYjbM9_E",
+          "youtubeId": "RjrbYjbM9_E",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/RjrbYjbM9_E"
+        },
+        {
+          "title": "Micronoticiero: Semana 16-12-23​",
+          "url": "https://youtu.be/9jGCNp4e2DU",
+          "youtubeId": "9jGCNp4e2DU",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/9jGCNp4e2DU"
+        },
+        {
+          "title": "Micronoticiero - Octubre 2023",
+          "url": "https://www.youtube.com/watch?v=krsQCVyMhrA",
+          "youtubeId": "krsQCVyMhrA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/krsQCVyMhrA"
+        },
+        {
+          "title": "Micronoticiero 08",
+          "url": "https://www.youtube.com/watch?v=Z7srjm5McXc",
+          "youtubeId": "Z7srjm5McXc",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/Z7srjm5McXc"
+        },
+        {
+          "title": "Micronoticiero 07",
+          "url": "https://www.youtube.com/watch?v=TBcOYQQbF84",
+          "youtubeId": "TBcOYQQbF84",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/TBcOYQQbF84"
+        },
+        {
+          "title": "Micronoticiero 06",
+          "url": "https://youtu.be/eiDhPhY5BoQ",
+          "youtubeId": "eiDhPhY5BoQ",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/eiDhPhY5BoQ"
+        },
+        {
+          "title": "Micronoticiero 05",
+          "url": "https://www.youtube.com/watch?v=M4D4yHmLrzM&t=1s",
+          "youtubeId": "M4D4yHmLrzM",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/M4D4yHmLrzM"
+        },
+        {
+          "title": "Micronoticiero 04",
+          "url": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F553642530064199%2F&show_text=false&width=560&t=0",
+          "provider": "facebook",
+          "embedUrl": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F553642530064199%2F&show_text=false&width=560&t=0"
+        },
+        {
+          "title": "Micronoticiero 03 - 31-01-2023",
+          "url": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F839293460474004%2F&show_text=false&width=560&t=0",
+          "provider": "facebook",
+          "embedUrl": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F839293460474004%2F&show_text=false&width=560&t=0"
+        },
+        {
+          "title": "Micronoticiero 02 - 24-01-2023",
+          "url": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F516848440536030%2F&show_text=false&width=560&t=0",
+          "provider": "facebook",
+          "embedUrl": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F516848440536030%2F&show_text=false&width=560&t=0"
+        },
+        {
+          "title": "Micronoticiero 01 - 18-01-2023",
+          "url": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F915213379488112%2F&show_text=false&width=560&t=0",
+          "provider": "facebook",
+          "embedUrl": "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FMunicipalidadDeLaMolina%2Fvideos%2F915213379488112%2F&show_text=false&width=560&t=0"
+        }
+      ]
+    },
+    {
+      "slug": "podcast",
+      "title": "PODCAST",
+      "breadcrumb": "TV > La Molina Podcast",
+      "sourceUrl": "https://portal.munimolina.gob.pe/podcast/",
+      "headings": [
+        "LA MOLINA TV",
+        "Podcast La Molina Tv",
+        "Podcast",
+        "Podcast 001: Caso de la Pirca de La Molina: desmintiendo rumores",
+        "Podcast 002: Acoso Escolar ¿Qué hacer si mi hijo es el agresor?:",
+        "Podcast 003: ¿Qué es el acoso? Edith Jara Ames Psicologa",
+        "Podcast 004: Supermanzana Monterrico de La Molina"
+      ],
+      "videos": [
+        {
+          "title": "Podcast 001: Caso de la Pirca de La Molina: desmintiendo rumores",
+          "url": "https://youtu.be/fImJnH2GCEA",
+          "youtubeId": "fImJnH2GCEA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/fImJnH2GCEA"
+        },
+        {
+          "title": "Podcast 002: Acoso Escolar ¿Qué hacer si mi hijo es el agresor?:",
+          "url": "https://youtu.be/GvfUY747FeY",
+          "youtubeId": "GvfUY747FeY",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/GvfUY747FeY"
+        },
+        {
+          "title": "Podcast 003: ¿Qué es el acoso? Edith Jara Ames Psicologa",
+          "url": "https://youtu.be/Z1zVMHdhmgA",
+          "youtubeId": "Z1zVMHdhmgA",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/Z1zVMHdhmgA"
+        },
+        {
+          "title": "Podcast 004: Supermanzana Monterrico de La Molina",
+          "url": "https://youtu.be/NT7UTpakB6E",
+          "youtubeId": "NT7UTpakB6E",
+          "provider": "youtube",
+          "embedUrl": "https://www.youtube.com/embed/NT7UTpakB6E"
+        }
+      ]
+    }
+  ]
+}
