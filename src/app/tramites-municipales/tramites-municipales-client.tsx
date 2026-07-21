@@ -56,14 +56,17 @@ export function TramitesMunicipalesClient() {
 
   const procedures = useMemo(() => {
     const query = normalize(search.trim());
-    return MUNICIPAL_PROCEDURES.filter(
-      (procedure) =>
-        procedure.categories.includes(activeCategory) &&
+    return MUNICIPAL_PROCEDURES.filter((procedure) => {
+      const categories = procedure.categories ?? [];
+      const requirements = procedure.requirements ?? [];
+      return (
+        categories.includes(activeCategory) &&
         (!query ||
           normalize(
-            `${procedure.title} ${procedure.summary} ${procedure.requirements.join(" ")}`,
-          ).includes(query)),
-    );
+            `${procedure.title} ${procedure.summary} ${requirements.join(" ")}`,
+          ).includes(query))
+      );
+    });
   }, [activeCategory, search, MUNICIPAL_PROCEDURES]);
 
   return (
@@ -188,7 +191,7 @@ export function TramitesMunicipalesClient() {
                   >
                     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-molina-mint/40 hover:shadow-md">
                       <div className="flex flex-wrap gap-2">
-                        {procedure.channels.map((channel) => (
+                        {(procedure.channels ?? []).map((channel) => (
                           <span
                             key={`${procedure.slug}-${channel.type}`}
                             className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700"

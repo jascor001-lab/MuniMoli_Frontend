@@ -40,9 +40,10 @@ function LinkGrid({
             />
           </>
         );
+        const key = item.id || `${item.href || "link"}-${index}`;
 
         return (
-          <Reveal key={item.id} variant="up" delayMs={60 + index * 60}>
+          <Reveal key={key} variant="up" delayMs={60 + index * 60}>
             {external ? (
               <a
                 href={item.href}

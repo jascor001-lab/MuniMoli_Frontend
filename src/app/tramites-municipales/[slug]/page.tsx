@@ -21,27 +21,56 @@ import { Reveal } from "@/components/ui/reveal";
 import { TupaPageClient } from "@/app/tramites-municipales/tupa-client";
 import {
   MUNICIPAL_PROCEDURE_ALIASES,
-  MUNICIPAL_PROCEDURES,
-  getMunicipalProcedure,
+  type MunicipalProcedureDetail,
 } from "@/data/municipal-procedures";
 import procedureDownloads from "@/data/municipal-procedure-downloads.json";
+import { getTramitesCmsContent } from "@/lib/cms/portal-content";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return [
-    ...MUNICIPAL_PROCEDURES.map((procedure) => procedure.slug),
+function normalizeProcedure(
+  procedure: MunicipalProcedureDetail,
+): MunicipalProcedureDetail {
+  return {
+    ...procedure,
+    categories: procedure.categories ?? [],
+    channels: procedure.channels ?? [],
+    requirements: procedure.requirements ?? [],
+    documents: procedure.documents ?? [],
+    directedTo: procedure.directedTo ?? "",
+    when: procedure.when ?? "",
+    duration: procedure.duration ?? "",
+    cost: procedure.cost ?? "",
+    result: procedure.result ?? "",
+    summary: procedure.summary ?? "",
+  };
+}
+
+async function findProcedure(
+  slug: string,
+): Promise<MunicipalProcedureDetail | null> {
+  const canonicalSlug = MUNICIPAL_PROCEDURE_ALIASES[slug] ?? slug;
+  const cms = await getTramitesCmsContent();
+  const fromCms = cms.procedures?.find((p) => p.slug === canonicalSlug);
+  return fromCms ? normalizeProcedure(fromCms) : null;
+}
+
+export async function generateStaticParams() {
+  const cms = await getTramitesCmsContent();
+  const slugs = new Set<string>([
+    ...(cms.procedures ?? []).map((p) => p.slug),
     ...Object.keys(MUNICIPAL_PROCEDURE_ALIASES),
-  ].map((slug) => ({ slug }));
+  ]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const procedure = getMunicipalProcedure(slug);
+  const procedure = await findProcedure(slug);
   if (!procedure) return {};
   return {
     title: `${procedure.title} | Municipalidad de La Molina`,
@@ -53,7 +82,7 @@ export default async function MunicipalProcedurePage({ params }: PageProps) {
   const { slug } = await params;
   const canonicalSlug = MUNICIPAL_PROCEDURE_ALIASES[slug];
   if (canonicalSlug) redirect(`/tramites-municipales/${canonicalSlug}`);
-  const procedure = getMunicipalProcedure(slug);
+  const procedure = await findProcedure(slug);
   if (!procedure) notFound();
   if (procedure.slug === "tupa") return <TupaPageClient />;
   const downloads = procedureDownloads.filter(

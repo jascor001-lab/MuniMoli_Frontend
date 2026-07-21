@@ -1,13 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { LockKeyhole, Shield } from "lucide-react";
 
 export function AccesoInternoLogin() {
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,18 +20,32 @@ export function AccesoInternoLogin() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
+        credentials: "same-origin",
       });
-      const data = (await res.json()) as { error?: string };
-      if (!res.ok) {
-        setError(data.error || "No se pudo iniciar sesión");
+
+      let data: { error?: string; ok?: boolean; warning?: string } = {};
+      try {
+        data = (await res.json()) as typeof data;
+      } catch {
+        setError(
+          res.ok
+            ? "Respuesta inválida del servidor"
+            : `Error HTTP ${res.status} al iniciar sesión`,
+        );
         return;
       }
+
+      if (!res.ok) {
+        setError(data.error || `No se pudo iniciar sesión (${res.status})`);
+        return;
+      }
+
       const next = searchParams.get("next") || "/panel";
-      router.replace(next.startsWith("/panel") ? next : "/panel");
-      router.refresh();
+      const target = next.startsWith("/panel") ? next : "/panel";
+      // Navegación completa para que el navegador aplique las cookies de sesión
+      window.location.assign(target);
     } catch {
-      setError("Error de conexión");
-    } finally {
+      setError("Error de conexión con el servidor Next");
       setLoading(false);
     }
   }
@@ -57,6 +70,10 @@ export function AccesoInternoLogin() {
         <p className="mt-4 text-sm leading-6 text-molina-muted">
           Ingresa con tu usuario institucional para administrar o editar
           contenidos por pestaña.
+        </p>
+        <p className="mt-2 rounded-xl bg-slate-50 px-3 py-2 text-xs text-molina-muted">
+          Usuario seed: <strong>admin</strong> · Clave:{" "}
+          <strong>AdminMolina2026</strong>
         </p>
 
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
@@ -87,7 +104,10 @@ export function AccesoInternoLogin() {
           </label>
 
           {error ? (
-            <p className="rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
+            <p
+              role="alert"
+              className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-700"
+            >
               {error}
             </p>
           ) : null}

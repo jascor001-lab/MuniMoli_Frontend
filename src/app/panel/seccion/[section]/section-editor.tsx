@@ -21,6 +21,7 @@ type Props = {
 export function SectionEditor({ sectionId, sectionLabel }: Props) {
   const [data, setData] = useState<Record<string, unknown> | null>(null);
   const [hasOverride, setHasOverride] = useState(false);
+  const [source, setSource] = useState<"nest" | "local" | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -34,6 +35,7 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
   async function load() {
     setLoading(true);
     setError("");
+    setMessage("");
     try {
       const res = await fetch(`/api/cms/content/${sectionId}`, {
         cache: "no-store",
@@ -41,6 +43,8 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       const payload = (await res.json()) as {
         data: unknown;
         hasOverride: boolean;
+        source?: "nest" | "local";
+        nestReachable?: boolean;
         error?: string;
       };
       if (!res.ok) {
@@ -54,6 +58,18 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       setData(next);
       setRaw(JSON.stringify(next, null, 2));
       setHasOverride(payload.hasOverride);
+      setSource(payload.source === "nest" ? "nest" : "local");
+      if (payload.source === "nest") {
+        setMessage("Datos cargados desde PostgreSQL (Nest).");
+      } else if (payload.nestReachable === false) {
+        setMessage(
+          "No se pudo contactar el API Nest (¿está en :3001?). Se muestran datos locales. Arranca el backend y pulsa «Subir a BD».",
+        );
+      } else {
+        setMessage(
+          "La BD no tiene filas para esta sección (o están vacías). Pulsa «Subir a BD» para guardar lo que ves en Postgres.",
+        );
+      }
     } catch {
       setError("Error de conexión");
     } finally {
@@ -83,7 +99,11 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data: bodyData }),
       });
-      const result = (await res.json()) as { error?: string };
+      const result = (await res.json()) as {
+        error?: string;
+        nestSync?: { ok?: boolean; detail?: string };
+        source?: string;
+      };
       if (!res.ok) {
         setError(result.error || "No se pudo guardar");
         return;
@@ -92,7 +112,17 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       setData(next);
       setRaw(JSON.stringify(next, null, 2));
       setHasOverride(true);
-      setMessage("Cambios guardados. Ya se ven en el portal.");
+      if (result.nestSync?.ok) {
+        setSource("nest");
+        setMessage("Guardado en PostgreSQL correctamente.");
+        // Relee BD para traer ids y estado real (evita lista desfasada)
+        await load();
+      } else {
+        setSource("local");
+        setError(
+          `Guardado local OK, pero Nest falló: ${result.nestSync?.detail || "sin detalle"}. Revisa login (JWT) y que el backend esté en :3001.`,
+        );
+      }
     } catch {
       setError(
         advanced
@@ -104,10 +134,21 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
     }
   }
 
-  async function reset() {
+  async function reloadFromDb() {
     if (
       !confirm(
-        "¿Restaurar el contenido original de esta pestaña? Se perderán los cambios guardados aquí.",
+        "¿Recargar desde PostgreSQL?\n\nSe descartarán cambios no guardados en este formulario. La base de datos NO se modifica.",
+      )
+    ) {
+      return;
+    }
+    await load();
+  }
+
+  async function resetToSeedTemplate() {
+    if (
+      !confirm(
+        "⚠️ PELIGRO: esto carga la plantilla del CÓDIGO (no tu BD).\n\nSi después pulsas «Guardar», Postgres tomará solo lo que veas aquí y el resto de trámites quedará inactivo.\n\n¿Continuar solo con la plantilla en el editor?",
       )
     ) {
       return;
@@ -124,7 +165,7 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
         error?: string;
       };
       if (!res.ok) {
-        setError(result.error || "No se pudo restaurar");
+        setError(result.error || "No se pudo cargar la plantilla");
         return;
       }
       const next =
@@ -134,9 +175,12 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       setData(next);
       setRaw(JSON.stringify(next, null, 2));
       setHasOverride(false);
-      setMessage("Contenido restaurado a la versión original.");
+      setSource("local");
+      setMessage(
+        "Plantilla del código cargada en el editor (aún no tocó la BD). No guardes si quieres conservar lo de Postgres: usa «Recargar desde BD».",
+      );
     } catch {
-      setError("Error al restaurar");
+      setError("Error al cargar la plantilla");
     } finally {
       setSaving(false);
     }
@@ -177,12 +221,12 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
             </a>
             <button
               type="button"
-              onClick={reset}
+              onClick={() => void reloadFromDb()}
               disabled={saving || loading}
               className="inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-molina-deep hover:bg-slate-50 disabled:opacity-60"
             >
               <RotateCcw className="h-4 w-4" />
-              Restaurar
+              Recargar desde BD
             </button>
             <button
               type="button"
@@ -191,11 +235,31 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
               className="inline-flex items-center gap-1.5 rounded-xl bg-molina-deep px-4 py-2 text-sm font-bold text-white hover:bg-molina-teal disabled:opacity-60"
             >
               <Save className="h-4 w-4" />
-              {saving ? "Guardando…" : "Guardar cambios"}
+              {saving
+                ? "Guardando…"
+                : source === "local"
+                  ? "Subir a BD / Guardar"
+                  : "Guardar cambios"}
             </button>
           </div>
         </div>
       </div>
+
+      {source ? (
+        <p
+          className={`rounded-xl px-3 py-2 text-sm ${
+            source === "nest"
+              ? "bg-emerald-50 text-emerald-800"
+              : "bg-amber-50 text-amber-900"
+          }`}
+        >
+          Fuente actual:{" "}
+          <strong>{source === "nest" ? "PostgreSQL" : "JSON local"}</strong>
+          {source === "local"
+            ? " — pulsa «Subir a BD / Guardar» para sincronizar con Nest/Postgres."
+            : null}
+        </p>
+      ) : null}
 
       {error ? (
         <p className="rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700">
@@ -237,30 +301,42 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
             />
           )}
 
-          <button
-            type="button"
-            onClick={() => {
-              if (!advanced && data) {
-                setRaw(JSON.stringify(data, null, 2));
-              } else {
-                try {
-                  const parsed = JSON.parse(raw) as Record<string, unknown>;
-                  setData(parsed);
-                  setError("");
-                } catch {
-                  setError("No se pudo pasar a modo visual: JSON inválido");
-                  return;
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                if (!advanced && data) {
+                  setRaw(JSON.stringify(data, null, 2));
+                } else {
+                  try {
+                    const parsed = JSON.parse(raw) as Record<string, unknown>;
+                    setData(parsed);
+                    setError("");
+                  } catch {
+                    setError("No se pudo pasar a modo visual: JSON inválido");
+                    return;
+                  }
                 }
-              }
-              setAdvanced((v) => !v);
-            }}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-molina-muted hover:text-molina-deep"
-          >
-            <Code2 className="h-3.5 w-3.5" />
-            {advanced
-              ? "Volver al editor visual"
-              : "Modo avanzado (solo soporte técnico)"}
-          </button>
+                setAdvanced((v) => !v);
+              }}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-molina-muted hover:text-molina-deep"
+            >
+              <Code2 className="h-3.5 w-3.5" />
+              {advanced
+                ? "Volver al editor visual"
+                : "Modo avanzado (solo soporte técnico)"}
+            </button>
+            {advanced ? (
+              <button
+                type="button"
+                onClick={() => void resetToSeedTemplate()}
+                disabled={saving || loading}
+                className="text-xs font-semibold text-amber-800 underline hover:text-amber-950 disabled:opacity-60"
+              >
+                Cargar plantilla del código (peligroso)
+              </button>
+            ) : null}
+          </div>
         </>
       )}
     </section>

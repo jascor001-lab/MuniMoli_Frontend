@@ -384,14 +384,14 @@ export function TramitesGrid({ externalSearch = "" }: TramitesGridProps) {
                     <span
                       className={cn(
                         "rounded-full px-2.5 py-1 text-xs font-semibold",
-                        procedure.channels.some(
+                        (procedure.channels ?? []).some(
                           (channel) => channel.type === "Virtual",
                         )
                           ? "bg-emerald-50 text-emerald-700"
                           : "bg-slate-100 text-slate-600",
                       )}
                     >
-                      {procedure.channels.some(
+                      {(procedure.channels ?? []).some(
                         (channel) => channel.type === "Virtual",
                       )
                         ? "Canal virtual"

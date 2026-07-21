@@ -14,18 +14,20 @@ import type { NewsItem } from "@/types/portal";
 
 type Props = { params: Promise<{ slug: string }> };
 
-function getNews(): NewsItem[] {
-  const cms = getNoticiasCmsContent();
+async function getNews(): Promise<NewsItem[]> {
+  const cms = await getNoticiasCmsContent();
   return cms.items?.length ? cms.items : [];
 }
 
-export function generateStaticParams() {
-  return getNews().map((item) => ({ slug: item.slug }));
+export async function generateStaticParams() {
+  const items = await getNews();
+  return items.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const item = getNews().find((n) => n.slug === slug);
+  const items = await getNews();
+  const item = items.find((n) => n.slug === slug);
   if (!item) return { title: "Noticia" };
   return {
     title: `${item.title} | Noticias | Municipalidad de La Molina`,
@@ -35,7 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NoticiaDetallePage({ params }: Props) {
   const { slug } = await params;
-  const item = getNews().find((n) => n.slug === slug);
+  const items = await getNews();
+  const item = items.find((n) => n.slug === slug);
   if (!item) notFound();
 
   const body =

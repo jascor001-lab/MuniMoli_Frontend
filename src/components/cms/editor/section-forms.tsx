@@ -1158,7 +1158,10 @@ function MolinaTvForm({
                   label="Título"
                   value={String(item.title || "")}
                   onChange={(title) =>
-                    update({ title, slug: slugify(title) || String(item.slug) })
+                    update({
+                      title,
+                      slug: item.slug ? String(item.slug) : slugify(title),
+                    })
                   }
                 />
                 <TextInput
@@ -1266,7 +1269,7 @@ function TalleresForm({
                     update({
                       title,
                       pageTitle: title,
-                      slug: slugify(title) || String(item.slug),
+                      slug: item.slug ? String(item.slug) : slugify(title),
                     })
                   }
                 />
@@ -1333,29 +1336,50 @@ function TramitesForm({
       description="Registra o actualiza trámites. Puedes eliminar los que ya no apliquen."
       items={procedures}
       onChange={(next) => onChange({ ...data, procedures: next })}
-      createItem={() => ({
-        slug: uid("tramite"),
-        title: "Nuevo trámite",
-        categories: ["Vecinos"],
-        summary: "",
-        directedTo: "",
-        when: "",
-        channels: [],
-        duration: "",
-        cost: "",
-        requirements: [],
-        documents: [],
-        result: "",
-      })}
+      createItem={() => {
+        const title = "Nuevo trámite";
+        return {
+          slug: `${slugify(title) || "tramite"}-${uid("n").slice(-4)}`,
+          title,
+          categories: ["Vecinos"],
+          summary: "",
+          directedTo: "",
+          when: "",
+          channels: [
+            {
+              type: "Presencial",
+              description:
+                "Palacio Municipal, Av. Ricardo Elías Aparicio 740, La Molina.",
+              schedule: "Lunes a viernes de 8:10 a.m. a 5:20 p.m.",
+            },
+          ],
+          duration: "",
+          cost: "",
+          requirements: [],
+          documents: [],
+          result: "",
+        };
+      }}
       getTitle={(item) => String(item.title || "Trámite")}
-      renderItem={(item, _i, update) => (
+      renderItem={(item, _i, update) => {
+        const channels = asArray<Record<string, unknown>>(item.channels);
+        return (
         <>
           <TextInput
             label="Título"
             value={String(item.title || "")}
             onChange={(title) =>
-              update({ title, slug: slugify(title) || String(item.slug) })
+              update({
+                title,
+                slug: item.slug ? String(item.slug) : slugify(title),
+              })
             }
+          />
+          <TextInput
+            label="Slug (URL pública)"
+            value={String(item.slug || "")}
+            onChange={(slug) => update({ slug: slugify(slug) || String(item.slug) })}
+            hint="Se usa en /tramites-municipales/[slug]. No lo cambies si ya está publicado."
           />
           <TextArea
             label="Resumen"
@@ -1396,6 +1420,45 @@ function TramitesForm({
               onChange={(cost) => update({ cost })}
             />
           </div>
+          <ListEditor
+            title="Canales de atención"
+            description="Sin canales, la tarjeta pública no muestra badges (Presencial/Virtual)."
+            items={channels}
+            onChange={(next) => update({ channels: next })}
+            createItem={() => ({
+              type: "Presencial",
+              description:
+                "Palacio Municipal, Av. Ricardo Elías Aparicio 740, La Molina.",
+              schedule: "Lunes a viernes de 8:10 a.m. a 5:20 p.m.",
+            })}
+            getTitle={(ch) => String(ch.type || "Canal")}
+            renderItem={(ch, _ci, updateCh) => (
+              <>
+                <SelectField
+                  label="Tipo"
+                  value={String(ch.type || "Presencial")}
+                  onChange={(type) => updateCh({ type })}
+                  options={[
+                    "Presencial",
+                    "Virtual",
+                    "Web",
+                    "Telefónico",
+                    "100% en línea",
+                  ].map((v) => ({ value: v, label: v }))}
+                />
+                <TextArea
+                  label="Descripción"
+                  value={String(ch.description || "")}
+                  onChange={(description) => updateCh({ description })}
+                />
+                <TextInput
+                  label="Horario (opcional)"
+                  value={String(ch.schedule || "")}
+                  onChange={(schedule) => updateCh({ schedule })}
+                />
+              </>
+            )}
+          />
           <StringListEditor
             label="Requisitos"
             items={asArray<string>(item.requirements)}
@@ -1414,7 +1477,8 @@ function TramitesForm({
             onChange={(result) => update({ result })}
           />
         </>
-      )}
+        );
+      }}
     />
   );
 }
@@ -1448,7 +1512,10 @@ function MuniserviciosForm({
               label="Título del área"
               value={String(item.title || "")}
               onChange={(title) =>
-                update({ title, slug: slugify(title) || String(item.slug) })
+                update({
+                  title,
+                  slug: item.slug ? String(item.slug) : slugify(title),
+                })
               }
             />
             <TextArea
@@ -1545,7 +1612,10 @@ function GestionForm({
               label="Título"
               value={String(item.title || "")}
               onChange={(title) =>
-                update({ title, slug: slugify(title) || String(item.slug) })
+                update({
+                  title,
+                  slug: item.slug ? String(item.slug) : slugify(title),
+                })
               }
             />
             <TextArea
