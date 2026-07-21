@@ -4,6 +4,7 @@ import {
   canEditSection,
   CMS_SECTIONS,
   isCmsSectionId,
+  listEditableSections,
 } from "@/lib/cms/permissions";
 import { PanelShell } from "../../panel-shell";
 import { SectionEditor } from "./section-editor";
@@ -21,9 +22,14 @@ export default async function PanelSectionPage({ params }: Props) {
   }
 
   const meta = CMS_SECTIONS.find((item) => item.id === section)!;
+  const sections = listEditableSections(session).map((item) => ({
+    id: item.id,
+    label: item.label,
+    description: item.description,
+  }));
 
   return (
-    <PanelShell user={session}>
+    <PanelShell user={session} sections={sections}>
       <SectionEditor sectionId={section} sectionLabel={meta.label} />
     </PanelShell>
   );
