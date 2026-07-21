@@ -42,7 +42,7 @@ export function Hero() {
             )}
             aria-hidden={i !== current}
           >
-            <Parallax speed={55} className="absolute inset-[-12%] h-[124%] w-full">
+            <Parallax speed={55} className="absolute inset-[-12%] h-[124%] w-[124%]">
               <SafeImage
                 src={s.imageUrl}
                 alt={s.title}
