@@ -17,14 +17,22 @@ type AccordionGroup = {
 };
 
 function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
+  const byCategory = (codes: string[], legacyIds: string[]) =>
+    items.filter(
+      (i) =>
+        codes.includes(String(i.category ?? "")) ||
+        legacyIds.includes(String(i.id ?? "")),
+    );
+
   return [
     {
       id: "tupa-digital",
       title: "MoliTramites",
       description: "Trámites, pagos y servicios en línea",
       accent: "deep",
-      items: items.filter((i) =>
-        ["tupa", "pagos", "mesa-partes", "molicard"].includes(i.id),
+      items: byCategory(
+        ["digital"],
+        ["tupa", "pagos", "mesa-partes", "molicard"],
       ),
     },
     {
@@ -32,13 +40,9 @@ function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
       title: "Transparencia e integridad",
       description: "Información pública, control y denuncias",
       accent: "teal",
-      items: items.filter((i) =>
-        [
-          "transparencia",
-          "control-interno",
-          "acceso-info",
-          "denuncias",
-        ].includes(i.id),
+      items: byCategory(
+        ["transparencia"],
+        ["transparencia", "control-interno", "acceso-info", "denuncias"],
       ),
     },
     {
@@ -46,8 +50,9 @@ function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
       title: "Atención al ciudadano",
       description: "Sugerencias, reclamos y portales externos",
       accent: "deep",
-      items: items.filter((i) =>
-        ["sugerencias", "reclamaciones", "gob-pe"].includes(i.id),
+      items: byCategory(
+        ["ciudadano"],
+        ["sugerencias", "reclamaciones", "gob-pe"],
       ),
     },
   ];
