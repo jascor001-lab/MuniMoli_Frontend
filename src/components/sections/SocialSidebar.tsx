@@ -2,6 +2,7 @@
 
 import {
   SOCIAL_BRAND_ICONS,
+  resolveSocialBrandId,
   type SocialBrandId,
 } from "@/components/ui/social-icons";
 import { cn } from "@/lib/utils";
@@ -22,11 +23,18 @@ export function SocialSidebar({ className }: { className?: string }) {
       aria-label="Redes sociales oficiales"
     >
       <ul className="pointer-events-auto flex flex-col gap-2 rounded-r-2xl bg-molina-deep/95 p-2 shadow-lg shadow-molina-deep/30 ring-1 ring-white/10 backdrop-blur-sm">
-        {socialLinks.map((social) => {
-          const Icon = SOCIAL_BRAND_ICONS[social.id as SocialBrandId];
+        {socialLinks.map((social, index) => {
+          const brandId = resolveSocialBrandId(
+            social.id,
+            social.label,
+            social.href,
+          );
+          const Icon = brandId
+            ? SOCIAL_BRAND_ICONS[brandId as SocialBrandId]
+            : null;
           if (!Icon) return null;
           return (
-            <li key={social.id}>
+            <li key={`${brandId}-${index}`}>
               <a
                 href={social.href}
                 target="_blank"

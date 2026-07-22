@@ -302,6 +302,7 @@ function NoticiasForm({
       onChange={(next) => onChange({ ...data, items: next })}
       createItem={() => {
         const title = "Nueva noticia";
+        const slug = slugify(title) || uid("noticia");
         return {
           id: uid("news"),
           title,
@@ -309,8 +310,8 @@ function NoticiasForm({
           category: "General",
           publishedAt: new Date().toISOString().slice(0, 10),
           imageUrl: "",
-          slug: slugify(title),
-          href: "",
+          slug,
+          // Sin href externo: el portal usa /noticias/[slug]
         };
       }}
       getTitle={(item) => String(item.title || "Sin título")}
@@ -325,6 +326,12 @@ function NoticiasForm({
                 slug: item.slug ? String(item.slug) : slugify(title),
               })
             }
+          />
+          <TextInput
+            label="Slug (URL del detalle)"
+            value={String(item.slug || "")}
+            onChange={(slug) => update({ slug: slugify(slug) || String(item.slug) })}
+            hint="Se abre en /noticias/[slug]. Déjalo estable tras publicar."
           />
           <TextArea
             label="Resumen"
@@ -363,6 +370,12 @@ function NoticiasForm({
             rows={8}
             value={String(item.body || item.excerpt || "")}
             onChange={(body) => update({ body })}
+          />
+          <TextInput
+            label="Enlace externo (opcional)"
+            value={String(item.href || "")}
+            onChange={(href) => update({ href })}
+            hint="Solo si la nota debe ir a otra web. Si está vacío, usa el detalle del portal."
           />
         </>
       )}

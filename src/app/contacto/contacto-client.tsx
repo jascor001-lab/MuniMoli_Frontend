@@ -13,7 +13,7 @@ import { Footer } from "@/components/sections/Footer";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
-import { SOCIAL_BRAND_ICONS } from "@/components/ui/social-icons";
+import { SOCIAL_BRAND_ICONS, resolveSocialBrandId } from "@/components/ui/social-icons";
 import { MunicipalityMapLazy } from "@/components/sections/MunicipalityMapLazy";
 import { usePortalCms } from "@/components/cms/portal-cms";
 
@@ -90,15 +90,33 @@ export function ContactoPageClient() {
                       <p className="text-xs font-semibold uppercase tracking-wide text-molina-muted">
                         Horario de atención
                       </p>
-                      <p className="mt-0.5 font-medium text-molina-ink">
-                        {contact.hoursWeekdays}
-                      </p>
-                      <p className="font-medium text-molina-ink">
-                        {contact.hoursSaturday}
-                      </p>
-                      <p className="mt-2 text-xs leading-relaxed text-molina-muted">
-                        {contact.hoursNote}
-                      </p>
+                      {contact.hours ? (
+                        <p className="mt-0.5 whitespace-pre-line font-medium text-molina-ink">
+                          {contact.hours}
+                        </p>
+                      ) : null}
+                      {contact.hoursWeekdays ? (
+                        <p className="mt-0.5 font-medium text-molina-ink">
+                          {contact.hoursWeekdays}
+                        </p>
+                      ) : null}
+                      {contact.hoursSaturday ? (
+                        <p className="font-medium text-molina-ink">
+                          {contact.hoursSaturday}
+                        </p>
+                      ) : null}
+                      {!contact.hours &&
+                      !contact.hoursWeekdays &&
+                      !contact.hoursSaturday ? (
+                        <p className="mt-0.5 text-sm text-molina-muted">
+                          Horario no registrado
+                        </p>
+                      ) : null}
+                      {contact.hoursNote ? (
+                        <p className="mt-2 text-xs leading-relaxed text-molina-muted">
+                          {contact.hoursNote}
+                        </p>
+                      ) : null}
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -225,14 +243,15 @@ export function ContactoPageClient() {
             </Reveal>
             <ul className="mt-6 flex flex-wrap gap-4">
               {socialLinks.map((social, index) => {
-                const Icon =
-                  SOCIAL_BRAND_ICONS[
-                    social.id as keyof typeof SOCIAL_BRAND_ICONS
-                  ];
-                if (!Icon) return null;
+                const brandId = resolveSocialBrandId(
+                  social.id,
+                  social.label,
+                  social.href,
+                );
+                const Icon = brandId ? SOCIAL_BRAND_ICONS[brandId] : null;
                 return (
                   <Reveal
-                    key={social.id}
+                    key={`${brandId || social.id || social.href}-${index}`}
                     as="li"
                     variant="up"
                     delayMs={80 + index * 80}
@@ -245,7 +264,13 @@ export function ContactoPageClient() {
                       className="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition-all hover:-translate-y-0.5 hover:border-molina-mint/40 hover:shadow-md"
                     >
                       <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-100 transition-colors group-hover:bg-white">
-                        <Icon className="h-6 w-6" title={social.label} />
+                        {Icon ? (
+                          <Icon className="h-6 w-6" title={social.label} />
+                        ) : (
+                          <span className="text-xs font-bold text-molina-teal">
+                            {(social.label || "?").slice(0, 2).toUpperCase()}
+                          </span>
+                        )}
                       </span>
                       <span className="pr-1 text-sm font-semibold text-molina-ink">
                         {social.label}

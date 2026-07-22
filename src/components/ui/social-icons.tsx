@@ -113,3 +113,39 @@ export const SOCIAL_BRAND_ICONS = {
 } as const;
 
 export type SocialBrandId = keyof typeof SOCIAL_BRAND_ICONS;
+
+const SOCIAL_BRAND_IDS = Object.keys(SOCIAL_BRAND_ICONS) as SocialBrandId[];
+
+/** Resuelve facebook/instagram/… aunque Nest devuelva UUID u otra etiqueta. */
+export function resolveSocialBrandId(
+  rawId?: string | null,
+  label?: string | null,
+  href?: string | null,
+): SocialBrandId | null {
+  const id = String(rawId ?? "")
+    .trim()
+    .toLowerCase();
+  if (SOCIAL_BRAND_IDS.includes(id as SocialBrandId)) {
+    return id as SocialBrandId;
+  }
+
+  // Formato guardado: "facebook|Facebook"
+  if (id.includes("|")) {
+    const code = id.split("|")[0] as SocialBrandId;
+    if (SOCIAL_BRAND_IDS.includes(code)) return code;
+  }
+
+  const blob = `${label ?? ""} ${href ?? ""}`.toLowerCase();
+  if (blob.includes("facebook")) return "facebook";
+  if (blob.includes("instagram")) return "instagram";
+  if (blob.includes("youtube") || blob.includes("youtu.be")) return "youtube";
+  if (blob.includes("tiktok")) return "tiktok";
+  if (
+    blob.includes("twitter") ||
+    blob.includes("x.com") ||
+    /(^|[^a-z])x([^a-z]|$)/.test(blob)
+  ) {
+    return "x";
+  }
+  return null;
+}

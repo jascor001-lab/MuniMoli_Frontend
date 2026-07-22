@@ -22,7 +22,8 @@ type NewsCardProps = {
 };
 
 export function NewsCard({ item, className, featured = false }: NewsCardProps) {
-  const href = item.href ?? `/noticias/${item.slug}`;
+  // href vacío ("") no debe ganar al slug: si no, el link recarga la página actual
+  const href = item.href?.trim() || `/noticias/${item.slug}`;
   const external = isExternalHref(href);
 
   const body = (

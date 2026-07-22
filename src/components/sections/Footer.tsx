@@ -6,6 +6,7 @@ import { NAV_SECTIONS } from "@/data/portal-data";
 import { MunicipalityLogo } from "@/components/ui/MunicipalityLogo";
 import {
   SOCIAL_BRAND_ICONS,
+  resolveSocialBrandId,
   type SocialBrandId,
 } from "@/components/ui/social-icons";
 import { Reveal } from "@/components/ui/reveal";
@@ -30,13 +31,19 @@ export function Footer() {
               Municipalidad Distrital de La Molina. {contact.hours}
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {socialLinks.map((social) => {
-                const Icon =
-                  SOCIAL_BRAND_ICONS[social.id as SocialBrandId];
+              {socialLinks.map((social, index) => {
+                const brandId = resolveSocialBrandId(
+                  social.id,
+                  social.label,
+                  social.href,
+                );
+                const Icon = brandId
+                  ? SOCIAL_BRAND_ICONS[brandId as SocialBrandId]
+                  : null;
                 if (!Icon) return null;
                 return (
                   <a
-                    key={social.id}
+                    key={`${brandId}-${index}`}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
