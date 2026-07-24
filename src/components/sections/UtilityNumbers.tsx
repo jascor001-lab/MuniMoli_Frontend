@@ -1,9 +1,14 @@
 "use client";
 
-import { UTILITY_LINES } from "@/data/portal-data";
 import { Reveal } from "@/components/ui/reveal";
+import { usePortalCms } from "@/components/cms/portal-cms";
+import { UTILITY_LINES } from "@/data/portal-data";
 
 export function UtilityNumbers() {
+  const { home } = usePortalCms();
+  const lines =
+    home.utilityLines?.length > 0 ? home.utilityLines : UTILITY_LINES;
+
   return (
     <section
       className="bg-white py-10 lg:py-12"
@@ -20,9 +25,9 @@ export function UtilityNumbers() {
         </Reveal>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {UTILITY_LINES.map((line, index) => (
+          {lines.map((line, index) => (
             <Reveal
-              key={line.label}
+              key={`${line.label}-${line.number}`}
               variant="up"
               delayMs={80 + index * 90}
             >

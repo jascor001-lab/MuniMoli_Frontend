@@ -14,9 +14,19 @@ type AccordionGroup = {
   description: string;
   accent: "deep" | "teal" | "slate";
   items: QuickAccessItem[];
+  collageImages?: { src: string; alt: string }[];
 };
 
-function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
+function buildGroups(
+  items: QuickAccessItem[],
+  serviceGroups: {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    collageImages?: { src: string; alt: string }[];
+  }[],
+): AccordionGroup[] {
   const byCategory = (codes: string[], legacyIds: string[]) =>
     items.filter(
       (i) =>
@@ -24,7 +34,7 @@ function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
         legacyIds.includes(String(i.id ?? "")),
     );
 
-  return [
+  const defaults: AccordionGroup[] = [
     {
       id: "tupa-digital",
       title: "MoliTramites",
@@ -56,6 +66,22 @@ function buildGroups(items: QuickAccessItem[]): AccordionGroup[] {
       ),
     },
   ];
+
+  return defaults.map((group) => {
+    const override = serviceGroups.find((g) => g.id === group.id);
+    if (!override) return group;
+    const category =
+      override.category ||
+      (group.id === "tupa-digital" ? "digital" : group.id);
+    const categorized = byCategory([category], []);
+    return {
+      ...group,
+      title: override.title || group.title,
+      description: override.description || group.description,
+      items: categorized.length > 0 ? categorized : group.items,
+      collageImages: override.collageImages,
+    };
+  });
 }
 
 type CollageImage = { src: string; alt: string };
@@ -137,13 +163,13 @@ const COLLAGE_BY_GROUP: Record<string, CollageImage[]> = {
 
 const ACCENT_STYLES = {
   deep: {
-    header: "from-molina-deep to-[#0a6b52]",
+    header: "from-[#148a45] to-molina-deep",
     open: "ring-molina-mint/40",
     link: "hover:bg-emerald-50 hover:text-molina-deep",
     bar: "bg-molina-mint",
   },
   teal: {
-    header: "from-molina-teal to-molina-deep",
+    header: "from-molina-teal to-[#148a45]",
     open: "ring-molina-teal/40",
     link: "hover:bg-teal-50 hover:text-molina-teal",
     bar: "bg-molina-teal",
@@ -218,6 +244,9 @@ function ServiceRow({
 }) {
   const external = isExternalHref(item.href) || Boolean(item.external);
   const openBlank = external || Boolean(item.openInNewTab);
+  const itemCollage = (item.collageImages || []).filter((img) => img?.src);
+  const rowImages: readonly CollageImage[] =
+    itemCollage.length > 0 ? itemCollage : images;
 
   const className =
     "group flex w-full flex-col gap-3 border-b border-slate-100 px-3 py-3 text-left transition-colors last:border-b-0 hover:bg-emerald-50/80 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5";
@@ -254,7 +283,7 @@ function ServiceRow({
     <div className="flex w-full min-w-0 items-center justify-end gap-2 sm:w-[50%] sm:max-w-xs sm:shrink-0 sm:gap-3 md:max-w-none">
       <DiagonalCollage
         className="h-14 w-full min-w-0 max-w-none sm:h-20 md:h-[90px]"
-        images={images}
+        images={rowImages}
       />
       {external ? (
         <ExternalLink
@@ -305,7 +334,11 @@ function AccordionPanel({
 }) {
   const styles = ACCENT_STYLES[group.accent];
   const panelId = `${group.id}-panel`;
-  const collage = COLLAGE_BY_GROUP[group.id] ?? MOLITRAMITES_COLLAGE;
+  const fromCms = (group.collageImages || []).filter((img) => img?.src);
+  const collage =
+    fromCms.length > 0
+      ? fromCms
+      : (COLLAGE_BY_GROUP[group.id] ?? MOLITRAMITES_COLLAGE);
 
   return (
     <div
@@ -367,8 +400,8 @@ function AccordionPanel({
 export function UtilityServices({ className }: { className?: string }) {
   const { home } = usePortalCms();
   const groups = useMemo(
-    () => buildGroups(home.quickAccess),
-    [home.quickAccess],
+    () => buildGroups(home.quickAccess ?? [], home.serviceGroups ?? []),
+    [home.quickAccess, home.serviceGroups],
   );
   const [openId, setOpenId] = useState<string>("tupa-digital");
 

@@ -58,6 +58,10 @@ export interface QuickAccessItem {
   shortLabel?: string;
   href: string;
   icon: string;
+  /** Imagen única opcional (legacy) */
+  imageUrl?: string;
+  /** Hasta 5 imágenes que forman el collage diagonal en portada */
+  collageImages?: { src: string; alt: string }[];
   /** deep = institucional, green = trámites digitales, slate = control/info */
   color: "deep" | "green" | "slate";
   /** Agrupa el dock interactivo */
@@ -80,6 +84,17 @@ export interface MainNavItem {
 export interface UtilityLine {
   label: string;
   number: string;
+}
+
+/** Grupos de la portada: MoliTramites, Transparencia, Atención al ciudadano */
+export interface HomeServiceGroup {
+  id: string;
+  title: string;
+  description: string;
+  /** digital | transparencia | ciudadano */
+  category: "digital" | "transparencia" | "ciudadano";
+  /** Collage diagonal (hasta 5 imágenes fusionadas) */
+  collageImages?: { src: string; alt: string }[];
 }
 
 export interface Authority {
@@ -119,6 +134,18 @@ export interface TickerItem {
   id: string;
   text: string;
   href: string;
+}
+
+/** Ítem del popup promocional al abrir el portal */
+export interface HomePromoPopupItem {
+  id: string;
+  title: string;
+  imageUrl: string;
+  href: string;
+  /** rail = miniatura izquierda; feature = carrusel grande */
+  placement: "rail" | "feature";
+  enabled?: boolean;
+  openInNewTab?: boolean;
 }
 
 export interface TransparencyLink {

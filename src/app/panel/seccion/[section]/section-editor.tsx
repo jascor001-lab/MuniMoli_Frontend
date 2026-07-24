@@ -45,6 +45,7 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
         hasOverride: boolean;
         source?: "nest" | "local";
         nestReachable?: boolean;
+        nestApiUrl?: string;
         error?: string;
       };
       if (!res.ok) {
@@ -59,11 +60,12 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       setRaw(JSON.stringify(next, null, 2));
       setHasOverride(payload.hasOverride);
       setSource(payload.source === "nest" ? "nest" : "local");
+      const nestUrl = payload.nestApiUrl || "http://192.168.3.19:3001/api";
       if (payload.source === "nest") {
         setMessage("Datos cargados desde PostgreSQL (Nest).");
       } else if (payload.nestReachable === false) {
         setMessage(
-          "No se pudo contactar el API Nest (¿está en :3001?). Se muestran datos locales. Arranca el backend y pulsa «Subir a BD».",
+          `No se pudo contactar Nest en ${nestUrl}. Se muestran datos locales. Arranca el backend en esa IP/puerto y pulsa «Subir a BD».`,
         );
       } else {
         setMessage(
@@ -120,7 +122,7 @@ export function SectionEditor({ sectionId, sectionLabel }: Props) {
       } else {
         setSource("local");
         setError(
-          `Guardado local OK, pero Nest falló: ${result.nestSync?.detail || "sin detalle"}. Revisa login (JWT) y que el backend esté en :3001.`,
+          `Guardado local OK, pero Nest falló: ${result.nestSync?.detail || "sin detalle"}. Revisa login (JWT) y que Nest esté en ${process.env.NEXT_PUBLIC_API_URL || "http://192.168.3.19:3001/api"}.`,
         );
       }
     } catch {

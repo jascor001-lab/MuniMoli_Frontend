@@ -71,7 +71,7 @@ export function QuickAccess() {
                   />
                   <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-molina-deep to-transparent" />
                 </div>
-                <div className="bg-gradient-to-br from-molina-deep via-[#0a5c45] to-molina-teal px-4 py-4 text-center">
+                <div className="bg-gradient-to-br from-[#148a45] via-molina-deep to-molina-teal px-4 py-4 text-center">
                   <p className="text-sm font-bold leading-snug text-white">
                     {mayor.name}
                   </p>

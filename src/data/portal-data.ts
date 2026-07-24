@@ -2,6 +2,8 @@ import type {
   Authority,
   CitizenApplication,
   HeroSlide,
+  HomePromoPopupItem,
+  HomeServiceGroup,
   MainNavItem,
   NavSection,
   Procedure,
@@ -155,6 +157,11 @@ export const MAIN_NAV_BAR: MainNavItem[] = [
         description: "Transparencia y lucha contra la corrupción",
       },
       {
+        label: "Clasificación AA− Moody's",
+        href: "/clasificacion-aa-otorgado-por-moodys",
+        description: "Calificación crediticia de la municipalidad",
+      },
+      {
         label: "Normas Legales y Publicaciones",
         href: "/normas-legales-y-publicaciones",
         description: "Ordenanzas, acuerdos, resoluciones y documentos",
@@ -201,6 +208,7 @@ export const SECONDARY_NAV_BAR: MainNavItem[] = [];
 export const CREDIT_RATING = {
   label: "Clasificación AA− otorgado por Moody's",
   shortLabel: "AA− · Moody's",
+  href: "/clasificacion-aa-otorgado-por-moodys",
 } as const;
 
 export const EMERGENCY_LINES = [
@@ -212,10 +220,106 @@ export const UTILITY_LINES: UtilityLine[] = [
   { label: "Central Telefónica", number: MUNICIPAL_CONTACT.phone },
 ];
 
+/** Títulos editables de los acordeones de la portada */
+export const HOME_SERVICE_GROUPS: HomeServiceGroup[] = [
+  {
+    id: "tupa-digital",
+    title: "MoliTramites",
+    description: "Trámites, pagos y servicios en línea",
+    category: "digital",
+    collageImages: [
+      {
+        src: "/images/tupa/firma-digital.png",
+        alt: "Firma digital de trámites en línea",
+      },
+      {
+        src: "/images/tupa/documentos-digitales.png",
+        alt: "Gestión digital de documentos",
+      },
+      {
+        src: "/images/tupa/atencion-ciudadana.png",
+        alt: "Atención ciudadana presencial y digital",
+      },
+      {
+        src: "/images/tupa/firma-tramite.png",
+        alt: "Firma y revisión de trámites",
+      },
+      {
+        src: "/images/tupa/pago-en-linea.png",
+        alt: "Pagos en línea con tarjeta",
+      },
+    ],
+  },
+  {
+    id: "transparencia",
+    title: "Transparencia e integridad",
+    description: "Información pública, control y denuncias",
+    category: "transparencia",
+    collageImages: [
+      {
+        src: "/images/transparencia/transparencia-datos-abiertos.png",
+        alt: "Datos abiertos y presupuesto público",
+      },
+      {
+        src: "/images/transparencia/transparencia-control-interno.png",
+        alt: "Control interno y auditoría",
+      },
+      {
+        src: "/images/transparencia/transparencia-acceso-info.png",
+        alt: "Acceso a la información pública",
+      },
+      {
+        src: "/images/transparencia/transparencia-denuncia.png",
+        alt: "Canal seguro de denuncias",
+      },
+      {
+        src: "/images/transparencia/transparencia-integridad.png",
+        alt: "Integridad y rendición de cuentas",
+      },
+    ],
+  },
+  {
+    id: "ciudadano",
+    title: "Atención al ciudadano",
+    description: "Sugerencias, reclamos y portales externos",
+    category: "ciudadano",
+    collageImages: [
+      {
+        src: "/images/ciudadano/ciudadano-sugerencias.png",
+        alt: "Buzón de sugerencias ciudadanas",
+      },
+      {
+        src: "/images/ciudadano/ciudadano-reclamaciones.png",
+        alt: "Libro de reclamaciones",
+      },
+      {
+        src: "/images/ciudadano/ciudadano-portal-gob.png",
+        alt: "Portales digitales del Estado",
+      },
+      {
+        src: "/images/ciudadano/ciudadano-atencion-mesa.png",
+        alt: "Mesa de atención al ciudadano",
+      },
+      {
+        src: "/images/ciudadano/ciudadano-escucha.png",
+        alt: "Escucha ciudadana y encuestas",
+      },
+    ],
+  },
+];
+
 /**
  * Accesos del portal — se muestran una sola vez en el dock interactivo
  * @see https://portal.munimolina.gob.pe/
  */
+const COLLAGE_DIGITAL = HOME_SERVICE_GROUPS.find((g) => g.id === "tupa-digital")!
+  .collageImages!;
+const COLLAGE_TRANSPARENCIA = HOME_SERVICE_GROUPS.find(
+  (g) => g.id === "transparencia",
+)!.collageImages!;
+const COLLAGE_CIUDADANO = HOME_SERVICE_GROUPS.find((g) => g.id === "ciudadano")!
+  .collageImages!;
+
 export const QUICK_ACCESS: QuickAccessItem[] = [
   {
     id: "tupa",
@@ -223,6 +327,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "TUPA Digital",
     href: "/tramites-municipales/tupa",
     icon: "FileText",
+    imageUrl: "/images/gobierno-digital/tupa.png",
+    collageImages: [...COLLAGE_DIGITAL],
     color: "deep",
     category: "digital",
     featured: true,
@@ -233,6 +339,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Control Interno",
     href: "/sistema-control-interno",
     icon: "Network",
+    imageUrl: "/images/transparencia/transparencia-control-interno.png",
+    collageImages: [...COLLAGE_TRANSPARENCIA],
     color: "slate",
     category: "transparencia",
   },
@@ -242,6 +350,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Sugerencias",
     href: EXTERNAL_LINKS.sugerencias,
     icon: "MessageSquare",
+    imageUrl: "/images/gobierno-digital/sugerencias.png",
+    collageImages: [...COLLAGE_CIUDADANO],
     color: "deep",
     category: "ciudadano",
     openInNewTab: true,
@@ -253,6 +363,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Info Pública",
     href: EXTERNAL_LINKS.accesoInfo,
     icon: "Laptop",
+    imageUrl: "/images/gobierno-digital/acceso-info.png",
+    collageImages: [...COLLAGE_TRANSPARENCIA],
     color: "slate",
     category: "transparencia",
     openInNewTab: true,
@@ -264,6 +376,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Transparencia",
     href: EXTERNAL_LINKS.transparencia,
     icon: "Search",
+    imageUrl: "/images/transparencia/transparencia-datos-abiertos.png",
+    collageImages: [...COLLAGE_TRANSPARENCIA],
     color: "deep",
     category: "transparencia",
     featured: true,
@@ -276,6 +390,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Pagos en Línea",
     href: EXTERNAL_LINKS.pagos,
     icon: "Smartphone",
+    imageUrl: "/images/gobierno-digital/pagos-online.png",
+    collageImages: [...COLLAGE_DIGITAL],
     color: "green",
     category: "digital",
     featured: true,
@@ -288,6 +404,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Denuncias",
     href: EXTERNAL_LINKS.denuncias,
     icon: "ShieldAlert",
+    imageUrl: "/images/gobierno-digital/denuncias.png",
+    collageImages: [...COLLAGE_TRANSPARENCIA],
     color: "green",
     category: "transparencia",
     openInNewTab: true,
@@ -299,6 +417,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Mesa de Partes",
     href: EXTERNAL_LINKS.mesaPartes,
     icon: "FolderPlus",
+    imageUrl: "/images/gobierno-digital/mesa-partes.png",
+    collageImages: [...COLLAGE_DIGITAL],
     color: "deep",
     category: "digital",
     featured: true,
@@ -311,6 +431,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "Reclamaciones",
     href: EXTERNAL_LINKS.reclamos,
     icon: "BookOpen",
+    imageUrl: "/images/gobierno-digital/libro-reclamaciones.png",
+    collageImages: [...COLLAGE_CIUDADANO],
     color: "slate",
     category: "ciudadano",
     external: true,
@@ -322,6 +444,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "gob.pe",
     href: EXTERNAL_LINKS.gobPe,
     icon: "Globe",
+    imageUrl: "/images/ciudadano/ciudadano-portal-gob.png",
+    collageImages: [...COLLAGE_CIUDADANO],
     color: "deep",
     category: "ciudadano",
     external: true,
@@ -333,6 +457,8 @@ export const QUICK_ACCESS: QuickAccessItem[] = [
     shortLabel: "MOLICARD",
     href: EXTERNAL_LINKS.molicard,
     icon: "CreditCard",
+    imageUrl: "/images/gobierno-digital/molicard.png",
+    collageImages: [...COLLAGE_DIGITAL],
     color: "green",
     category: "digital",
     external: true,
@@ -431,6 +557,11 @@ export const NAV_SECTIONS: NavSection[] = [
         description: "Transparencia y lucha contra la corrupción",
       },
       {
+        label: "Clasificación AA− Moody's",
+        href: "/clasificacion-aa-otorgado-por-moodys",
+        description: "Calificación crediticia de la municipalidad",
+      },
+      {
         label: "Normas Legales y Publicaciones",
         href: "/normas-legales-y-publicaciones",
         description: "Ordenanzas, acuerdos, resoluciones y documentos",
@@ -472,6 +603,67 @@ export const HERO_SLIDES: HeroSlide[] = [
     ctaLabel: "Ir a trámites",
     ctaHref: "/tramites-municipales",
     ctaOpenInNewTab: false,
+  },
+];
+
+/**
+ * Popup al abrir el portal: miniaturas a la izquierda (rail) + carrusel grande (feature).
+ * Las dos últimas son las featured (concurso y beneficios).
+ */
+export const HOME_PROMO_POPUPS: HomePromoPopupItem[] = [
+  {
+    id: "popup-becas",
+    title: "Becas La Molina",
+    imageUrl: "/images/popups/becas.png",
+    href: "/talleres",
+    placement: "rail",
+    enabled: true,
+    openInNewTab: false,
+  },
+  {
+    id: "popup-bolsa",
+    title: "Bolsa de Trabajo",
+    imageUrl: "/images/popups/bolsa-trabajo.png",
+    href: "https://www.gob.pe/institucion/munimolina",
+    placement: "rail",
+    enabled: true,
+    openInNewTab: true,
+  },
+  {
+    id: "popup-emprende",
+    title: "Emprende La Molina",
+    imageUrl: "/images/popups/emprende.png",
+    href: "/muniservicios",
+    placement: "rail",
+    enabled: true,
+    openInNewTab: false,
+  },
+  {
+    id: "popup-talleres",
+    title: "Talleres Culturales",
+    imageUrl: "/images/popups/talleres.png",
+    href: "/talleres",
+    placement: "rail",
+    enabled: true,
+    openInNewTab: false,
+  },
+  {
+    id: "popup-concurso",
+    title: "Concurso Público",
+    imageUrl: "/images/popups/concurso.png",
+    href: "https://www.gob.pe/institucion/munimolina",
+    placement: "feature",
+    enabled: true,
+    openInNewTab: true,
+  },
+  {
+    id: "popup-beneficios",
+    title: "Beneficios Tributarios",
+    imageUrl: "/images/popups/beneficios.png",
+    href: "/tramites-municipales",
+    placement: "feature",
+    enabled: true,
+    openInNewTab: false,
   },
 ];
 
@@ -845,6 +1037,7 @@ export type GobiernoDigitalLink = {
   id: string;
   label: string;
   href: string;
+  imageUrl?: string;
 };
 
 export const GOBIERNO_DIGITAL_SERVICIOS: GobiernoDigitalLink[] = [
@@ -852,61 +1045,73 @@ export const GOBIERNO_DIGITAL_SERVICIOS: GobiernoDigitalLink[] = [
     id: "consulta-tramite",
     label: "Consulta trámite",
     href: EXTERNAL_LINKS.consultaTramite,
+    imageUrl: "/images/gobierno-digital/consulta-tramite.png",
   },
   {
     id: "mesa-partes-virtual",
     label: "Mesa de partes virtual",
     href: EXTERNAL_LINKS.mesaPartes,
+    imageUrl: "/images/gobierno-digital/mesa-partes.png",
   },
   {
     id: "pagos-online",
     label: "Pagos online",
     href: EXTERNAL_LINKS.pagos,
+    imageUrl: "/images/gobierno-digital/pagos-online.png",
   },
   {
     id: "libro-reclamaciones",
     label: "Libro de reclamaciones",
     href: EXTERNAL_LINKS.reclamos,
+    imageUrl: "/images/gobierno-digital/libro-reclamaciones.png",
   },
   {
     id: "denuncias-corrupcion",
     label: "Denuncias por actos de corrupción",
     href: EXTERNAL_LINKS.denuncias,
+    imageUrl: "/images/gobierno-digital/denuncias.png",
   },
   {
     id: "buzon-sugerencias",
     label: "Buzón de sugerencias",
     href: EXTERNAL_LINKS.sugerencias,
+    imageUrl: "/images/gobierno-digital/sugerencias.png",
   },
   {
     id: "acceso-info",
     label: "Acceso a la información pública virtual",
     href: EXTERNAL_LINKS.accesoInfo,
+    imageUrl: "/images/gobierno-digital/acceso-info.png",
   },
   {
     id: "molicard-gd",
     label: "MOLICARD",
     href: EXTERNAL_LINKS.molicard,
+    imageUrl: "/images/gobierno-digital/molicard.png",
   },
   {
     id: "consultas-tributarias",
     label: "Consultas tributarias",
     href: "https://api.whatsapp.com/send?phone=51989595583",
+    imageUrl: "/images/gobierno-digital/consultas-tributarias.png",
   },
   {
     id: "tupa-buscador",
     label: "Buscador de trámites TUPA",
     href: "/tramites-municipales/tupa",
+    imageUrl: "/images/gobierno-digital/tupa.png",
   },
   {
     id: "normas-legales",
     label: "Normas legales",
     href: "/normas-legales-y-publicaciones",
+    imageUrl: "/images/gobierno-digital/normas-legales.png",
   },
   {
     id: "bolsa-trabajo",
     label: "Bolsa de trabajo",
     href: "https://bolsatrabajo.munimolina.gob.pe/",
+    imageUrl: "/images/gobierno-digital/bolsa-trabajo.png",
   },
 ];
 
@@ -915,46 +1120,55 @@ export const GOBIERNO_DIGITAL_APLICACIONES: GobiernoDigitalLink[] = [
     id: "correo",
     label: "Correo",
     href: "https://mail.munimolina.gob.pe/",
+    imageUrl: "/images/gobierno-digital/correo.png",
   },
   {
     id: "gestrad",
     label: "Gestión de trámites de documentos digitales (GESTRAD)",
     href: "https://gestrad.munimolina.gob.pe/index.php",
+    imageUrl: "/images/gobierno-digital/gestrad.png",
   },
   {
     id: "gesafor",
     label: "Gestión de accesos y aforos (GESAFOR)",
     href: "https://accesos.munimolina.gob.pe/asistencia/",
+    imageUrl: "/images/gobierno-digital/gesafor.png",
   },
   {
     id: "reclamos-pcm",
     label: "Administración del Libro de Reclamaciones – PCM",
     href: "https://reclamos.servicios.gob.pe/users/sign_in",
+    imageUrl: "/images/gobierno-digital/reclamos-pcm.png",
   },
   {
     id: "sistema-territorial",
     label: "Sistema territorial",
     href: "https://sil.munimolina.gob.pe/public/index.php",
+    imageUrl: "/images/gobierno-digital/sistema-territorial.png",
   },
   {
     id: "landing-mef",
     label: "Landing MEF",
     href: "https://apps.mef.gob.pe/weblanding/#/landing",
+    imageUrl: "/images/gobierno-digital/landing-mef.png",
   },
   {
     id: "siaf-madaf",
     label: "SIAF – MADAF",
     href: "https://apps.mineco.gob.pe/siafresponsablejws/",
+    imageUrl: "/images/gobierno-digital/siaf-madaf.png",
   },
   {
     id: "siaf-operaciones",
     label: "SIAF – Operaciones en línea",
     href: "https://apps4.mineco.gob.pe/siafadmapp/",
+    imageUrl: "/images/gobierno-digital/siaf-operaciones.png",
   },
   {
     id: "georeferencial",
     label: "Software georeferencial y toma de decisiones",
     href: "http://tomadecisiones.munimolina.gob.pe:8075/webroot/decision/login",
+    imageUrl: "/images/gobierno-digital/georeferencial.png",
   },
 ];
 

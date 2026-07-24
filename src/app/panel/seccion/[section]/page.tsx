@@ -13,7 +13,7 @@ type Props = { params: Promise<{ section: string }> };
 
 export default async function PanelSectionPage({ params }: Props) {
   const session = await getCmsSession();
-  if (!session) redirect("/acceso-interno");
+  if (!session) redirect("/api/cms/clear-session");
 
   const { section } = await params;
   if (!isCmsSectionId(section)) notFound();

@@ -11,12 +11,14 @@ import {
   resetSectionContent,
   sectionHasOverride,
   writeSectionContent,
+  mergeHomeContent,
 } from "@/lib/cms/content-store";
 import { pathsForSection } from "@/lib/cms/portal-content";
 import {
   fetchCmsSectionFromNest,
   syncSectionToNest,
 } from "@/lib/api/cms-nest-sync";
+import { getNestApiBaseUrl } from "@/lib/api/nest-client";
 
 type Ctx = { params: Promise<{ section: string }> };
 
@@ -44,13 +46,16 @@ export async function GET(_request: Request, context: Ctx) {
   const session = await getCmsSession();
   const fromNest = await fetchCmsSectionFromNest(section as CmsSectionId);
   const nestReachable = fromNest !== null;
-  const useNest = hasUsableCmsData(fromNest);
-  const data = useNest ? fromNest : readSectionContent(section);
+  const nestData =
+    section === "home" && fromNest ? mergeHomeContent(fromNest) : fromNest;
+  const useNest = hasUsableCmsData(nestData);
+  const data = useNest ? nestData : readSectionContent(section);
 
   return NextResponse.json({
     section,
     source: useNest ? "nest" : "local",
     nestReachable,
+    nestApiUrl: getNestApiBaseUrl(),
     hasOverride: sectionHasOverride(section),
     data,
     canEdit: session ? canEditSection(session, section) : false,

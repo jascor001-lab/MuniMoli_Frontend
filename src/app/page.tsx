@@ -6,6 +6,7 @@ import { UtilityNumbers } from "@/components/sections/UtilityNumbers";
 import { NewsGrid } from "@/components/sections/NewsGrid";
 import { Footer } from "@/components/sections/Footer";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
+import { HomePromoPopup } from "@/components/sections/HomePromoPopup";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
         <NewsGrid />
       </main>
       <Footer />
+      <HomePromoPopup />
     </>
   );
 }

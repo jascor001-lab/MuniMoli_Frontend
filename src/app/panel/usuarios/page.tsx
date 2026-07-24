@@ -6,7 +6,7 @@ import { UsersAdminClient } from "./users-admin-client";
 
 export default async function UsuariosPage() {
   const session = await getCmsSession();
-  if (!session) redirect("/acceso-interno");
+  if (!session) redirect("/api/cms/clear-session");
   if (session.role !== "admin") redirect("/panel");
 
   const sections = listEditableSections(session).map((section) => ({

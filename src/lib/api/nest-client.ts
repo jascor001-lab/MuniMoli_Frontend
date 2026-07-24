@@ -1,4 +1,4 @@
-const DEFAULT_API = "http://localhost:3001/api";
+const DEFAULT_API = "http://192.168.3.19:3001/api";
 
 export function getNestApiBaseUrl(): string {
   return (

@@ -9,11 +9,14 @@ import {
   GOBIERNO_DIGITAL_APLICACIONES,
   GOBIERNO_DIGITAL_SERVICIOS,
   HERO_SLIDES,
+  HOME_PROMO_POPUPS,
+  HOME_SERVICE_GROUPS,
   MAIN_NAV_BAR,
   MUNICIPAL_CONTACT,
   QUICK_ACCESS,
   SOCIAL_LINKS,
   TICKER_ITEMS,
+  UTILITY_LINES,
 } from "@/data/portal-data";
 import { NEWS_ITEMS } from "@/data/news-items";
 import { TALLERES_DATA } from "@/data/talleres-data";
@@ -43,6 +46,10 @@ const fallback: PortalCmsBundle = {
     tickerItems: TICKER_ITEMS,
     quickAccess: QUICK_ACCESS,
     authorities: AUTHORITIES,
+    promoPopupsEnabled: true,
+    promoPopups: HOME_PROMO_POPUPS,
+    serviceGroups: HOME_SERVICE_GROUPS,
+    utilityLines: UTILITY_LINES,
   },
   noticias: { items: NEWS_ITEMS },
   contacto: {

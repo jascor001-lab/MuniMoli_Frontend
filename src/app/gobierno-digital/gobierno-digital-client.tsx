@@ -8,6 +8,7 @@ import { Footer } from "@/components/sections/Footer";
 import { SocialSidebar } from "@/components/sections/SocialSidebar";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/ui/reveal";
+import { SafeImage } from "@/components/ui/safe-image";
 import { type GobiernoDigitalLink } from "@/data/portal-data";
 import { usePortalCms } from "@/components/cms/portal-cms";
 import { isExternalHref } from "@/lib/utils";
@@ -25,19 +26,32 @@ function LinkGrid({
       : "hover:border-molina-teal/40 hover:bg-teal-50/70";
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, index) => {
         const external = isExternalHref(item.href);
-        const className = `group flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3 py-3.5 shadow-sm transition-all sm:px-4 sm:py-4 ${hover}`;
+        const className = `group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all ${hover}`;
         const content = (
           <>
-            <span className="min-w-0 text-sm font-semibold leading-snug text-molina-deep group-hover:text-molina-teal">
-              {item.label}
-            </span>
-            <ArrowUpRight
-              className="mt-0.5 h-4 w-4 shrink-0 text-molina-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-molina-teal"
-              aria-hidden
-            />
+            {item.imageUrl ? (
+              <div className="relative aspect-[16/7] w-full bg-slate-50">
+                <SafeImage
+                  src={item.imageUrl}
+                  alt={item.label}
+                  fill
+                  className="object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03]"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+              </div>
+            ) : null}
+            <div className="flex items-start justify-between gap-3 px-3 py-3.5 sm:px-4 sm:py-4">
+              <span className="min-w-0 text-sm font-semibold leading-snug text-molina-deep group-hover:text-molina-teal">
+                {item.label}
+              </span>
+              <ArrowUpRight
+                className="mt-0.5 h-4 w-4 shrink-0 text-molina-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-molina-teal"
+                aria-hidden
+              />
+            </div>
           </>
         );
         const key = item.id || `${item.href || "link"}-${index}`;

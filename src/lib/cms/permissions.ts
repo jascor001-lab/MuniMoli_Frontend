@@ -1,8 +1,8 @@
 export const CMS_SECTIONS = [
   {
     id: "home",
-    label: "Inicio (hero, ticker, accesos)",
-    description: "Portada del portal: slides, avisos y accesos rápidos",
+    label: "Inicio (hero, ticker, accesos, popups)",
+    description: "Portada del portal: slides, avisos, accesos rápidos y popups",
     href: "/",
   },
   {

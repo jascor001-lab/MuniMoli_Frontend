@@ -11,6 +11,7 @@ import {
   ToggleField,
 } from "./fields";
 import { MediaUpload } from "./media-upload";
+import { CollageStackUpload } from "./collage-stack-upload";
 import { ListEditor, StringListEditor } from "./list-editor";
 
 type Props = {
@@ -92,6 +93,10 @@ function HomeForm({
   const tickerItems = asArray<Record<string, unknown>>(data.tickerItems);
   const quickAccess = asArray<Record<string, unknown>>(data.quickAccess);
   const authorities = asArray<Record<string, unknown>>(data.authorities);
+  const promoPopups = asArray<Record<string, unknown>>(data.promoPopups);
+  const promoPopupsEnabled = data.promoPopupsEnabled !== false;
+  const serviceGroups = asArray<Record<string, unknown>>(data.serviceGroups);
+  const utilityLines = asArray<Record<string, unknown>>(data.utilityLines);
 
   return (
     <div className="space-y-4">
@@ -102,7 +107,18 @@ function HomeForm({
           { id: "hero", label: "Carrusel", count: heroSlides.length },
           { id: "ticker", label: "Avisos", count: tickerItems.length },
           { id: "accesos", label: "Accesos rápidos", count: quickAccess.length },
+          {
+            id: "portada",
+            label: "Portada (grupos)",
+            count: serviceGroups.length,
+          },
+          {
+            id: "utilidad",
+            label: "Central telefónica",
+            count: utilityLines.length,
+          },
           { id: "autoridades", label: "Autoridades", count: authorities.length },
+          { id: "popups", label: "Popups", count: promoPopups.length },
         ]}
       />
 
@@ -202,33 +218,184 @@ function HomeForm({
             label: "Nuevo acceso",
             href: "/",
             icon: "link",
+            imageUrl: "",
+            collageImages: [
+              { src: "", alt: "Imagen 1" },
+              { src: "", alt: "Imagen 2" },
+              { src: "", alt: "Imagen 3" },
+              { src: "", alt: "Imagen 4" },
+              { src: "", alt: "Imagen 5" },
+            ],
             color: "deep",
             category: "ciudadano",
           })}
           getTitle={(item) => String(item.label || "Acceso")}
+          renderItem={(item, _i, update) => {
+            const collage = Array.isArray(item.collageImages)
+              ? (item.collageImages as { src?: string; alt?: string }[])
+              : [];
+            return (
+              <>
+                <TextInput
+                  label="Nombre"
+                  value={String(item.label || "")}
+                  onChange={(label) => update({ label })}
+                />
+                <TextInput
+                  label="Enlace"
+                  value={String(item.href || "")}
+                  onChange={(href) => update({ href })}
+                />
+                <CollageStackUpload
+                  label="Collage de portada (5 imágenes)"
+                  value={collage.map((slot, index) => ({
+                    src: String(slot.src || ""),
+                    alt: String(slot.alt || `Imagen ${index + 1}`),
+                  }))}
+                  onChange={(collageImages) => update({ collageImages })}
+                />
+                <SelectField
+                  label="Color"
+                  value={String(item.color || "deep")}
+                  onChange={(color) => update({ color })}
+                  options={[
+                    { value: "deep", label: "Institucional" },
+                    { value: "green", label: "Verde" },
+                    { value: "slate", label: "Gris" },
+                  ]}
+                />
+                <SelectField
+                  label="Grupo de la portada"
+                  value={String(item.category || "ciudadano")}
+                  onChange={(category) => update({ category })}
+                  options={[
+                    { value: "digital", label: "MoliTramites" },
+                    {
+                      value: "transparencia",
+                      label: "Transparencia e integridad",
+                    },
+                    { value: "ciudadano", label: "Atención al ciudadano" },
+                  ]}
+                />
+              </>
+            );
+          }}
+        />
+      ) : null}
+
+      {tab === "portada" ? (
+        <ListEditor
+          title="Grupos de la portada"
+          description="Títulos y collage de 5 imágenes fusionadas (MoliTramites, Transparencia, Atención al ciudadano)."
+          items={serviceGroups}
+          onChange={(items) => onChange({ ...data, serviceGroups: items })}
+          createItem={() => ({
+            id: uid("group"),
+            title: "Nuevo grupo",
+            description: "",
+            category: "ciudadano",
+            collageImages: [
+              { src: "", alt: "Imagen 1" },
+              { src: "", alt: "Imagen 2" },
+              { src: "", alt: "Imagen 3" },
+              { src: "", alt: "Imagen 4" },
+              { src: "", alt: "Imagen 5" },
+            ],
+          })}
+          getTitle={(item) => String(item.title || "Grupo")}
+          renderItem={(item, _i, update) => {
+            const collage = Array.isArray(item.collageImages)
+              ? (item.collageImages as { src?: string; alt?: string }[])
+              : [];
+            const slots = Array.from({ length: 5 }, (_, index) => ({
+              src: String(collage[index]?.src || ""),
+              alt: String(collage[index]?.alt || `Imagen ${index + 1}`),
+            }));
+
+            function setCollageSlot(
+              index: number,
+              patch: { src?: string; alt?: string },
+            ) {
+              const next = slots.map((slot, i) =>
+                i === index ? { ...slot, ...patch } : slot,
+              );
+              update({ collageImages: next });
+            }
+
+            return (
+              <>
+                <TextInput
+                  label="Título"
+                  value={String(item.title || "")}
+                  onChange={(title) => update({ title })}
+                />
+                <TextArea
+                  label="Descripción"
+                  value={String(item.description || "")}
+                  onChange={(description) => update({ description })}
+                />
+                <SelectField
+                  label="Categoría de enlaces"
+                  value={String(item.category || "ciudadano")}
+                  onChange={(category) => update({ category })}
+                  options={[
+                    { value: "digital", label: "MoliTramites (digital)" },
+                    {
+                      value: "transparencia",
+                      label: "Transparencia e integridad",
+                    },
+                    { value: "ciudadano", label: "Atención al ciudadano" },
+                  ]}
+                />
+                <TextInput
+                  label="ID interno (tupa-digital / transparencia / ciudadano)"
+                  value={String(item.id || "")}
+                  onChange={(id) => update({ id })}
+                />
+                <div className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
+                  <p className="text-sm font-semibold text-molina-deep">
+                    Collage (5 imágenes fusionadas en diagonal)
+                  </p>
+                  {slots.map((slot, index) => (
+                    <MediaUpload
+                      key={`collage-${index}`}
+                      label={`Imagen ${index + 1} del collage`}
+                      accept="image"
+                      value={slot.src}
+                      onChange={(src) => setCollageSlot(index, { src })}
+                    />
+                  ))}
+                </div>
+              </>
+            );
+          }}
+        />
+      ) : null}
+
+      {tab === "utilidad" ? (
+        <ListEditor
+          title="Central telefónica"
+          description="Número de la central telefónica que se muestra en la portada."
+          items={utilityLines}
+          onChange={(items) => onChange({ ...data, utilityLines: items })}
+          createItem={() => ({
+            label: "Central Telefónica",
+            number: "(01) 754 4000",
+          })}
+          getTitle={(item) => String(item.label || "Teléfono")}
           renderItem={(item, _i, update) => (
-            <>
+            <div className="grid gap-3 sm:grid-cols-2">
               <TextInput
-                label="Nombre"
+                label="Etiqueta"
                 value={String(item.label || "")}
                 onChange={(label) => update({ label })}
               />
               <TextInput
-                label="Enlace"
-                value={String(item.href || "")}
-                onChange={(href) => update({ href })}
+                label="Número"
+                value={String(item.number || "")}
+                onChange={(number) => update({ number })}
               />
-              <SelectField
-                label="Color"
-                value={String(item.color || "deep")}
-                onChange={(color) => update({ color })}
-                options={[
-                  { value: "deep", label: "Institucional" },
-                  { value: "green", label: "Verde" },
-                  { value: "slate", label: "Gris" },
-                ]}
-              />
-            </>
+            </div>
           )}
         />
       ) : null}
@@ -282,6 +449,82 @@ function HomeForm({
           )}
         />
       ) : null}
+
+      {tab === "popups" ? (
+        <div className="space-y-4">
+          <EditorCard
+            title="Popup al abrir el portal"
+            description="Miniaturas a la izquierda (rail) y carrusel grande a la derecha (feature). Cada imagen redirige a su enlace al hacer clic."
+          >
+            <ToggleField
+              label="Mostrar popup al entrar al portal"
+              checked={promoPopupsEnabled}
+              onChange={(enabled) =>
+                onChange({ ...data, promoPopupsEnabled: enabled })
+              }
+            />
+          </EditorCard>
+          <ListEditor
+            title="Ítems del popup"
+            description='Usa "Miniatura izquierda" para las tarjetas chicas y "Carrusel grande" para las imágenes principales (concurso, beneficios, etc.).'
+            items={promoPopups}
+            onChange={(items) => onChange({ ...data, promoPopups: items })}
+            createItem={() => ({
+              id: uid("popup"),
+              title: "Nueva promoción",
+              imageUrl: "",
+              href: "/",
+              placement: "rail",
+              enabled: true,
+              openInNewTab: false,
+            })}
+            getTitle={(item) => {
+              const place =
+                item.placement === "feature" ? "Grande" : "Miniatura";
+              return `${place}: ${String(item.title || "Sin título")}`;
+            }}
+            renderItem={(item, _i, update) => (
+              <>
+                <TextInput
+                  label="Título"
+                  value={String(item.title || "")}
+                  onChange={(title) => update({ title })}
+                />
+                <MediaUpload
+                  label="Imagen"
+                  accept="image"
+                  value={String(item.imageUrl || "")}
+                  onChange={(imageUrl) => update({ imageUrl })}
+                />
+                <TextInput
+                  label="Enlace al hacer clic"
+                  value={String(item.href || "")}
+                  onChange={(href) => update({ href })}
+                />
+                <SelectField
+                  label="Ubicación en el popup"
+                  value={String(item.placement || "rail")}
+                  onChange={(placement) => update({ placement })}
+                  options={[
+                    { value: "rail", label: "Miniatura izquierda" },
+                    { value: "feature", label: "Carrusel grande" },
+                  ]}
+                />
+                <ToggleField
+                  label="Activo"
+                  checked={item.enabled !== false}
+                  onChange={(enabled) => update({ enabled })}
+                />
+                <ToggleField
+                  label="Abrir enlace en pestaña nueva"
+                  checked={Boolean(item.openInNewTab)}
+                  onChange={(openInNewTab) => update({ openInNewTab })}
+                />
+              </>
+            )}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -302,7 +545,6 @@ function NoticiasForm({
       onChange={(next) => onChange({ ...data, items: next })}
       createItem={() => {
         const title = "Nueva noticia";
-        const slug = slugify(title) || uid("noticia");
         return {
           id: uid("news"),
           title,
@@ -310,8 +552,8 @@ function NoticiasForm({
           category: "General",
           publishedAt: new Date().toISOString().slice(0, 10),
           imageUrl: "",
-          slug,
-          // Sin href externo: el portal usa /noticias/[slug]
+          slug: slugify(title),
+          href: "",
         };
       }}
       getTitle={(item) => String(item.title || "Sin título")}
@@ -326,12 +568,6 @@ function NoticiasForm({
                 slug: item.slug ? String(item.slug) : slugify(title),
               })
             }
-          />
-          <TextInput
-            label="Slug (URL del detalle)"
-            value={String(item.slug || "")}
-            onChange={(slug) => update({ slug: slugify(slug) || String(item.slug) })}
-            hint="Se abre en /noticias/[slug]. Déjalo estable tras publicar."
           />
           <TextArea
             label="Resumen"
@@ -370,12 +606,6 @@ function NoticiasForm({
             rows={8}
             value={String(item.body || item.excerpt || "")}
             onChange={(body) => update({ body })}
-          />
-          <TextInput
-            label="Enlace externo (opcional)"
-            value={String(item.href || "")}
-            onChange={(href) => update({ href })}
-            hint="Solo si la nota debe ir a otra web. Si está vacío, usa el detalle del portal."
           />
         </>
       )}
@@ -547,21 +777,30 @@ function LinkListForm({
         id: uid("link"),
         label: "Nuevo enlace",
         href: "https://",
+        imageUrl: "",
       })}
       getTitle={(item) => String(item.label || "Enlace")}
       renderItem={(item, _i, update) => (
-        <div className="grid gap-3 sm:grid-cols-2">
-          <TextInput
-            label="Nombre"
-            value={String(item.label || "")}
-            onChange={(label) => update({ label })}
+        <>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <TextInput
+              label="Nombre"
+              value={String(item.label || "")}
+              onChange={(label) => update({ label })}
+            />
+            <TextInput
+              label="URL"
+              value={String(item.href || "")}
+              onChange={(href) => update({ href })}
+            />
+          </div>
+          <MediaUpload
+            label="Imagen del sistema"
+            accept="image"
+            value={String(item.imageUrl || "")}
+            onChange={(imageUrl) => update({ imageUrl })}
           />
-          <TextInput
-            label="URL"
-            value={String(item.href || "")}
-            onChange={(href) => update({ href })}
-          />
-        </div>
+        </>
       )}
     />
   );
@@ -1171,10 +1410,7 @@ function MolinaTvForm({
                   label="Título"
                   value={String(item.title || "")}
                   onChange={(title) =>
-                    update({
-                      title,
-                      slug: item.slug ? String(item.slug) : slugify(title),
-                    })
+                    update({ title, slug: slugify(title) || String(item.slug) })
                   }
                 />
                 <TextInput
@@ -1282,7 +1518,7 @@ function TalleresForm({
                     update({
                       title,
                       pageTitle: title,
-                      slug: item.slug ? String(item.slug) : slugify(title),
+                      slug: slugify(title) || String(item.slug),
                     })
                   }
                 />
@@ -1349,50 +1585,29 @@ function TramitesForm({
       description="Registra o actualiza trámites. Puedes eliminar los que ya no apliquen."
       items={procedures}
       onChange={(next) => onChange({ ...data, procedures: next })}
-      createItem={() => {
-        const title = "Nuevo trámite";
-        return {
-          slug: `${slugify(title) || "tramite"}-${uid("n").slice(-4)}`,
-          title,
-          categories: ["Vecinos"],
-          summary: "",
-          directedTo: "",
-          when: "",
-          channels: [
-            {
-              type: "Presencial",
-              description:
-                "Palacio Municipal, Av. Ricardo Elías Aparicio 740, La Molina.",
-              schedule: "Lunes a viernes de 8:10 a.m. a 5:20 p.m.",
-            },
-          ],
-          duration: "",
-          cost: "",
-          requirements: [],
-          documents: [],
-          result: "",
-        };
-      }}
+      createItem={() => ({
+        slug: uid("tramite"),
+        title: "Nuevo trámite",
+        categories: ["Vecinos"],
+        summary: "",
+        directedTo: "",
+        when: "",
+        channels: [],
+        duration: "",
+        cost: "",
+        requirements: [],
+        documents: [],
+        result: "",
+      })}
       getTitle={(item) => String(item.title || "Trámite")}
-      renderItem={(item, _i, update) => {
-        const channels = asArray<Record<string, unknown>>(item.channels);
-        return (
+      renderItem={(item, _i, update) => (
         <>
           <TextInput
             label="Título"
             value={String(item.title || "")}
             onChange={(title) =>
-              update({
-                title,
-                slug: item.slug ? String(item.slug) : slugify(title),
-              })
+              update({ title, slug: slugify(title) || String(item.slug) })
             }
-          />
-          <TextInput
-            label="Slug (URL pública)"
-            value={String(item.slug || "")}
-            onChange={(slug) => update({ slug: slugify(slug) || String(item.slug) })}
-            hint="Se usa en /tramites-municipales/[slug]. No lo cambies si ya está publicado."
           />
           <TextArea
             label="Resumen"
@@ -1433,45 +1648,6 @@ function TramitesForm({
               onChange={(cost) => update({ cost })}
             />
           </div>
-          <ListEditor
-            title="Canales de atención"
-            description="Sin canales, la tarjeta pública no muestra badges (Presencial/Virtual)."
-            items={channels}
-            onChange={(next) => update({ channels: next })}
-            createItem={() => ({
-              type: "Presencial",
-              description:
-                "Palacio Municipal, Av. Ricardo Elías Aparicio 740, La Molina.",
-              schedule: "Lunes a viernes de 8:10 a.m. a 5:20 p.m.",
-            })}
-            getTitle={(ch) => String(ch.type || "Canal")}
-            renderItem={(ch, _ci, updateCh) => (
-              <>
-                <SelectField
-                  label="Tipo"
-                  value={String(ch.type || "Presencial")}
-                  onChange={(type) => updateCh({ type })}
-                  options={[
-                    "Presencial",
-                    "Virtual",
-                    "Web",
-                    "Telefónico",
-                    "100% en línea",
-                  ].map((v) => ({ value: v, label: v }))}
-                />
-                <TextArea
-                  label="Descripción"
-                  value={String(ch.description || "")}
-                  onChange={(description) => updateCh({ description })}
-                />
-                <TextInput
-                  label="Horario (opcional)"
-                  value={String(ch.schedule || "")}
-                  onChange={(schedule) => updateCh({ schedule })}
-                />
-              </>
-            )}
-          />
           <StringListEditor
             label="Requisitos"
             items={asArray<string>(item.requirements)}
@@ -1490,8 +1666,7 @@ function TramitesForm({
             onChange={(result) => update({ result })}
           />
         </>
-        );
-      }}
+      )}
     />
   );
 }
@@ -1525,10 +1700,7 @@ function MuniserviciosForm({
               label="Título del área"
               value={String(item.title || "")}
               onChange={(title) =>
-                update({
-                  title,
-                  slug: item.slug ? String(item.slug) : slugify(title),
-                })
+                update({ title, slug: slugify(title) || String(item.slug) })
               }
             />
             <TextArea
@@ -1625,10 +1797,7 @@ function GestionForm({
               label="Título"
               value={String(item.title || "")}
               onChange={(title) =>
-                update({
-                  title,
-                  slug: item.slug ? String(item.slug) : slugify(title),
-                })
+                update({ title, slug: slugify(title) || String(item.slug) })
               }
             />
             <TextArea

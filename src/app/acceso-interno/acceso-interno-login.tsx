@@ -46,6 +46,7 @@ export function AccesoInternoLogin() {
       window.location.assign(target);
     } catch {
       setError("Error de conexión con el servidor Next");
+    } finally {
       setLoading(false);
     }
   }

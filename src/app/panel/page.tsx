@@ -12,7 +12,7 @@ export const metadata = {
 
 export default async function PanelPage() {
   const session = await getCmsSession();
-  if (!session) redirect("/acceso-interno");
+  if (!session) redirect("/api/cms/clear-session");
 
   const sections = listEditableSections(session).map((section) => ({
     id: section.id,

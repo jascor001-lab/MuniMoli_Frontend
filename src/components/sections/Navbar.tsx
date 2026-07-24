@@ -203,7 +203,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full bg-gradient-to-r from-molina-deep via-[#0a5c45] to-molina-deep text-white transition-shadow duration-300",
+        "sticky top-0 z-50 w-full bg-gradient-to-r from-[#148a45] via-molina-deep to-[#148a45] text-white transition-shadow duration-300",
         scrolled && "shadow-lg shadow-molina-deep/30",
       )}
     >
@@ -262,8 +262,13 @@ export function Navbar() {
             className="hidden items-center gap-1 rounded-full bg-white/10 px-2 py-1 text-[9px] font-semibold uppercase tracking-wide text-white/80 xl:inline-flex"
             title={CREDIT_RATING.label}
           >
-            <Award className="h-3 w-3 text-molina-mint-light" aria-hidden />
-            {CREDIT_RATING.shortLabel}
+            <Link
+              href={CREDIT_RATING.href}
+              className="inline-flex items-center gap-1 hover:text-white"
+            >
+              <Award className="h-3 w-3 text-molina-mint-light" aria-hidden />
+              {CREDIT_RATING.shortLabel}
+            </Link>
           </span>
 
           <div className="hidden items-center gap-0.5 border-l border-white/20 pl-1.5 lg:flex">
@@ -403,7 +408,13 @@ export function Navbar() {
               </div>
             ))}
             <p className="px-4 py-2 text-[11px] font-medium text-molina-muted">
-              {CREDIT_RATING.label}
+              <Link
+                href={CREDIT_RATING.href}
+                onClick={() => setMobileOpen(false)}
+                className="font-semibold text-molina-teal hover:underline"
+              >
+                {CREDIT_RATING.label}
+              </Link>
             </p>
           </nav>
 

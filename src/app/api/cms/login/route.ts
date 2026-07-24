@@ -28,7 +28,7 @@ type NestLoginResult =
   | { kind: "ok"; data: NestLoginResponse }
   | { kind: "unauthorized"; message: string }
   | { kind: "error"; message: string }
-  | { kind: "unreachable" };
+  | { kind: "unreachable"; message?: string };
 
 function nestErrorMessage(body: unknown, fallback: string): string {
   if (!body || typeof body !== "object") return fallback;
@@ -44,11 +44,12 @@ async function loginViaNest(
 ): Promise<NestLoginResult> {
   if (!isNestApiEnabled()) return { kind: "unreachable" };
 
+  const loginUrl = `${getNestApiBaseUrl()}/auth/login`;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), NEST_LOGIN_TIMEOUT_MS);
 
   try {
-    const res = await fetch(`${getNestApiBaseUrl()}/auth/login`, {
+    const res = await fetch(loginUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -69,6 +70,17 @@ async function loginViaNest(
       }
     }
 
+    // Respuesta HTML u otro no-JSON (p. ej. otro servicio en ese puerto) → tratar como no disponible
+    const looksLikeHtml =
+      /^\s*</.test(text) ||
+      (res.headers.get("content-type") || "").includes("text/html");
+    if (looksLikeHtml || (res.status === 404 && !parsed)) {
+      return {
+        kind: "unreachable",
+        message: `Nest no responde en ${loginUrl} (HTTP ${res.status})`,
+      };
+    }
+
     if (res.status === 401 || res.status === 400) {
       return {
         kind: "unauthorized",
@@ -86,7 +98,7 @@ async function loginViaNest(
         kind: "error",
         message: nestErrorMessage(
           parsed,
-          `Nest respondió ${res.status}. Revisa que el backend esté en marcha.`,
+          `Nest respondió ${res.status} en ${loginUrl}. Revisa que el backend esté en marcha.`,
         ),
       };
     }
@@ -95,7 +107,7 @@ async function loginViaNest(
     if (!data?.accessToken || !data.usuario) {
       return {
         kind: "error",
-        message: "Nest respondió sin token de sesión",
+        message: `Nest respondió sin token de sesión (${loginUrl})`,
       };
     }
 
@@ -107,8 +119,8 @@ async function loginViaNest(
     return {
       kind: aborted ? "error" : "unreachable",
       message: aborted
-        ? "Tiempo de espera agotado al contactar Nest (:3001)"
-        : "No se pudo contactar Nest",
+        ? `Tiempo de espera agotado al contactar Nest (${getNestApiBaseUrl()})`
+        : `No se pudo contactar Nest en ${getNestApiBaseUrl()}`,
     };
   } finally {
     clearTimeout(timer);
@@ -211,7 +223,7 @@ export async function POST(request: Request) {
       ok: true,
       source: "local",
       user: publicUser(user),
-      warning: "Entraste en modo local: Nest no respondió en :3001",
+      warning: `Entraste en modo local: Nest no respondió en ${getNestApiBaseUrl()}`,
     });
     response.cookies.set(sessionCookieOptions(token));
     return response;

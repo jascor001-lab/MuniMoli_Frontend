@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-molina-deep: #064e3b;
-  --color-molina-teal: #0f766e;
-  --color-molina-mint: #10b981;
-  --color-molina-mint-light: #34d399;
-  --color-molina-surface: #f8fafc;
+  /* Paleta alineada al portal oficial munimolina.gob.pe (#1a984d / #00ac68) */
+  --color-molina-deep: #1a984d;
+  --color-molina-teal: #00ac68;
+  --color-molina-mint: #2ebd59;
+  --color-molina-mint-light: #5dce7a;
+  --color-molina-surface: #f5faf7;
   --color-molina-ink: #0f172a;
   --color-molina-muted: #64748b;
   --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -114,6 +115,26 @@
     animation: shimmer 1.8s ease-in-out infinite;
   }
 
+  .animate-popup-backdrop {
+    animation: popup-backdrop 0.45s ease-out both;
+  }
+
+  .animate-popup-rail {
+    animation: popup-rail-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-popup-feature {
+    animation: popup-feature-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-popup-close {
+    animation: popup-close-in 0.4s cubic-bezier(0.34, 1.4, 0.64, 1) 0.35s both;
+  }
+
+  .animate-popup-slide {
+    animation: popup-slide-swap 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   @keyframes ticker {
     0% {
       transform: translateX(0);
@@ -140,6 +161,71 @@
     }
     100% {
       transform: translateX(100%);
+    }
+  }
+
+  @keyframes popup-backdrop {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes popup-rail-in {
+    from {
+      opacity: 0;
+      transform: translateX(-48px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  @keyframes popup-feature-in {
+    from {
+      opacity: 0;
+      transform: translateX(56px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  @keyframes popup-close-in {
+    from {
+      opacity: 0;
+      transform: scale(0.4) rotate(-40deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes popup-slide-swap {
+    from {
+      opacity: 0;
+      transform: translateX(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-popup-backdrop,
+    .animate-popup-rail,
+    .animate-popup-feature,
+    .animate-popup-close,
+    .animate-popup-slide {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 }

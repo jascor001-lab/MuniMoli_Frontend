@@ -8,11 +8,14 @@ import {
   GOBIERNO_DIGITAL_APLICACIONES,
   GOBIERNO_DIGITAL_SERVICIOS,
   HERO_SLIDES,
+  HOME_PROMO_POPUPS,
+  HOME_SERVICE_GROUPS,
   MAIN_NAV_BAR,
   MUNICIPAL_CONTACT,
   QUICK_ACCESS,
   SOCIAL_LINKS,
   TICKER_ITEMS,
+  UTILITY_LINES,
   ATTENTION_PHONES,
 } from "@/data/portal-data";
 import { TALLERES_DATA } from "@/data/talleres-data";
@@ -44,6 +47,10 @@ export function getDefaultSectionContent(sectionId: CmsSectionId): unknown {
         tickerItems: TICKER_ITEMS,
         quickAccess: QUICK_ACCESS,
         authorities: AUTHORITIES,
+        promoPopupsEnabled: true,
+        promoPopups: HOME_PROMO_POPUPS,
+        serviceGroups: HOME_SERVICE_GROUPS,
+        utilityLines: UTILITY_LINES,
       };
     case "noticias":
       return { items: NEWS_ITEMS };
@@ -95,15 +102,108 @@ export function getDefaultSectionContent(sectionId: CmsSectionId): unknown {
 
 export function readSectionContent(sectionId: CmsSectionId): unknown {
   ensureDir();
+  const defaults = getDefaultSectionContent(sectionId);
   const file = sectionPath(sectionId);
   if (!fs.existsSync(file)) {
-    return getDefaultSectionContent(sectionId);
+    return defaults;
   }
   try {
-    return JSON.parse(fs.readFileSync(file, "utf8"));
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8")) as unknown;
+    if (sectionId === "home") {
+      return mergeHomeContent(parsed);
+    }
+    return parsed;
   } catch {
-    return getDefaultSectionContent(sectionId);
+    return defaults;
   }
+}
+
+/** Completa campos faltantes del home (popups, teléfonos, imágenes de accesos). */
+export function mergeHomeContent(raw: unknown): Record<string, unknown> {
+  const defaults = getDefaultSectionContent("home") as Record<string, unknown>;
+  const data =
+    raw && typeof raw === "object" && !Array.isArray(raw)
+      ? (raw as Record<string, unknown>)
+      : {};
+
+  const pickList = (key: string) => {
+    const current = data[key];
+    const fallback = defaults[key];
+    if (Array.isArray(current) && current.length > 0) return current;
+    return Array.isArray(fallback) ? fallback : [];
+  };
+
+  const defaultAccess = Array.isArray(defaults.quickAccess)
+    ? (defaults.quickAccess as {
+        id?: string;
+        label?: string;
+        href?: string;
+        imageUrl?: string;
+        collageImages?: { src: string; alt: string }[];
+        category?: string;
+      }[])
+    : [];
+  const access = pickList("quickAccess") as Record<string, unknown>[];
+  const quickAccess = access.map((item, index) => {
+    const id = String(item.id || "");
+    const label = String(item.label || "").toLowerCase();
+    const href = String(item.href || "");
+    const match =
+      defaultAccess.find((d) => d.id && d.id === id) ||
+      defaultAccess.find(
+        (d) => d.label && d.label.toLowerCase() === label,
+      ) ||
+      defaultAccess.find((d) => d.href && d.href === href) ||
+      defaultAccess[index];
+
+    const currentCollage = Array.isArray(item.collageImages)
+      ? (item.collageImages as { src?: string }[])
+      : [];
+    const hasCollage = currentCollage.some((img) => Boolean(img?.src));
+
+    return {
+      ...item,
+      imageUrl: item.imageUrl || match?.imageUrl || "",
+      collageImages: hasCollage
+        ? item.collageImages
+        : match?.collageImages || [],
+    };
+  });
+
+  const defaultGroups = Array.isArray(defaults.serviceGroups)
+    ? (defaults.serviceGroups as {
+        id?: string;
+        collageImages?: { src: string; alt: string }[];
+      }[])
+    : [];
+  const groups = pickList("serviceGroups") as Record<string, unknown>[];
+  const serviceGroups = groups.map((group, index) => {
+    const current = Array.isArray(group.collageImages)
+      ? (group.collageImages as { src?: string }[])
+      : [];
+    const hasImages = current.some((img) => Boolean(img?.src));
+    if (hasImages) return group;
+    const match =
+      defaultGroups.find((d) => d.id && d.id === group.id) ||
+      defaultGroups[index];
+    return match?.collageImages
+      ? { ...group, collageImages: match.collageImages }
+      : group;
+  });
+
+  return {
+    ...defaults,
+    ...data,
+    heroSlides: pickList("heroSlides"),
+    tickerItems: pickList("tickerItems"),
+    quickAccess,
+    authorities: pickList("authorities"),
+    promoPopupsEnabled: data.promoPopupsEnabled !== false,
+    promoPopups: pickList("promoPopups"),
+    serviceGroups:
+      serviceGroups.length > 0 ? serviceGroups : pickList("serviceGroups"),
+    utilityLines: pickList("utilityLines"),
+  };
 }
 
 export function writeSectionContent(sectionId: CmsSectionId, data: unknown) {
